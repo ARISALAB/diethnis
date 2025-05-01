@@ -370,6 +370,6 @@ function toggleMenu() {
 
 // Εφαρμογή αποθηκευμένης γλώσσας κατά το φόρτωμα της σελίδας
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("language") || "el";
+  const savedLang = localStorage.getItem("language") || "en" || "el";
   applyLanguage(savedLang);
 });
