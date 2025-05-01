@@ -321,7 +321,7 @@ const translations = {
     "btn-fill-form": "Fill Out the Form",
     "btn-go-back": "Go Back",
     "modal-title": "Registration Form",
-    "btn-submit": "Submit",
+    "form-submitt": "Submit",
 "contact-title": "Contact Us",
     "form-name": "Your Name",
     "contact-placeholder-email": "Your Email",
