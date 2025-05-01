@@ -149,7 +149,7 @@ const translations = {
     "btn-fill-form": "Συμπλήρωσε τη φόρμα συμμετοχής",
     "btn-go-back": "Γύρισε πίσω",
     "modal-title": "Φόρμα Εγγραφής",
-    "btn-submit": "Υποβολή",
+    "form-submit": "Υποβολή",
     "contact-title": "Επικοινωνήστε μαζί μας",
     "form-name": "Το όνομά σας",
     "contact-email": "Το email σας",
