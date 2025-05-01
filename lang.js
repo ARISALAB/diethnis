@@ -265,7 +265,7 @@ const translations = {
     "environment-seminars-title": "Organizing Environmental Themed Seminars",
     "environment-seminars-description": "We organize seminars and events focusing on current environmental issues. We bring together experts, academics, and organizations to exchange knowledge, present research, and discuss solutions for environmental protection.",
         "education-title": "Education",
-    "education-description": "The NGO 'DIETHNIS DRASI - INTERACTION' focuses on promoting education across various fields, enhancing knowledge, skill development, and international collaboration in academia. Our goal is to contribute to lifelong learning and scientific training.",
+    "education-description": "The A.M.K.E. DIETHNIS DRASI - INTERACTION focuses on promoting education across various fields, enhancing knowledge, skill development, and international collaboration in academia. Our goal is to contribute to lifelong learning and scientific training.",
     "education-collab-title": "Partnerships with Educational Institutions and Universities",
     "education-collab-description": "We develop strategic partnerships with Greek and international educational institutions and universities. Through joint programs, research initiatives, and exchanges, we aim to promote academic excellence, bridge the gap between theory and practice, and create international opportunities for students and academics.",
     "education-programs-title": "Organizing Educational Programs and Seminars",
