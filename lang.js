@@ -368,8 +368,10 @@ function toggleMenu() {
   nav.classList.toggle("open");
 }
 
-// Εφαρμογή αποθηκευμένης γλώσσας κατά το φόρτωμα της σελίδας
+document.documentElement.classList.add("lang-loading");
+
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("language") || "en" ;
-  applyLanguage(savedLang);
+  const savedLang = localStorage.getItem("language") || "en";
+  applyLanguage(savedLang);
+  document.documentElement.classList.remove("lang-loading");
 });
