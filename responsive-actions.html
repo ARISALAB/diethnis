@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Δράσεις - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    header {
+      padding: 1em;
+      background: #f4d35e;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0.5em;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-track img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .project-gallery,
+    .puzzle-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .project-gallery img,
+    .puzzle-gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .project-gallery img:hover,
+    .puzzle-gallery img:hover {
+      transform: scale(1.05);
+    }
+    .category-buttons a {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .category-buttons a {
+      padding: 10px 20px;
+      background-color: #0a9396;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .category-buttons button:hover {
+      background-color: #007f7f;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #343a40;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2em;
+      }
+      .carousel-track img {
+        height: 200px;
+      }
+      .category-buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION</h1>
+    <p>Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+    <nav>
+      <ul>
+        <li><a href="#">ΑΡΧΙΚΗ</a></li>
+        <li><a href="#">ΣΧΕΤΙΚΑ</a></li>
+        <li><a href="#">ΔΡΑΣΕΙΣ</a></li>
+        <li><a href="#">ΣΥΜΜΕΤΟΧΗ</a></li>
+        <li><a href="#">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <img src="1.jpg" alt="Καρουζέλ 1">
+      <img src="2.jpg" alt="Καρουζέλ 2">
+      <img src="3.jpg" alt="Καρουζέλ 3">
+    </div>
+  </div>
+  <section>
+    <div class="category-buttons">
+      <button onclick="openModal('culture')">Πολιτισμός</button>
+      <button onclick="openModal('tourism')">Τουρισμός</button>
+      <button onclick="openModal('environment')">Περιβάλλον</button>
+      <button onclick="openModal('education')">Εκπαίδευση</button>
+      <button onclick="openModal('technology')">Τεχνολογία</button>
+    </div>
+    <div id="culture" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('culture')">&times;</span><p>Περιγραφή Πολιτισμού</p></div></div>
+    <div id="tourism" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('tourism')">&times;</span><p>Περιγραφή Τουρισμού</p></div></div>
+    <div id="environment" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('environment')">&times;</span><p>Περιγραφή Περιβάλλοντος</p></div></div>
+    <div id="education" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('education')">&times;</span><p>Περιγραφή Εκπαίδευσης</p></div></div>
+    <div id="technology" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('technology')">&times;</span><p>Περιγραφή Τεχνολογίας</p></div></div>
+  </section>
+  <section class="puzzle-gallery">
+    <img src="7.jpg" alt="Gallery 1">
+    <img src="8.jpg" alt="Gallery 2">
+    <img src="9.jpg" alt="Gallery 3">
+  </section>
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+</body>
+</html>

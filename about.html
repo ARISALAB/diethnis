@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpeg" href="big.jpg">
+
+  <title>Σχετικά - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="lang.css">
+  <script src="lang.js" defer></script>
+  <style>
+    
+  
+    ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-position: inside;
+}
+.aos-text ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+    .content-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .content-section h3 {
+      font-size: 1.8rem;
+      color: #003366;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .content-section p,
+    .content-section ul {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .left-align {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.content-section ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.content-section ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.content-section ul li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: #003366;
+  font-size: 0.9rem;
+}
+
+
+    .center {
+      text-align: center;
+    }
+
+   
+  </style>
+</head>
+
+<body>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="big.png" alt="Λογότυπο" class="logo">
+      </a>
+      <div class="title-container">
+        <h1>
+          <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
+          <span class="dash"> - </span>
+          <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
+        </h1>
+        <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+      </div>
+  
+      <!-- Language Switcher -->
+      <!-- Language Switcher -->
+   
+  
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html" data-lang-key="nav-home">ΑΡΧΙΚΗ</a></li>
+        <li><a href="about.html" data-lang-key="nav-about">ΣΧΕΤΙΚΑ</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropdown-toggle">
+            <span data-lang-key="actions">ΔΡΑΣΕΙΣ</span>
+            <span class="arrow">▼</span>
+          </a>          <div class="dropdown-content">
+            <a href="culture_page.html" data-lang-key="nav-culture">Πολιτισμός</a>
+            <a href="tourism_page.html" data-lang-key="nav-tourism">Τουρισμός</a>
+            <a href="environment_page.html" data-lang-key="nav-environment">Περιβάλλον</a>
+            <a href="education_page.html" data-lang-key="nav-education">Εκπαίδευση</a>
+            <a href="technology_page.html" data-lang-key="nav-technology">Τεχνολογία</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="connect.html" class="dropdown-toggle">
+            <span data-lang-key="participation">ΣΥΜΜΕΤΟΧΗ</span>
+            <span class="arrow">▼</span>
+          </a>          <div class="dropdown-content">
+            <a href="volunteer.html" data-lang-key="nav-volunteer">Γίνε Εθελοντής</a>
+            <a href="member.html" data-lang-key="nav-member">Γίνε Μέλος</a>
+          </div>
+        </li>
+        <li><a href="contact.html" data-lang-key="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      </ul>
+      <div class="language-switcher">
+        <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+        <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+      </div>
+    
+    </nav>
+    
+  </header>
+  <section class="content-section">
+    <h3 data-aos="fade-up" data-lang-key="about-title">Σχετικά με εμάς</h3>
+  
+    <p data-aos="fade-up" data-lang-key="about-description">
+      Η <strong>Αστική Μη Κερδοσκοπική Εταιρία ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION</strong> ιδρύθηκε το 2024, έχοντας ως
+      κεντρικό άξονα τη σύνδεση της Ελλάδας του σήμερα με τον υπόλοιπο κόσμο.
+    </p>
+  
+    <div class="left-align" data-aos="fade-up">
+      <p data-lang-key="main-goals-title"><strong>Βασικοί σκοποί μας αποτελούν:</strong></p>
+      <ul>
+        <li data-aos="fade-up" data-aos-delay="50" data-lang-key="goal-1">Η ενίσχυση της προσφοράς της Ελλάδας και των σύγχρονων Ελλήνων καλλιτεχνών και δημιουργών στην παγκόσμια πολιτιστική αρένα</li>
+        <li data-aos="fade-up" data-aos-delay="100" data-lang-key="goal-2">Η σύνδεση του Απόδημου Ελληνισμού παγκοσμίως με την Ελλάδα του σήμερα</li>
+        <li data-aos="fade-up" data-aos-delay="150" data-lang-key="goal-3">Η προβολή του σύγχρονου ελληνικού πολιτισμού και η προώθηση της τέχνης, της λογοτεχνίας, της μουσικής και άλλων πτυχών του πολιτισμού</li>
+        <li data-aos="fade-up" data-aos-delay="200" data-lang-key="goal-4">Η ανάπτυξη πρωτοβουλιών για την προώθηση τουριστικών δραστηριοτήτων</li>
+        <li data-aos="fade-up" data-aos-delay="250" data-lang-key="goal-5">Η προστασία του περιβάλλοντος και η αναβάθμιση του τόπου και της ποιότητας ζωής των κατοίκων της Ελλάδας</li>
+        <li data-aos="fade-up" data-aos-delay="300" data-lang-key="goal-6">Η συμμετοχή σε πρωτοβουλίες για την προστασία του περιβάλλοντος και η ανάπτυξη της οικολογικής γνώσης και συνείδησης</li>
+        <li data-aos="fade-up" data-aos-delay="350" data-lang-key="goal-7">Η διαχείριση απορριμμάτων και ενέργειας</li>
+        <li data-aos="fade-up" data-aos-delay="400" data-lang-key="goal-8">Η προώθηση των επιστημών και της εκπαίδευσης μέσω συνεργασιών με ελληνικά και διεθνή πανεπιστήμια</li>
+        <li data-aos="fade-up" data-aos-delay="450" data-lang-key="goal-9">Η εφαρμογή τεχνητής νοημοσύνης σε διάφορους τομείς</li>
+        <li data-aos="fade-up" data-aos-delay="500" data-lang-key="goal-10">Η αξιοποίηση της τεχνολογίας και της καινοτομίας</li>
+      </ul>
+    </div>
+  </section>
+  
+
+    <section class="content-section">
+      <div class="center" data-aos="fade-up">
+        <p data-lang-key="collaboration-text">
+          Η ανάπτυξη της δράσης της Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION πραγματοποιείται σε συνεργασία με χώρες από όλο τον κόσμο, όπου υπάρχει ανάγκη και προοπτική συνεργασίας.
+        </p>
+      </div>
+    
+      <div class="left-align" data-aos="fade-up">
+        <p data-lang-key="service-intro"><strong>Για την εξυπηρέτηση και προώθηση των σκοπών της η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION:</strong></p>
+        <ul>
+          <li data-aos="fade-up" data-aos-delay="50" data-lang-key="service-1">Οργανώνει εκδηλώσεις</li>
+          <li data-aos="fade-up" data-aos-delay="100" data-lang-key="service-2">Συνεργάζεται με αντίστοιχες οργανώσεις και φορείς στην Ελλάδα και το εξωτερικό</li>
+          <li data-aos="fade-up" data-aos-delay="150" data-lang-key="service-3">Συμμετέχει σε δίκτυα πανελλήνιας, περιφερειακής και διεθνούς εμβέλειας</li>
+          <li data-aos="fade-up" data-aos-delay="200" data-lang-key="service-4">Διοργανώνει πολιτιστικές δράσεις, εκπαιδευτικά προγράμματα και σεμινάρια σε διάφορους τομείς</li>
+          <li data-aos="fade-up" data-aos-delay="250" data-lang-key="service-5">Φροντίζει για την εκπαίδευση των νέων σε θέματα περιβαλλοντικής συνείδησης</li>
+          <li data-aos="fade-up" data-aos-delay="300" data-lang-key="service-6">Διοργανώνει εκθέσεις, παραστάσεις, συναυλίες και προγράμματα που προάγουν τον πολιτισμό στο εξωτερικό</li>
+          <li data-aos="fade-up" data-aos-delay="350" data-lang-key="service-7">Προβάλλει τουριστικούς προορισμούς, οργανώνει ταξίδια και δράσεις που αναδεικνύουν την πολιτιστική κληρονομιά</li>
+          <li data-aos="fade-up" data-aos-delay="400" data-lang-key="service-8">Πραγματοποιεί ημερίδες με θέματα περιβαλλοντικά και επιστημονικά</li>
+          <li data-aos="fade-up" data-aos-delay="450" data-lang-key="service-9">Συνεργάζεται με εκπαιδευτικά ιδρύματα και πανεπιστήμια του εξωτερικού</li>
+        </ul>
+      </div>
+    </section>
+    
+  </section>
+
+  <footer>
+    <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 3000,
+      easing: 'ease-in-out',
+      offset: 100,
+      once: true,
+    });
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpeg" href="big.jpg">
+
+  <title>Επικοινωνία - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="lang.css">
+  <script src="lang.js" defer></script>
+  <style>
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 350px; /* Χρήση ποσοστού για προσαρμογή */
+  max-width: 1500px; /* Όριο μέγιστου πλάτους */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  box-sizing: border-box; /* Αποφυγή προβλημάτων με padding και περιθώρια */
+}
+
+.contact-form textarea {
+  height: 200px; /* Ρύθμιση ύψους textarea */
+  resize: vertical; /* Επιτρέπεται αλλαγή ύψους */
+}
+
+
+    .contact-form button {
+      padding: 10px 20px;
+      background-color: #005f73;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #0a9396;
+    }
+
+   
+  </style>
+</head>
+<body>
+
+<!-- Hamburger menu -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<header>
+  <div class="header-container">
+    <a href="index.html">
+      <img src="big.png" alt="Λογότυπο" class="logo">
+    </a>
+    <div class="title-container">
+      <h1>
+        <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
+        <span class="dash"> - </span>
+        <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
+      </h1>
+      <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+    </div>
+
+    <!-- Language Switcher -->
+    <!-- Language Switcher -->
+ 
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html" data-lang-key="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="about.html" data-lang-key="nav-about">ΣΧΕΤΙΚΑ</a></li>
+      <li class="dropdown">
+        <a href="projects.html" class="dropdown-toggle">
+          <span data-lang-key="actions">ΔΡΑΣΕΙΣ</span>
+          <span class="arrow">▼</span>
+        </a>          <div class="dropdown-content">
+          <a href="culture_page.html" data-lang-key="nav-culture">Πολιτισμός</a>
+          <a href="tourism_page.html" data-lang-key="nav-tourism">Τουρισμός</a>
+          <a href="environment_page.html" data-lang-key="nav-environment">Περιβάλλον</a>
+          <a href="education_page.html" data-lang-key="nav-education">Εκπαίδευση</a>
+          <a href="technology_page.html" data-lang-key="nav-technology">Τεχνολογία</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="connect.html" class="dropdown-toggle">
+          <span data-lang-key="participation">ΣΥΜΜΕΤΟΧΗ</span>
+          <span class="arrow">▼</span>
+        </a>          <div class="dropdown-content">
+          <a href="volunteer.html" data-lang-key="nav-volunteer">Γίνε Εθελοντής</a>
+          <a href="member.html" data-lang-key="nav-member">Γίνε Μέλος</a>
+        </div>
+      </li>
+      <li><a href="contact.html" data-lang-key="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+    </ul>
+    <div class="language-switcher">
+      <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+      <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+    </div>
+  
+  </nav>
+  
+</header>
+
+<section id="contact" class="content-section">
+  <div class="content-wrapper">
+    <h3 data-lang-key="contact-title">Επικοινωνήστε μαζί μας</h3>
+
+    <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+
+        <!-- Φόρμα Επικοινωνίας -->
+        <form class="contact-form" action="https://formspree.io/f/xblgwrjr" method="POST">
+          <input type="text" name="name" placeholder="" data-lang-key="form-name" required />
+          <input type="email" name="email" placeholder="" data-lang-key="form-email" required />
+          <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+          <button type="submit" data-lang-key="form-submit">Αποστολή</button>
+        </form>
+
+        <div class="contact-info" style="flex: 1; min-width: 250px; font-size: 1em; line-height: 1.8;">
+          <h4 data-lang-key="info-title">Στοιχεία Επικοινωνίας</h4>
+          <p data-lang-key="info-address"><strong>Διεύθυνση:</strong><br> Λάμπρου Κατσώνη 51, Αθήνα 11471</p>
+          <p data-lang-key="info-phone"><strong>Τηλέφωνο:</strong><br> +30 210 1234567</p>
+          <p data-lang-key="info-email"><strong>Email:</strong><br> amkeinteraction@mail.com</p>
+  
+          <h4 style="margin-top: 20px;" data-lang-key="follow-title">Ακολουθήστε μας</h4>
+             <style>
+            .social-links a {
+              text-decoration: none;
+              color: #343a40;
+              display: inline-flex;
+              align-items: center;
+              margin: 5px 0;
+              transition: color 0.3s ease;
+            }
+          
+            .social-links a i {
+              margin-right: 8px;
+              transition: transform 0.3s ease, color 0.3s ease;
+            }
+          
+            .social-links a:hover {
+              color: #0a9396;
+            }
+          
+            .social-links a:hover i {
+              transform: scale(1.1);
+              color: #0a9396;
+            }
+          </style>
+          
+          <div class="social-links">
+            <p>
+              <a href="https://facebook.com" target="_blank">
+                <i class="fab fa-facebook fa-lg"></i>
+                <span data-lang-key="social-facebook">Facebook</span>
+              </a><br>
+              <a href="https://instagram.com" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i>
+                <span data-lang-key="social-instagram">Instagram</span>
+              </a><br>
+              <a href="https://www.google.com/maps?q=interaction+google+business" target="_blank">
+                <i class="fas fa-store-alt fa-lg"></i>
+                <span data-lang-key="social-google">Google Business</span>
+              </a>
+            </p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+ 
+  
+  <footer>
+    <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
+  </footer>
+
+  <script>
+    // Εμφάνιση κουμπιού όταν κάνεις scroll (όπως στην αρχική σελίδα)
+    const topButton = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topButton.style.display = "block";
+      } else {
+        topButton.style.display = "none";
+      }
+    };
+
+    // Scroll to top
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+  <script>
+  const form = document.querySelector(".contact-form");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    });
+    if (response.ok) {
+      alert("Το μήνυμά σας εστάλη επιτυχώς!");
+      form.reset();
+    } else {
+      alert("Παρουσιάστηκε σφάλμα. Δοκιμάστε ξανά.");
+    }
+  });
+</script>
+
+  <script src="script.js"></script>
+</body>
+</html>

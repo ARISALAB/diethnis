@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Γίνε Εθελοντής - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lang.css">
+    <script src="lang.js" defer></script>
+    <style>
+        /* CSS για το κουμπί και το modal */
+        .join-button {
+            background: #F4D35E;
+            color: #2C3E50;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .join-button:hover {
+            background: #e9c846;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(44, 62, 80, 0.8);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 8% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2C3E50;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            width: 100%;
+            background: #f9f9f9;
+            color: #2C3E50;
+        }
+
+        form button {
+            background: #F4D35E;
+            color: #2C3E50;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #e9c846;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
+
+        .aos-text ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-section h3 {
+            font-size: 1.8rem;
+            color: #003366;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-section p,
+        .content-section ul {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .left-align {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 0;
+        }
+
+        .content-section ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content-section ul li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            color: #003366;
+            font-size: 0.9rem;
+        }
+
+        .center {
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+
+}
+
+
+        /* Προβολή hamburger μόνο σε κινητά */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: #F4D35E;
+  background: #2C3E50;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1001;
+  border-radius: 5px;
+}
+
+/* Mobile menu responsive */
+@media (max-width: 768px) {
+  nav#main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #2C3E50;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  nav#main-nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  nav#main-nav li {
+    padding: 10px;
+    border-bottom: 1px solid #F4D35E;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-wrapper {
+    padding: 10px;
+  }
+
+  .overlay-text {
+    font-size: 18px;
+  }
+
+
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Hamburger menu -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <header>
+      <div class="header-container">
+        <a href="index.html">
+          <img src="big.png" alt="Λογότυπο" class="logo">
+        </a>
+        <div class="title-container">
+          <h1>
+            <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
+            <span class="dash"> - </span>
+            <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
+          </h1>
+          <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+        </div>
+    
+        <!-- Language Switcher -->
+        <!-- Language Switcher -->
+     
+    
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html" data-lang-key="nav-home">ΑΡΧΙΚΗ</a></li>
+          <li><a href="about.html" data-lang-key="nav-about">ΣΧΕΤΙΚΑ</a></li>
+          <li class="dropdown">
+            <a href="projects.html" class="dropdown-toggle">
+              <span data-lang-key="actions">ΔΡΑΣΕΙΣ</span>
+              <span class="arrow">▼</span>
+            </a>          <div class="dropdown-content">
+              <a href="culture_page.html" data-lang-key="nav-culture">Πολιτισμός</a>
+              <a href="tourism_page.html" data-lang-key="nav-tourism">Τουρισμός</a>
+              <a href="environment_page.html" data-lang-key="nav-environment">Περιβάλλον</a>
+              <a href="education_page.html" data-lang-key="nav-education">Εκπαίδευση</a>
+              <a href="technology_page.html" data-lang-key="nav-technology">Τεχνολογία</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="connect.html" class="dropdown-toggle">
+              <span data-lang-key="participation">ΣΥΜΜΕΤΟΧΗ</span>
+              <span class="arrow">▼</span>
+            </a>          <div class="dropdown-content">
+              <a href="volunteer.html" data-lang-key="nav-volunteer">Γίνε Εθελοντής</a>
+              <a href="member.html" data-lang-key="nav-member">Γίνε Μέλος</a>
+            </div>
+          </li>
+          <li><a href="contact.html" data-lang-key="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+        </ul>
+        <div class="language-switcher">
+          <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+          <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+        </div>
+      
+      </nav>
+      
+    </header>
+    <section id="volunteer" class="content-section">
+        <div class="content-wrapper">
+          <h3 data-aos="fade-left" data-lang-key="volunteer-title">Η Αξία του Εθελοντισμού</h3>
+          <div class="left-align" data-aos="fade-left">
+            <ul>
+              <li data-aos="fade-left" data-aos-delay="50" data-lang-key="volunteer-text-1">
+                Ο εθελοντισμός είναι μια ανεκτίμητη πράξη προσφοράς προς την κοινωνία και τον κόσμο γύρω μας. Ο εθελοντής προσφέρει χρόνο, ενέργεια και ικανότητες για την υποστήριξη δράσεων που στοχεύουν σε ένα καλύτερο μέλλον για όλους μας. Εθελοντισμός δεν είναι μόνο η συμμετοχή σε δραστηριότητες, είναι η ευκαιρία να αλλάξουμε την κοινωνία και να προσφέρουμε σε άλλους χωρίς αντάλλαγμα. Η εμπειρία του εθελοντή είναι μια εμπειρία αναγνώρισης, εξέλιξης και συνεισφοράς.
+              </li>
+              <li data-aos="fade-left" data-aos-delay="100" data-lang-key="volunteer-text-2">
+                Όταν συμμετέχουμε ως εθελοντές, προσφέρουμε όχι μόνο βοήθεια, αλλά και την ευκαιρία για προσωπική ανάπτυξη. Ενισχύουμε την κοινότητα, διευρύνουμε τους ορίζοντές μας και μαθαίνουμε μέσα από τις εμπειρίες μας. Ο εθελοντισμός προσφέρει την ευκαιρία να συνεργαστούμε με άλλους ανθρώπους, να εμπλουτίσουμε τις γνώσεις μας και να γίνουμε μέρος μιας ομάδας που εργάζεται για έναν κοινό σκοπό.
+              </li>
+              <li data-aos="fade-left" data-aos-delay="150" data-lang-key="volunteer-text-3">
+                Αν θέλεις να βοηθήσεις, γεμάτος ενθουσιασμό και διάθεση, γίνε μέλος της ομάδας μας και εθελοντής στις δράσεις μας. Μάθε πώς μπορείς να προσφέρεις στον κόσμο γύρω σου και να εξελιχθείς με το έργο μας!
+              </li>
+            </ul>
+            <button class="join-button" id="openModalBtn" data-lang-key="volunteer-btn-form">Συμπλήρωσε τη φόρμα συμμετοχής</button>
+            <a href="connect.html" class="join-button" data-lang-key="volunteer-btn-back">Γύρισε πίσω</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Modal -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
+          <form action="https://formsubmit.co/akronservices@mail.com" method="POST" onsubmit="showSuccessMessage(event)">
+            <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
+            <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
+            <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
+            <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
+            <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
+            <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+            <button type="submit" data-lang-key="form-submit">Υποβολή</button>
+          </form>
+        </div>
+      </div>
+      
+    <footer>
+        <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
+      </footer>
+    <script src="script.js"></script>
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const modal = document.getElementById('modal');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        function showSuccessMessage(event) {
+            event.preventDefault();
+            alert('Η φόρμα υποβλήθηκε με επιτυχία!');
+        }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            easing: 'ease-in-out',
+            offset: 100,
+            once: true,
+        });
+    </script>
+    <script>
+        function toggleMenu() {
+          const nav = document.getElementById("main-nav");
+          nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        }
+
+        
+        </script>
+        
+</body>
+
+</html>

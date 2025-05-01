@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpeg" href="big.jpg">
+
+  <title>ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lang.css">
+  <script src="lang.js" defer></script>
+  
+  <style>
+
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    z-index: 10;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+@media (max-width: 768px) {
+  /* ... (υπάρχοντες κανόνες για μικρές οθόνες) ... */
+
+ #projects {
+    /* Αφαιρέστε το αριστερό και δεξιό padding */
+    padding-left: 0;
+    padding-right: 0;
+    /* Αν θέλετε, μπορείτε να ορίσετε συνολικό padding π.χ. */
+    /* padding: 40px 0; */
+  }
+
+
+  .project-gallery {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px; /* Add space between images */
+    /* Αφήνοντας το padding: 0 10px εδώ θα έχετε 10px κενό από τις άκρες */
+    padding: 0 10px;
+    /* Αν θέλετε οι εικόνες να φτάνουν ακριβώς στην άκρη της οθόνης (χωρίς κενό), βάλτε padding: 0; */
+    /* padding: 0; */
+     max-width: 100%; /* Προσθέστε αυτό για σιγουριά, αν και συνήθως δεν χρειάζεται */
+  }
+
+  .project-gallery img {
+    width: 100%; /* Make images take full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure block display */
+  }
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: bold;
+  color: transparent;
+  position: relative;
+  background: linear-gradient(250deg, #000, #000);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 8s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+h3.revealed {
+  background-size: 100% 100%;
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Existing styles remain here */
+
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  background-color: #005f73;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#topBtn:hover {
+  background-color: #0a9396;
+  transform: scale(1.1);
+}
+
+#topBtn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.culture-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.join-button {
+  background: #F4D35E;
+  color: #2C3E50;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1em;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.join-button:hover {
+  background: #e9c846;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+form input,
+form select {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  background: #f9f9f9;
+  color: #2C3E50;
+}
+
+form select {
+  appearance: none;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #F4D35E;
+  outline: none;
+}
+
+form button {
+  background: #F4D35E;
+  color: #2C3E50;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #e9c846;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(44, 62, 80, 0.8);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 8% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2C3E50;
+  cursor: pointer;
+}
+
+.overlay-text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Keep initial horizontal centering */
+  color: white;
+  font-weight: bold;
+  text-align: center; /* Center the text */
+  font-size: 40px; /* Increased font size - Adjust as needed */
+  /* Added Whisper font */
+  font-family: 'Whisper',sans-serif;
+
+
+  /* Initial state for entrance animation (hidden and below) */
+  top: 65%; /* Start lower than center (50%) */
+  opacity: 0; /* Start hidden */
+  transition: top 1s ease-out, opacity 0.8s ease-in; /* Entrance transition properties */
+
+  /* Initial state for typing effect (hidden) */
+  overflow: hidden; /* Hides text that hasn't been typed */
+  border-right: .15em solid orange; /* Style for the blinking cursor */
+  width: 0; /* Text width starts at 0 */
+
+  /* No animations or typing/blinking applied initially */
+}
+
+/* Class to trigger the entrance animation (climb up and fade in) */
+.overlay-text.is-visible {
+  top: 50%; /* Move to centered position */
+  opacity: 1; /* Become fully visible */
+}
+
+/* Keyframes for the typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; } /* Animate width to reveal text (allows wrapping) */
+}
+
+/* Keyframes for the blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; } /* Cursor color */
+}
+
+/* Class to apply typing animations after the entrance animation finishes */
+.overlay-text.is-typing {
+   animation:
+    typing 4s steps(40, end) forwards, /* Typing animation */
+    blink-caret .75s step-end infinite; /* Blinking cursor animation */
+}
+
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  .culture-img {
+    height: 70vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Adjust font size and initial position for smaller screens */
+  .overlay-text {
+    font-size: 16px; /* Adjust mobile font size */
+    top: 60%; /* Adjust mobile start position */
+  }
+   /* Adjust typing animation for smaller screens */
+   .overlay-text.is-typing {
+     animation:
+      typing 3s steps(30, end) forwards, /* Shorter duration, fewer steps for mobile */
+      blink-caret .75s step-end infinite;
+   }
+}
+
+@media (max-width: 480px) { /* Even smaller screens */
+  .overlay-text {
+    font-size: 14px; /* Adjust smaller mobile font size */
+    top: 60%; /* Adjust smaller mobile start position */
+  }
+   /* Adjust typing animation for very small screens */
+  .overlay-text.is-typing {
+     animation:
+      typing 2.5s steps(25, end) forwards, /* Further adjusted for very small screens */
+      blink-caret .75s step-end infinite;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+ 
+  }
+
+  .content-wrapper {
+    padding: 10px;
+  }
+
+
+ 
+
+  header p {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+
+
+
+  .modal-content {
+    padding: 20px; /* Μικρότερο padding στο modal σε μικρότερες οθόνες */
+  }
+
+
+/* Styles for animating h3 elements */
+.content-section h3,
+#projects h3,
+#join-us h3 { /* Target specific h3s, exclude modal h3 */
+  position: relative;
+  display: inline-block; /* Needed for background/pseudo-element sizing */
+  overflow: hidden; /* Hide the pseudo-element before animation */
+  /* Keep original text color defined elsewhere or default */
+}
+
+/* Style for h3 in projects section - moved from inline */
+#projects h3 {
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #F4D35E;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Pseudo-element for the background swipe effect under the text */
+.content-section h3::before,
+#projects h3::before,
+#join-us h3::before {
+  content: '';
+  position: absolute;
+  /* Position relative to the bottom of the text */
+  bottom: 0.1em; /* Adjust vertical position */
+  left: 0;
+  width: 100%;
+  height: 0.15em; /* Adjust thickness of the swipe line */
+  background-color: #F4D35E; /* Color of the swipe effect */
+  z-index: -1; /* Place behind the text */
+  transform: scaleX(0); /* Start with 0 width (hidden) */
+  transform-origin: left center; /* Animation origin is left */
+  transition: transform 0.8s ease-out; /* Animation duration and timing */
+}
+
+/* Class added by JS to trigger the swipe animation */
+.h3-visible::before {
+  transform: scaleX(1); /* Scale to full width (visible) */
+}
+
+/* Ensure the h3 text is above the pseudo-element */
+.content-section h3,
+#projects h3,
+#join-us h3 {
+    z-index: 1; /* Ensure text is above pseudo-element */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="big.png" alt="Λογότυπο" class="logo">
+      </a>
+      <div class="title-container">
+        <h1>
+          <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
+          <span class="dash"> - </span>
+          <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
+        </h1>
+        <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+      </div>
+  
+      <!-- Language Switcher -->
+      <!-- Language Switcher -->
+   
+  
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html" data-lang-key="nav-home">ΑΡΧΙΚΗ</a></li>
+        <li><a href="about.html" data-lang-key="nav-about">ΣΧΕΤΙΚΑ</a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropdown-toggle">
+            <span data-lang-key="actions">ΔΡΑΣΕΙΣ</span>
+            <span class="arrow">▼</span>
+          </a>          <div class="dropdown-content">
+            <a href="culture_page.html" data-lang-key="nav-culture">Πολιτισμός</a>
+            <a href="tourism_page.html" data-lang-key="nav-tourism">Τουρισμός</a>
+            <a href="environment_page.html" data-lang-key="nav-environment">Περιβάλλον</a>
+            <a href="education_page.html" data-lang-key="nav-education">Εκπαίδευση</a>
+            <a href="technology_page.html" data-lang-key="nav-technology">Τεχνολογία</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="connect.html" class="dropdown-toggle">
+            <span data-lang-key="participation">ΣΥΜΜΕΤΟΧΗ</span>
+            <span class="arrow">▼</span>
+          </a>          <div class="dropdown-content">
+            <a href="volunteer.html" data-lang-key="nav-volunteer">Γίνε Εθελοντής</a>
+            <a href="member.html" data-lang-key="nav-member">Γίνε Μέλος</a>
+          </div>
+        </li>
+        <li><a href="contact.html" data-lang-key="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      </ul>
+      <div class="language-switcher">
+        <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+        <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+      </div>
+    
+    </nav>
+    
+  </header>
+  
+  <div class="image-container">
+    <img class="culture-img" src="1.JPG" alt="Πολιτιστική εικόνα">
+    <div class="overlay-text" id="typing-text" data-lang-key="typing-text"></div>
+  </div>
+  
+  <section id="about" class="content-section">
+    <h3 data-lang-key="about-title">Σχετικά με εμάς</h3>
+    <p data-lang-key="about-text">
+      Η <strong data-lang-key="about-bold">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION</strong> είναι μια Αστική Μη Κερδοσκοπική Εταιρεία που δραστηριοποιείται
+      στον τομέα του πολιτισμού, της τέχνης και της δημιουργικότητας.
+      Σκοπός μας είναι η ενίσχυση της προσφοράς της Ελλάδας και των σύγχρονων Ελλήνων καλλιτεχνών και δημιουργών
+      στην παγκόσμια πολιτιστική αρένα μέσα από συνεργασίες, φεστιβάλ, εκπαιδευτικά προγράμματα και καλλιτεχνικές παραγωγές.
+    </p>
+  </section>
+  
+
+  <section id="projects">
+    <div class="container">
+      <h3 data-lang-key="projects-title">Δράσεις</h3>
+    </div>
+  
+    <div class="project-gallery">
+      <img src="7.jpg" alt="Φεστιβάλ Σύγχρονης Τέχνης">
+      <img src="2.jpg" alt="Εργαστήρι Θεατρικής Γραφής">
+      <img src="3.jpg" alt="Ανταλλαγή Αθήνα - Βερολίνο">
+      <img src="4.jpg" alt="Ψηφιακή Έκθεση">
+      <img src="5.jpg" alt="Ψηφιακή Έκθεση">
+      <img src="6.jpg" alt="Ψηφιακή Έκθεση">
+    </div>
+    <a href="projects.html" class="join-button"  data-lang-key="join-us-button">Μάθε περισσότερα</a>
+
+  </section>
+<style>
+#join-us {
+  position: relative;
+  overflow: hidden;
+}
+
+.rotating-circle-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15), transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+#join-us .content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .rotating-circle-bg {
+    height: 300px;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.12), transparent 70%);
+  }
+}
+
+/* Κινητό */
+@media (max-width: 600px) {
+  .rotating-circle-bg {
+    height: 220px;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.10), transparent 70%);
+  }
+}
+
+
+</style>
+<section id="join-us" class="content-section1">
+  <div class="rotating-circle-bg"></div>
+
+  <div class="content-wrapper">
+     <h3 data-lang-key="join-us-title">Δήλωσε Συμμετοχή</h3>
+    <p><strong data-lang-key="join-us-member">Γίνε μέλος:</strong> <span data-lang-key="join-us-member-description">Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέπεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες.</span></p>
+    <p><strong data-lang-key="join-us-volunteer">Γίνε εθελοντής:</strong> <span data-lang-key="join-us-volunteer-description">Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά.</span></p>
+
+    <a href="connect.html" class="join-button"  data-lang-key="join-us-button">Μάθε περισσότερα</a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const circle = document.querySelector('.rotating-circle-bg');
+    const targetSection = document.querySelector('#join-us');
+
+    if (!circle || !targetSection) return;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const sectionTop = targetSection.offsetTop;
+      const sectionHeight = targetSection.offsetHeight;
+      const sectionCenter = sectionTop + sectionHeight / 2;
+      const viewportCenter = scrollY + window.innerHeight / 2;
+
+      const delta = viewportCenter - sectionCenter;
+
+      // Adaptive maxOffset based on screen width
+      let maxOffset = 100;
+      if (window.innerWidth <= 1024) maxOffset = 60;
+      if (window.innerWidth <= 600) maxOffset = 30;
+
+      const offsetX = Math.max(Math.min(delta, maxOffset), -maxOffset);
+
+      circle.style.transform = `translate(calc(-50% + ${-offsetX}px), -50%)`;
+    });
+  });
+</script>
+
+
+
+
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+     <h3>Φόρμα Εγγραφής</h3>
+    <form action="https://formsubmit.co/akronservices@mail.com" method="POST" onsubmit="showSuccessMessage(event)">
+      <input type="text" name="Ονοματεπώνυμο" placeholder="Ονοματεπώνυμο" required>
+      <input type="email" name="Email" placeholder="Email" required>
+      <input type="tel" name="Τηλέφωνο" placeholder="Τηλέφωνο" required>
+      <input type="text" name="Τόπος Κατοικίας" placeholder="Τόπος Κατοικίας" required>
+      <input type="text" name="Διεύθυνση" placeholder="Διεύθυνση" required>
+      <select name="Επιλογή" required>
+        <option value="">Επιλέξτε ρόλο</option>
+        <option value="Μέλος">Γίνε μέλος</option>
+        <option value="Εθελοντής">Γίνε εθελοντής</option>
+      </select>
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://example.com/success.html">
+
+      <button type="submit">Αποστολή</button>
+    </form>
+
+    <div id="successMessage" style="display:none; color:green; margin-top:15px; font-weight:bold;">
+      Η φόρμα υποβλήθηκε επιτυχώς! Θα επικοινωνήσουμε μαζί σας σύντομα.
+    </div>
+
+  </div>
+</div>
+
+
+<style>
+.contact-image {
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  background-color: #fff;
+  background-image: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1));
+  background-blend-mode: overlay;
+  
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.5),             /* πιο βαθιά εξωτερική σκιά */
+    inset 0 8px 8px rgba(0, 0, 0, 0.25),         /* έντονη εσωτερική σκιά από πάνω */
+    inset 0 -4px 8px rgba(255, 255, 255, 0.3);   /* λάμψη από κάτω */
+}
+
+.contact-image:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow:
+    0 16px 55px rgba(0, 0, 0, 0.6),
+    inset 0 10px 10px rgba(0, 0, 0, 0.3),
+    inset 0 -6px 10px rgba(255, 255, 255, 0.4),
+    0 0 15px rgba(0, 123, 255, 0.5); /* ακόμα πιο φωτεινό μπλε glow */
+}
+
+</style>
+<section id="contact" class="content-section2">
+  <div class="content-wrapper">
+    <h3 data-lang-key="contact-title">Επικοινωνήστε μαζί μας</h3>
+    <a href="contact.html">
+      <img src="200.png" alt="Εικόνα Επικοινωνίας" class="contact-image">
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
+</footer>
+
+
+  <button id="topBtn" style="width: 40px; height: 40px;">
+  ↑
+  <svg id="progressCircle" width="40" height="40">
+    <circle
+      cx="20"
+      cy="20"
+      r="18"
+      stroke="#ffffff"
+      stroke-width="4"
+      fill="none"
+      stroke-linecap="round"
+      stroke-dasharray="113.1"
+      stroke-dashoffset="113.1"
+    />
+  </svg>
+</button>
+  <script src="script.js"></script>
+
+<script>
+  function openModal() {
+  document.getElementById('modal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+// Κλείσιμο αν πατηθεί έξω από το modal
+window.onclick = function(event) {
+  const modal = document.getElementById('modal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+  function showSuccessMessage(event) {
+    const message = document.getElementById("successMessage");
+    message.style.display = "block";
+
+    // Μπορείς να προσθέσεις delay για να το δει ο χρήστης
+    setTimeout(() => {
+      message.style.display = "none";
+    }, 4000);
+  }
+</script>
+
+<script>
+  const topBtn = document.getElementById("topBtn");
+  const circle = document.querySelector("#progressCircle circle");
+  const radius = 18; // Νέο radius
+  const circumference = 2 * Math.PI * radius;
+
+  // Ορίζουμε stroke dash values βάσει του νέου κύκλου
+  circle.style.strokeDasharray = `${circumference}`;
+  circle.style.strokeDashoffset = `${circumference}`;
+
+  function updateProgress() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = scrollTop / scrollHeight;
+    const draw = circumference * (1 - scrollPercent);
+    circle.style.strokeDashoffset = draw;
+
+    // Εμφάνιση ή απόκρυψη του κουμπιού
+    if (scrollTop > 100) {
+      topBtn.style.display = "flex";
+    } else {
+      topBtn.style.display = "none";
+    }
+  }
+
+  window.addEventListener("scroll", updateProgress);
+
+  // Κλικ για scroll top
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+<script>
+  const textToType = "Προβάλλουμε τον Ελληνικό Πολιτισμό Διεθνώς";
+  const typingTextElement = document.getElementById('typing-text');
+  const imageContainer = document.querySelector('.image-container'); // The element to observe
+
+  // Set the full text content initially (it's hidden by CSS)
+  typingTextElement.textContent = textToType;
+
+  // Flag to ensure the sequence is triggered only once
+  let animationSequenceTriggered = false;
+
+  // Create an Intersection Observer for the image container
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // Check if the observed element (imageContainer) is intersecting the viewport
+      // and approximately in the center (threshold 0.5) and animations haven't triggered yet
+      // Using intersectionRatio >= 0.5 to check if at least 50% of the element is visible
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !animationSequenceTriggered) {
+
+        // --- Trigger the Entrance (Climb Up/Fade In) Animation ---
+        // Add the 'is-visible' class to trigger the CSS transition
+        typingTextElement.classList.add('is-visible');
+
+        // Mark the sequence as triggered
+        animationSequenceTriggered = true;
+
+        // --- Listen for the end of the Entrance Animation ---
+        // Use a one-time event listener for the transition end
+        typingTextElement.addEventListener('transitionend', function handler(event) {
+          // Ensure it's one of the transitions we care about (top or opacity)
+          if (event.propertyName === 'top' || event.propertyName === 'opacity') {
+
+             // --- Trigger the Typing Animation ---
+             // Add the 'is-typing' class to trigger the CSS animations for typing and blinking
+             typingTextElement.classList.add('is-typing');
+
+             // --- Clean up ---
+             // Remove this specific transitionend listener
+             typingTextElement.removeEventListener('transitionend', handler);
+          }
+        });
+
+
+        // --- Stop Observing ---
+        // Stop observing the image container after triggering the sequence
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+      // Options for the observer
+      // Use a threshold of 0.5 to trigger when 50% of the target is visible
+      threshold: 0.5
+  });
+
+  // Start observing the image container
+  observer.observe(imageContainer);
+
+
+  // --- Listen for the end of the Typing Animation ---
+  // This listener removes the blinking cursor after the typing is complete
+  typingTextElement.addEventListener('animationend', (event) => {
+    // Check if the completed animation is the 'typing' animation (or related via media queries)
+    if (event.animationName.startsWith('typing')) {
+      // Typing animation finished, remove the blinking cursor border
+      typingTextElement.style.borderRight = 'none';
+
+      // Optionally, remove the blink-caret animation as well, keeping the typing animation state
+       if (typingTextElement.style.animation) {
+            // Split animation string by comma, filter out blink-caret, join back
+            typingTextElement.style.animation = typingTextElement.style.animation.split(',').filter(anim => !anim.includes('blink-caret')).join(',');
+       } else {
+           // Fallback if animation style is not directly set
+           typingTextElement.style.borderRight = 'none';
+       }
+    }
+  });
+
+</script>
+
+<script>
+
+const headings = document.querySelectorAll("h3");
+
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.9;
+
+  headings.forEach(h3 => {
+    const h3Top = h3.getBoundingClientRect().top;
+
+    if (h3Top < triggerBottom) {
+      h3.classList.add("revealed");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+  
+</script>
+
+
+<script>
+  // Εντοπίζουμε όλα τα h3 που θέλουμε να παρακολουθήσουμε
+  const animatedH3s = document.querySelectorAll('.content-section h3, #projects h3, #join-us h3');
+
+  // Δημιουργία ενός μοναδικού observer
+  const h3Observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('h3-visible', 'revealed');
+        h3Observer.unobserve(entry.target); // Σταμάτα την παρακολούθηση
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Παρατήρησε κάθε h3 μόνο μία φορά
+  animatedH3s.forEach(h3 => {
+    h3Observer.observe(h3);
+  });
+</script>
+<script> 
+
+// Συνάρτηση για την ανίχνευση αν το στοιχείο είναι στο οπτικό πεδίο
+function isElementInView(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+// Εντολή για τα h3 στοιχεία
+const h3Elements = document.querySelectorAll('h3');
+
+// Λειτουργία για την παρακολούθηση του scroll
+window.addEventListener('scroll', function () {
+  h3Elements.forEach(function (h3) {
+    if (isElementInView(h3)) {
+      h3.classList.add('revealed');  // Προσθήκη της κλάσης 'revealed' όταν είναι ορατό
+    } else {
+      h3.classList.remove('revealed');  // Αφαίρεση της κλάσης όταν δεν είναι ορατό
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>
