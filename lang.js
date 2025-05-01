@@ -306,7 +306,7 @@ const translations = {
       "form-address": "Address Line",
       "form-message": "Write your message here...",
       "modal-title": "Registration Form",
-      "submit-btn": "Submit",
+      "form-submit": "Submit",
     "member-title": "Become a Member",
     "member-description": "When you become a member of our community, you gain access to activities, events, and opportunities to develop your skills and contribute to our society.",
     "member-benefits-title": "Benefits of Membership",
