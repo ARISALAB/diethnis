@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/jpeg" href="big.jpg">
+    <script>
+  const savedLang = localStorage.getItem("language") || "el";
+  document.documentElement.lang = savedLang;
+  document.documentElement.setAttribute("data-language", savedLang);
+</script>
+
     <link rel="stylesheet" href="lang.css">
     <script src="lang.js" defer></script>
     <title>Δράσεις - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
