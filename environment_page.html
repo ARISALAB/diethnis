@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/jpeg" href="big.jpg">
     <title>Περιβάλλον - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+    <script>
+  const savedLang = localStorage.getItem("language") || "el";
+  document.documentElement.lang = savedLang;
+  document.documentElement.setAttribute("data-language", savedLang);
+</script>
+
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="lang.css">
