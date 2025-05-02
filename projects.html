@@ -291,40 +291,62 @@
             flex-shrink: 0;
             margin: 50px auto;
             position: relative;
-            transition: box-shadow 0.1s ease-out;
         }
 
-        /* Κοινές ιδιότητες για κάθε μικρό τετράγωνο */
-        .square-item {
-            width: 50%;
-            height: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 5px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            color: white;
-            transition: opacity 0.9s ease, transform 0.5s ease;
+       .square-item {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    color: white;
+    /* Αλλάξτε την παρακάτω γραμμή */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Αυξήσαμε τη διάρκεια σε 1.5s */
 
-            background-size: 200% 200%;
-            background-position: 0% 100%;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-        }
-
+    background-size: 200% 200%;
+    background-position: 0% 100%;
+    /* Η παρακάτω transition μπορεί να αφαιρεθεί αν δεν χρησιμοποιείται πια για το background-position */
+    /* transition: transform 0.3s ease; */
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    /* box-shadow αφαιρέθηκε */
+    opacity: 0;
+}
         /* Εφέ στο hover */
         .square-item:hover {
             transform: scale(1.05);
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
+/* Initial positions - off-screen */
+.square-top-left {
+    /* Keep background-image */
+    transform: translate(-150%, -150%); /* Move up and left */
+}
 
+.square-top-right {
+    /* Keep background-image */
+    transform: translate(150%, -150%); /* Move up and right */
+}
+
+.square-bottom-left {
+    /* Keep background-image */
+    transform: translate(-150%, 150%); /* Move down and left */
+}
+
+.square-bottom-right {
+    /* Keep background-image */
+    transform: translate(150%, 150%); /* Move down and right */
+}
+/* Final state - centered and visible */
+.square-item.is-visible {
+    opacity: 1;
+    transform: translate(0, 0); /* Back to its default position in the flex layout */
+}
         /* ========================================= */
         /* Κανόνες Animation */
         /* ========================================= */
@@ -654,81 +676,65 @@
         fadeInObserver.observe(el);
     });
 </script>
-
 <script>
-    const squareFillObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const square = entry.target;
-            if (entry.isIntersecting) {
-                // Ενεργοποιούμε το animation όταν μπαίνει στο viewport
-                square.classList.add('animate-fill');
-                // Αφήνουμε το animation να καθορίσει το τελικό opacity
-            } else {
-                // Ξανακρύβουμε το στοιχείο και αφαιρούμε το animation όταν βγαίνει από το viewport
-                square.classList.remove('animate-fill');
-                square.style.opacity = '0'; // reset opacity
-                 square.style.backgroundPosition = '0% 100%'; // Reset background position
-            }
-        });
-    }, {
-        threshold: 0.5 // Μισό του στοιχείου πρέπει να είναι ορατό
-    });
+  const actionSquaresContainer = document.querySelector('.action-squares');
+  const squareItems = document.querySelectorAll('.action-squares .square-item');
 
-    document.querySelectorAll('.square-item').forEach(square => {
-        // Θέτουμε αρχικά το opacity σε 0 για να λειτουργήσει το animation
-        square.style.opacity = '0';
-        squareFillObserver.observe(square);
-    });
-</script>
+  // Intersection Observer για τα τετράγωνα δράσεων
+  const actionSquaresObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              // Όταν το container μπαίνει στο viewport
+              squareItems.forEach((square, index) => {
+                  // Προσθέτουμε την κλάση 'is-visible' με καθυστέρηση
+                  // Η καθυστέρηση μπορεί να προσαρμοστεί για διαφορετικά εφέ εισόδου
+                  setTimeout(() => {
+                      square.classList.add('is-visible');
+                  }, index * 400); // Αλλάξαμε την καθυστέρηση σε 400ms
+              });
 
-<script>
-    // Script για την κινούμενη σκιά βάσει scroll
-    const actionSquaresContainer = document.querySelector('.action-squares');
+              // Σταματάμε την παρακολούθηση αφού ενεργοποιηθεί το animation
+              observer.unobserve(entry.target);
+          } else {
+               // Προαιρετικά: Αν θέλετε να ξανακρύβονται όταν βγαίνουν από το viewport
+               // και να ξανα-animate σε scroll up.
+               // squareItems.forEach(square => {
+               //     square.classList.remove('is-visible');
+               // });
+               // observer.observe(entry.target); // Ξαναρχίζει η παρακολούθηση
+          }
+      });
+  }, {
+      threshold: 0.3 // Ενεργοποιείται όταν το 30% του container είναι ορατό
+  });
 
-    if (actionSquaresContainer) { // Βεβαιωνόμαστε ότι το στοιχείο υπάρχει
-        // Ορισμός παραμέτρων σκιάς και κίνησης
-        const initialOffsetY = 100; // Σκιά αρχικά 60px κάτω
-        const initialBlur = 80; // Θολότητα σκιάς
-        const initialSpread = 0; // Διασπορά σκιάς
-        const shadowColor = 'rgba(0, 0, 0, 0.5)'; // Χρώμα και διαφάνεια
-        const scrollFactor = 0.15; // Συντελεστής οριζόντιας κίνησης
-        const initialOffsetX = 100; // Σκιά αρχικά 100px δεξιά
+  // Ξεκινάμε την παρακολούθηση του container των τετραγώνων
+  if (actionSquaresContainer) {
+      actionSquaresObserver.observe(actionSquaresContainer);
+  }
 
-        // Νέος συντελεστής για την κάθετη κίνηση
-        const verticalScrollFactor = 0.10; // Προσαρμόστε αυτή την τιμή για να ελέγξετε την κάθετη ταχύτητα
+  // Προσθέτουμε αρχικά την κλάση 'is-visible' αν το container είναι ήδη στο viewport κατά τη φόρτωση
+  // (Αυτό είναι χρήσιμο αν η σελίδα φορτώσει και το στοιχείο είναι ήδη ορατό)
+  const checkInitialVisibility = () => {
+      if (actionSquaresContainer) {
+          const rect = actionSquaresContainer.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              squareItems.forEach((square, index) => {
+                  setTimeout(() => {
+                      square.classList.add('is-visible');
+                  }, index * 400); // Αλλάξαμε και εδώ την καθυστέρηση σε 400ms
+              });
+               actionSquaresObserver.unobserve(actionSquaresContainer); // Σταματάμε την παρακολούθηση
+          }
+      }
+  };
 
-
-        // Συνάρτηση που ενημερώνει τη σκιά βάσει του scroll
-        function updateShadow() {
-            // Λαμβάνουμε την τρέχουσα κάθετη θέση scroll
-            const scrollY = window.scrollY || window.pageYOffset;
-
-            // Υπολογίζουμε τη νέα οριζόντια θέση της σκιάς
-            // Καθώς το scrollY αυξάνεται (προς τα κάτω), ο currentOffsetX μειώνεται (προς τα αριστερά)
-            // Καθώς το scrollY μειώνεται (προς τα πάνω), ο currentOffsetX αυξάνεται (προς τα δεξιά)
-            const currentOffsetX = initialOffsetX - (scrollY * scrollFactor);
-
-            // Υπολογίζουμε τη νέα κάθετη θέση της σκιάς
-            // Καθώς το scrollY αυξάνεται (προς τα κάτω), ο currentOffsetY μειώνεται (προς τα πάνω)
-            // Καθώς το scrollY μειώνεται (προς τα πάνω), ο currentOffsetY αυξάνεται (προς τα κάτω)
-            const currentOffsetY = initialOffsetY - (scrollY * verticalScrollFactor);
+  // Ελέγχουμε κατά τη φόρτωση της σελίδας
+  document.addEventListener('DOMContentLoaded', checkInitialVisibility);
+  // Ελέγχουμε και σε περίπτωση resize (μπορεί να γίνει ορατό)
+  window.addEventListener('resize', checkInitialVisibility);
 
 
-            // Εφαρμόζουμε τη νέα box-shadow στο στοιχείο
-            actionSquaresContainer.style.boxShadow =
-                `${currentOffsetX}px ${currentOffsetY}px ${initialBlur}px ${initialSpread}px ${shadowColor}`;
-        }
-
-        // Θέτουμε την αρχική κατάσταση της σκιάς μόλις φορτώσει η σελίδα
-        updateShadow();
-
-        // Προσθέτουμε τον event listener για το scroll στο παράθυρο
-        window.addEventListener('scroll', updateShadow);
-
-        // Σημείωση: Σε πιο σύνθετες εφαρμογές, καλό είναι να αφαιρείται ο listener
-        // όταν το στοιχείο δεν είναι πλέον απαραίτητο (π.χ. φεύγοντας από τη σελίδα).
-        // Για αυτή την περίπτωση, είναι αποδεκτό να παραμείνει.
-    }
 </script>
 
 </body>
