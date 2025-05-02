@@ -137,6 +137,8 @@ const translations = {
   "form-submit": "Υποβολή",
   "member-title": "Γίνε Μέλος",
   "member-description": "Όταν γίνεσαι μέλος της κοινότητας μας, αποκτάς πρόσβαση σε δράσεις, εκδηλώσεις και ευκαιρίες για να αναπτύξεις τις ικανότητές σου και να συνεισφέρεις στην κοινωνία μας.",
+  "member-description1": "Ετήσια Συνδρομή Εγγραφής 100 ευρώ. ",
+
   "member-benefits-title": "Πλεονεκτήματα του να Είσαι Μέλος",
   "benefit-1": "Πρόσβαση σε Αποκλειστικές Δράσεις και Εκδηλώσεις – Από εκπαιδευτικά σεμινάρια και πολιτιστικά φεστιβάλ έως διεθνή συνέδρια, η συμμετοχή σου συμβάλλει στην προσωπική σου εξέλιξη.",
     "benefit-2": "Ειδικές Τιμές και Εκπτώσεις στα εισητήρια και πρόσβαση για όλες τις εκδηλώσεις και δρώμενα του Φεστιβάλ εντός και εκτός Ελλάδας.",
@@ -310,6 +312,8 @@ en: {
       "form-submit": "Submit",
   "member-title": "Become a Member",
   "member-description": "When you become a member of our community, you gain access to activities, events, and opportunities to develop your skills and contribute to our society.",
+  "member-description1": "Annual Subscription Fee 100 euros.",
+
   "member-benefits-title": "Benefits of Membership",
   "benefit-1": "Access to Exclusive Events and Activities – From educational seminars and cultural festivals to international conferences, your participation fuels your personal growth.",
   "benefit-2": "Special Ticket Rates and Discounts – Enjoy reduced prices on all Festival events and happenings, both in Greece and abroad.",
