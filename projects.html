@@ -387,7 +387,22 @@
             background-image: linear-gradient(to top left, #48C9B0, #16A085);
         }
       
+@media (max-width: 768px) {
+    .action-squares {
+        /* Κρατήστε το margin: auto για οριζόντιο κεντράρισμα */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px; /* Ή όποιο πάνω/κάτω margin θέλετε */
+        margin-bottom: 50px;
 
+        /* Κάντε το πλάτος πιο ευέλικτο */
+        width: 90%; /* Παράδειγμα: να πιάνει το 90% του γονικού πλάτους */
+        max-width: 300px; /* Προαιρετικά: μπορείτε να ορίσετε ένα μέγιστο πλάτος */
+
+        /* Βεβαιωθείτε ότι δεν υπάρχει padding στο γονικό div που το επηρεάζει */
+        /* Ίσως χρειαστεί να ελέγξετε το CSS για το div που περιέχει το .action-squares */
+    }
+}
       
         .news-ticker-banner {
             background-color: #2C3E50; /* Σκούρο μπλε */
