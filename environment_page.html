@@ -352,6 +352,24 @@
     <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
   </footer>
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#projects');
+    const buttons = document.querySelectorAll('.category-buttons button');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          buttons.forEach(btn => btn.classList.add('reveal'));
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    observer.observe(section);
+  });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
