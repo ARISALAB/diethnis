@@ -14,6 +14,8 @@ const translations = {
     "participation": "ΣΥΜΜΕΤΟΧΗ",
     "nav-volunteer": "Γίνε Εθελοντής",
     "nav-member": "Γίνε Μέλος",
+                "nav-sponsor": "Γίνε Χορηγός",
+
     "nav-contact": "ΕΠΙΚΟΙΝΩΝΙΑ",
   "about-title": "Σχετικά με εμάς",
   "about-text": "Η <strong>Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION</strong> είναι μια Αστική Μη Κερδοσκοπική Εταιρεία που δραστηριοποιείται στον τομέα του πολιτισμού, της τέχνης και της δημιουργικότητας. Σκοπός μας είναι η ενίσχυση της προσφοράς της Ελλάδας και των σύγχρονων Ελλήνων καλλιτεχνών και δημιουργών στην παγκόσμια πολιτιστική αρένα μέσα από συνεργασίες, φεστιβάλ, εκπαιδευτικά προγράμματα και καλλιτεχνικές παραγωγές.",
@@ -188,6 +190,8 @@ en: {
     "participation": "PARTICIPATE",
     "nav-volunteer": "Become a Volunteer",
     "nav-member": "Become a Member",
+                "nav-sponsor": "Become a Sponsor",
+
     "nav-contact": "CONTACT",
     "about-title": "About Us",
     "about-text": "<strong>A.M.K.E. DIETHNIS DRASI - INTERACTION</strong> is a Non-Profit Civil Company active in the fields of culture, art, and creativity. Our goal is to enhance Greece’s and modern Greek artists’ contribution to the global cultural scene through collaborations, festivals, educational programs, and artistic productions.",
