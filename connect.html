@@ -39,10 +39,12 @@
             background: #e9c846;
         }
 
-        /* ΝΕΟΣ ΚΑΝΟΝΑΣ: Περιέκτης για τα κουμπιά με κεντράρισμα */
+        /* Περιέκτης για τα κουμπιά με κεντράρισμα και κίνηση */
         .button-container {
             text-align: center;
-            margin-top: 20px; /* Προσθέτει λίγο κενό πάνω από τα κουμπιά */
+            margin-top: 20px;
+            /* Προσθέτει λίγο κενό πάνω από τα κουμπιά */
+            /* Η κίνηση ορίζεται πλέον στο HTML attribute */
         }
 
         /* Ενότητα με τα κουμπιά να είναι στο κέντρο (αυτός ο κανόνας μπορεί να μην χρειάζεται αν χρησιμοποιείτε το .button-container) */
@@ -86,10 +88,11 @@
 
         .left-align {
             text-align: left;
-            /* Κρατάμε αυτό για την λίστα και την παράγραφο */
+            /* Κρατάμε αυτό για την λίστα και την παράγραφο (το text-align: center στον button-container θα το υπερισχύσει για τα κουμπιά) */
             max-width: 800px;
             margin: 0 auto;
             padding-left: 0;
+            /* ΑΦΑΙΡΕΘΗΚΕ data-aos="fade-up" από εδώ */
         }
 
         .content-section ul {
@@ -102,6 +105,7 @@
             margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
+            /* Τα data-aos attributes παραμένουν στα li */
         }
 
         .content-section ul li::before {
@@ -180,7 +184,7 @@
     <section class="content-section">
         <div class="content-wrapper">
             <h3 data-lang-key="join-section-title">Δήλωσε Συμμετοχή</h3>
-            <div class="left-align" data-aos="fade-up">
+            <div class="left-align">
                 <ul>
                     <li data-aos="fade-up" data-aos-delay="50">
                         <strong data-lang-key="join-member-label">Γίνε μέλος:</strong>
@@ -195,14 +199,14 @@
                         </span>
                     </li>
                 </ul>
-                <p data-lang-key="join-conclusion">
+                <p data-lang-key="join-conclusion" data-aos="fade-left" data-aos-delay="150">
                     Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό, για έναν καλύτερο κόσμο για όλους!
                 </p>
-                <div class="button-container">
+                <div class="button-container" data-aos="fade-left" data-aos-delay="200">
                     <a href="volunteer.html" class="join-button" data-lang-key="btn-volunteer">Γίνε Εθελοντής</a>
                     <a href="member.html" class="join-button" data-lang-key="btn-member">Γίνε Μέλος</a>
                     <a href="sponsor.html" class="join-button" data-lang-key="btn-sponsor">Γίνε Χορηγός</a>
-                    </div>
+                </div>
                 </div>
         </div>
     </section>
