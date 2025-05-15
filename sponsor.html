@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Γίνε Χορηγός - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
+    <link rel="icon" type="image/jpeg" href="big.jpg">
+<script>
+    const savedLang = localStorage.getItem("language") || "el";
+    document.documentElement.lang = savedLang;
+    document.documentElement.setAttribute("data-language", savedLang);
+
+    const translations = {
+        el: {
+            "main-title": "Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ",
+            "subtitle": "INTERACTION",
+            "slogan": "Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική",
+            "nav-home": "ΑΡΧΙΚΗ",
+            "nav-about": "ΣΧΕΤΙΚΑ",
+            "actions": "ΔΡΑΣΕΙΣ",
+            "nav-culture": "Πολιτισμός",
+            "nav-tourism": "Τουρισμός",
+            "nav-environment": "Περιβάλλον",
+            "nav-education": "Εκπαίδευση",
+            "nav-technology": "Τεχνολογία",
+            "participation": "ΣΥΜΜΕΤΟΧΗ",
+            "nav-volunteer": "Γίνε Εθελοντής",
+            "nav-member": "Γίνε Μέλος",
+            "nav-sponsor": "Γίνε Χορηγός",
+            "nav-contact": "ΕΠΙΚΟΙΝΩΝΙΑ",
+            "about-title": "Σχετικά με εμάς",
+            "about-text": "Η <strong>Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION</strong> είναι μια Αστική Μη Κερδοσκοπική Εταιρεία που δραστηριοποιείται στον τομέα του πολιτισμού, της τέχνης και της δημιουργικότητας. Σκοπός μας είναι η ενίσχυση της προσφοράς της Ελλάδας και των σύγχρονων Ελλήνων καλλιτεχνών και δημιουργών στην παγκόσμια πολιτιστική αρένα μέσα από συνεργασίες, φεστιβάλ, εκπαιδευτικά προγράμματα και καλλιτεχνικές παραγωγές.",
+            "typing-text": "Προβάλλουμε τον Ελληνικό Πολιτισμό Διεθνώς",
+            "projects-title": "Δράσεις",
+            "join-us-title": "Δήλωσε Συμμετοχή",
+            "join-us-member": "Γίνε μέλος:",
+            "join-us-member-description": "Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες.",
+            "join-us-volunteer": "Γίνε εθελοντής:",
+            "join-us-volunteer-description": "Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά.",
+            "join-us-button": "Μάθε περισσότερα",
+            "contact-title": "Επικοινωνήστε μαζί μας",
+            "footer-text": "© Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved",
+            "about-description": "Η <strong>Αστική Μη Κερδοσκοπική Εταιρία ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION</strong> ιδρύθηκε το 2024, έχοντας ως κεντρικό άξονα τη σύνδεση της Ελλάδας του σήμερα με τον υπόλοιπο κόσμο.",
+            "main-goals-title": "Βασικοί σκοποί μας αποτελούν:",
+            "goal-1": "Η ενίσχυση της προσφοράς της Ελλάδας και των σύγχρονων Ελλήνων καλλιτεχνών και δημιουργών στην παγκόσμια πολιτιστική αρένα",
+            "goal-2": "Η σύνδεση του Απόδημου Ελληνισμού παγκοσμίως με την Ελλάδα του σήμερα",
+            "goal-3": "Η προβολή του σύγχρονου ελληνικού πολιτισμού και η προώθηση της τέχνης, της λογοτεχνίας, της μουσικής και άλλων πτυχών του πολιτισμού",
+            "goal-4": "Η ανάπτυξη πρωτοβουλιών για την προώθηση τουριστικών δραστηριοτήτων",
+            "goal-5": "Η προστασία του περιβάλλοντος και η αναβάθμιση του τόπου και της ποιότητας ζωής των κατοίκων της Ελλάδας",
+            "goal-6": "Η συμμετοχή σε πρωτοβουλίες για την προστασία του περιβάλλοντος και η ανάπτυξη της οικολογικής γνώσης και συνείδησης",
+            "goal-7": "Η διαχείριση απορριμμάτων και ενέργειας",
+            "goal-8": "Η προώθηση των επιστημών και της εκπαίδευσης μέσω συνεργασιών με ελληνικά και διεθνή πανεπιστήμια",
+            "goal-9": "Η εφαρμογή τεχνητής νοημοσύνης σε διάφορους τομείς",
+            "goal-10": "Η αξιοποίηση της τεχνολογίας και της καινοτομίας",
+            "collaboration-text": "Η ανάπτυξη της δράσης της <STRONG>Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION </STRONG>πραγματοποιείται σε συνεργασία με χώρες από όλο τον κόσμο, όπου υπάρχει ανάγκη και προοπτική συνεργασίας.",
+            "service-intro": "Για την εξυπηρέτηση και προώθηση των σκοπών της η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION:",
+            "service-1": "Οργανώνει εκδηλώσεις",
+            "service-2": "Συνεργάζεται με αντίστοιχες οργανώσεις και φορείς στην Ελλάδα και το εξωτερικό",
+            "service-3": "Συμμετέχει σε δίκτυα πανελλήνιας, περιφερειακής και διεθνούς εμβέλειας",
+            "service-4": "Διοργανώνει πολιτιστικές δράσεις, εκπαιδευτικά προγράμματα και σεμινάρια σε διάφορους τομείς",
+            "service-5": "Φροντίζει για την εκπαίδευση των νέων σε θέματα περιβαλλοντικής συνείδησης",
+            "service-6": "Διοργανώνει εκθέσεις, παραστάσεις, συναυλίες και προγράμματα που προάγουν τον πολιτισμό στο εξωτερικό",
+            "service-7": "Προβάλλει τουριστικούς προορισμούς, οργανώνει ταξίδια και δράσεις που αναδεικνύουν την πολιτιστική κληρονομιά",
+            "service-8": "Πραγματοποιεί ημερίδες με θέματα περιβαλλοντικά και επιστημονικά",
+            "service-9": "Συνεργάζεται με εκπαιδευτικά ιδρύματα και πανεπιστήμια του εξωτερικού",
+            "ticker-1": "Ενίσχυση και προβολή του σύγχρονου ελληνικού πολιτισμού Παγκοσμίως",
+            "ticker-2": "Σύνδεση του τουρισμού με την προβολή του σύγχρονου πολιτισμού",
+            "ticker-3": "Προβολή ενός σύγχρονου \"πολιτιστικού\" διάστασης της περιβαλλοντικής συνείδησης",
+            "ticker-4": "Σύνδεση της εκπαίδευσης με την προβολή του σύγχρονου ελληνικού πνεύματος",
+            "ticker-5": "Ένταξη της τεχνολογίας στην ευρύτερη έννοια του σύγχρονου πολιτισμού",
+            "projects-title": "Δράσεις",
+            "btn-culture": "Πολιτισμός",
+            "btn-tourism": "Τουρισμός",
+            "btn-environment": "Περιβάλλον",
+            "btn-education": "Εκπαίδευση",
+            "btn-technology": "Τεχνολογία",
+            "square-1": "Συμμετοχές σε Projects",
+            "square-2": "Διεθνείς Συνεργασίες",
+            "square-3": "Εκδηλώσεις",
+            "square-4": "Πολιτιστικά Προγράμματα",
+            "partners-title": "Συνεργάτες - Υποστηρικτές",
+            "culture-title": "Πολιτισμός",
+            "culture-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION ενισχύει και προβάλλει τον σύγχρονο ελληνικό πολιτισμό παγκοσμίως. Σκοπός μας είναι να στηρίξουμε τους Έλληνες δημιουργούς, να διαδώσουμε την ελληνική τέχνη, μουσική, λογοτεχνία και να δημιουργήσουμε γέφυρες πολιτισμού με άλλες χώρες.",
+            "exhibition-title": "Διοργάνωση εκθέσεων, συναυλιών, παραστάσεων στην Ελλάδα και το εξωτερικό",
+            "exhibition-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION αναλαμβάνει τη διοργάνωση και προώθηση εκθέσεων εικαστικών τεχνών, συναυλιών μουσικής, θεατρικών παραστάσεων και άλλων πολιτιστικών εκδηλώσεων. Στοχεύουμε στην ανάδειξη του έργου Ελλήνων και διεθνών καλλιτεχνών σε καταξιωμένους χώρους εντός και εκτός Ελλάδας, προσφέροντας στο κοινό υψηλής ποιότητας πολιτιστικές εμπειρίες και ενισχύοντας την πολιτιστική παραγωγή.",
+            "cultural-exchange-title": "Πολιτιστικές ανταλλαγές με διεθνείς καλλιτεχνικούς οργανισμούς",
+            "cultural-exchange-description": "Θεωρούμε τις πολιτιστικές ανταλλαγές θεμελιώδεις για την αλληλοκατανόηση και την ανάπτυξη. Συνεργαζόμαστε ενεργά με διεθνείς καλλιτεχνικούς οργανισμούς, ιδρύματα και φορείς για την υλοποίηση κοινών προγραμμάτων, φιλοξενίες καλλιτεχνών και ανταλλαγή τεχνογνωσίας. Αυτές οι δράσεις ενισχύουν τους δεσμούς μεταξύ των πολιτισμών και δίνουν την ευκαιρία στους Έλληνες δημιουργούς να έρθουν σε επαφή με διαφορετικές καλλιτεχνικές προσεγγίσεις και κοινό.",
+            "showcase-creators-title": "Προβολή Ελλήνων δημιουργών μέσω διεθνών συνεργασιών",
+            "showcase-creators-description": "Είναι προτεραιότητα μας η συστηματική προβολή των Ελλήνων δημιουργών στο διεθνές καλλιτεχνικό στερέωμα. Μέσα από συμμετοχές σε διεθνή φεστιβάλ, εκθέσεις, συνέδρια και συνεργασίες με γκαλερί και πολιτιστικούς φορείς του εξωτερικού, επιδιώκουμε να αναδείξουμε το ταλέντο και την πρωτοτυπία της σύγχρονης ελληνικής δημιουργίας, διευρύνοντας το κοινό τους και ανοίγοντας νέους δρόμους στην καριέρα τους.",
+            "global-networks-title": "Συμμετοχή σε παγκόσμια πολιτιστικά δίκτυα",
+            "global-networks-description": "Η ενεργός συμμετοχή μας σε διεθνή πολιτιστικά δίκτυα και πλατφόρμες είναι ζωτικής σημασίας για την επίτευξη των στόχων μας. Μέσω αυτών των δικτύων, ανταλλάσσουμε ιδέες, συμμετέχουμε σε συζητήσεις για τις σύγχρονες τάσεις στον πολιτισμό, αναπτύσσουμε συνεργασίες και διασυνδεόμαστε με άλλους επαγγελματίες και οργανισμούς από όλο τον κόσμο. Αυτή η διασύνδεση ενισχύει την ορατότητα της ελληνικής πολιτιστικής σκηνής και συμβάλλει στην παγκόσμια πολιτιστική πολυμορφία.",
+            "tourism-title": "Τουρισμός",
+            "tourism-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION αναπτύπτει πρωτοβουλίες για την προώθηση τουριστικών δραστηριοτήτων, αναδεικνύοντας την πλούσια πολιτιστική κληρονομιά και τους μοναδικούς προορισμούς της Ελλάδας σε παγκόσμιο επίπεδο. Στόχος μας είναι η βιώσιμη τουριστική ανάπτυξη και η προβολή της σύγχρονης ελληνικής ταυτότητας.",
+            "tourism-destinations-title": "Προβολή Τουριστικών Προορισμών",
+            "tourism-destinations-description": "Προβάλλουμε τουριστικούς προορισμούς στην Ελλάδα, αναδεικνύοντας την ιστορία, τον πολιτισμό, τη φυσική ομορφιά και τις σύγχρονες υποδομές τους. Μέσω της δημιουργίας και διάδοσης ποιοτικού υλικού, στοχεύουμε στην προσέλκυση επισκεπτών από όλο τον κόσμο.",
+            "tourism-travel-title": "Οργάνωση Ταξιδιών και Δράσεων",
+            "tourism-travel-description": "Οργανώνουμε ταξίδια και δράσεις που αναδεικνύουν την πολιτιστική κληρονομιά και τις τοπικές ιδιαιτερότητες. Σχεδιάζουμε εμπειρίες που συνδυάζουν την εκπαίδευση, την ψυχαγωγία και την επαφή με την αυθεντική ελληνική ζωή, προσφέροντας μοναδικές στιγμές στους επισκέπτες.",
+            "environment-title": "Περιβάλλον",
+            "environment-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION δεσμεύεται στην προστασία του περιβάλλοντος και την προώθηση της βιώσιμης ανάπτυξης. Μέσω των δράσεών μας, επιδιώκουμε την αναβάθμιση του τόπου, τη βελτίωση της ποιότητας ζωής των κατοίκων και την ανάπτυξη της οικολογικής γνώσης και συνείδησης.",
+            "environment-initiative-title": "Συμμετοχή σε Πρωτοβουλίες Προστασίας Περιβάλλοντος",
+            "environment-initiative-description": "Συμμετέχουμε ενεργά σε πρωτοβουλίες που στοχεύουν στην προστασία του φυσικού περιβάλλοντος. Στηρίζουμε και υλοποιούμε δράσεις για τη διατήρηση της βιοποικιλότητας, την προστασία των οικοσυστημάτων και την αντιμετώπιση των περιβαλλοντικών προκλήσεων.",
+            "environment-education-title": "Ανάπτυξη Οικολογικής Γνώσης και Συνείδησης",
+            "environment-education-description": "Επενδύουμε στην εκπαίδευση και ευαισθητοποίηση του κοινού, ιδιαίτερα των νέων, σε θέματα περιβαλλοντικής προστασίας. Διοργανώνουμε εκπαιδευτικά προγράμματα, σεμινάρια και εκδηλώσεις που ενθαρρύνουν την κατανόηση των περιβαλλοντικών ζητημάτων και την υιοθέτηση υπεύθυνων συμπεριφορών.",
+            "environment-waste-energy-title": "Προώθηση Βέλτιστων Πρακτικών Διαχείρισης Απορριμμάτων και Ενέργειας",
+            "environment-waste-energy-description": "Αναπτύσσουμε και προωθούμε πρωτοβουλίες για τη βελτίωση της διαχείρισης απορριμμάτων και την εξοικονόμηση ενέργειας. Ενημερώνουμε για σύγχρονες πρακτικές ανακύκλωσης, κομποστοποίησης και χρήσης ανανεώσιμων πηγών ενέργειας, συμβάλλοντας σε ένα πιο βιώσιμο μέλλον.",
+            "environment-seminars-title": "Πραγματοποίηση Ημερίδων με Περιβαλλοντικά Θέματα",
+            "environment-seminars-description": "Διοργανώνουμε ημερίδες και εκδηλώσεις που εστιάζουν σε επίκαιρα περιβαλλοντικά ζητήματα. Συγκεντρώνουμε ειδικούς, ακαδημαϊκούς και φορείς για την ανταλλαγή γνώσεων, την παρουσίαση ερευνών και τη συζήτηση λύσεων για την προστασία του περιβάλλοντος.",
+            "education-title": "Εκπαίδευση",
+            "education-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION εστιάζει στην προώθηση της εκπαίδευσης σε διάφορους τομείς, ενισχύοντας τη γνώση, την ανάπτυξη δεξιοτήτων και τη διεθνή συνεργασία στον ακαδημαϊκό χώρο. Στόχος μας είναι η συμβολή στη διά βίου μάθηση και την επιστημονική κατάρτιση.",
+            "education-collab-title": "Συνεργασίες με Εκπαιδευτικά Ιδρύματα και Πανεπιστήμια",
+            "education-collab-description": "Αναπτύσσουμε στρατηγικές συνεργασίες με ελληνικά και διεθνή εκπαιδευτικά ιδρύματα και πανεπιστήμια. Μέσα από κοινά προγράμματα, ερευνητικές πρωτοβουλίες και ανταλλαγές, επιδιώκουμε την προαγωγή της ακαδημαϊκής αριστείας, τη γεφύρωση του χάσματος μεταξύ θεωρίας και πράξης και τη δημιουργία διεθνών ευκαιριών για φοιτητές και ακαδημαϊκούς.",
+            "education-programs-title": "Διοργάνωση Εκπαιδευτικών Προγραμμάτων και Σεμιναρίων",
+            "education-programs-description": "Οργανώνουμε και υλοποιούμε εκπαιδευτικά προγράμματα και σεμινάρια σε ποικίλα θέματα, καλύπτοντας διαφορετικούς επιστημονικούς και κοινωνικούς τομείς. Αυτές οι δράσεις απευθύνονται σε ένα ευρύ κοινό, με στόχο την ανάπτυξη νέων δεξιοτήτων, την επικαιροποίηση γνώσεων και την ενίσχυση της προσωπικής και επαγγελματικής κατάρτισης.",
+            "education-environment-title": "Εκπαίδευση Νέων σε Θέματα Περιβαλλοντικής Συνείδησης",
+            "education-environment-description": "Θεωρούμε την περιβαλλοντική εκπαίδευση των νέων θεμελιώδη για ένα βιώσιμο μέλλον. Δημιουργούμε και υποστηρίζουμε προγράμματα που ευαισθητοποιούν και ενημερώνουν τους νέους για τα περιβαλλοντικά ζητήματα, ενθαρρύνοντας την ανάπτυξη οικολογικής συνείδησης και την υιοθέτηση υπεύθυνων συμπεριφορών.",
+            "education-conferences-title": "Πραγματοποίηση Ημερίδων και Εκδηλώσεων Επιστημονικού Ενδιαφέροντος",
+            "education-conferences-description": "Διοργανώνουμε ημερίδες και εκδηλώσεις με επίκεντρο θέματα επιστημονικού ενδιαφέροντος, συμπεριλαμβανομένων των περιβαλλοντικών επιστημών. Αυτές οι συναντήσεις αποτελούν πλατφόρμα για την παρουσίαση έρευνας, την ανταλλαγή ιδεών και τη συζήτηση για τις τελευταίες εξελίξεις, προάγοντας τον επιστημονικό διάλογο και τη διάδοση της γνώσης.",
+            "tech-title": "Τεχνολογία",
+            "tech-description": "Η Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION αγκαλιάζει την τεχνολογία και την καινοτομία ως κεντρικούς πυλώνες για την επίτευξη των στόχων της. Επιδιώκουμε την αξιοποίηση σύγχρονων ψηφιακών εργαλείων και την προώθηση πρωτοποριακών λύσεων σε όλους τους τομείς δράσης μας.",
+            "tech-innovation-title": "Αξιοποίηση Τεχνολογίας και Προώθηση Καινοτομίας",
+            "tech-innovation-description": "Στηρίζουμε ενεργά την ενσωμάτωση της τεχνολογίας και την καλλιέργεια της καινοτομίας σε όλους τους τομείς δράσης μας. Ενθαρρύνουμε την υιοθέτηση νέων ψηφιακών εργαλείων, πλατφορμών και μεθοδολογιών που βελτιώνουν τις διαδικασίες, προωθούν την έρευνα και συμβάλλουν στην ανάπτυξη πρωτοποριακών λύσεων για σύγχρονες προκλήσεις.",
+            "tech-ai-title": "Εφαρμογή Τεχνητής Νοημοσύνης σε Διάφορους Τομείς",
+            "tech-ai-description": "Διερευνούμε και προωθούμε την υπεύσπιση εφαρμογή της Τεχνητής Νοημοσύνης (ΑΙ) σε διάφορους τομείς δράσης μας, από την εκπαίδευση και τον πολιτισμό έως την προστασία του περιβάλλοντος. Αναδεικνύουμε τις δυνατότητες της ΑΙ για την ανάλυση δεδομένων, την αυτοματοποίηση διαδικασιών και την υποστήριξη πρωτοβουλιών, συμβάλλοντας στην αξιοποίηση των νέων τεχνολογιών προς όφελος της κοινωνίας.",
+            "tech-edu-innovation-title": "Αξιοποίηση Τεχνολογίας και Προώθηση Καινοβίας στην Εκπαίδευση",
+            "tech-edu-innovation-description": "Στηρίζουμε ενεργά την ενσωμάτωση της τεχνολογίας και την καλλιέργεια της καινοτομίας στην εκπαίδευση και την επιστήμη. Ενθαρρύνουμε την υιοθέτηση ψηφιακών εργαλείων και μεθοδολογιών που βελτιώνουν τη μάθηση, προωθούν την έρευνα και συμβάλλουν στην ανάπτυξη πρωτοποριακών λύσεων.",
+            "tech-ai-edu-title": "Εφαρμογή Τεχνητής Νοημοσύνης στην Εκπαίδευση και Έρευνα",
+            "tech-ai-edu-description": "Διερευνούμε και προωθούμε την υπεύσπιση εφαρμογή της Τεχνητής Νοημοσύνης (ΑΙ) στον εκπαιδευτικό και επιστημονικό χώρο. Αναδεικνύουμε τις δυνατότητες της ΑΙ για εξατομίκευση μάθησης, ανάλυση δεδομένων, αυτοματοποίηση διαδικασιών και υποστήριξη της έρευνας.",
+            "join-section-title": "Δήλωσε Συμμετοχή",
+            "join-member-label": "Γίνε μέλος:",
+            "join-member-text": "Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες. Θα έχεις την ευκαιρία να συνεισφέρεις στο κοινωνικό σύνολο, να αποκτήσεις νέες γνώσεις και να δημιουργήσεις διαρκείς σχέσεις με άλλους ανθρώπους που μοιράζονται τις ίδιες φιλοσοφίες και στόχους.",
+            "join-volunteer-label": "Γίνε εθελοντής:",
+            "join-volunteer-text": "Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά. Εθελοντισμός σημαίνει συμμετοχή σε δράσεις που βοηθούν στην προώθηση του πολιτισμού, της εκπαίδευσης και της κοινωνικής αλληλεγγύης, και σου δίνει τη δυνατότητα να συμβάλεις ενεργά σε έργα που κάνουν τη διαφορά στην κοινότητα.",
+            "join-conclusion": "Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό, για έναν καλύτερο κόσμο για όλους!",
+            "btn-volunteer": "Γίνε Εθελοντής",
+            "btn-member": "Γίνε Μέλος",
+            "volunteer-title": "Η Αξία του Εθελοντισμού",
+            "volunteer-text-1": "Ο εθελοντισμός είναι μια ανεκτίμητη πράξη προσφοράς προς την κοινωνία και τον κόσμο γύρω μας. Ο εθελοντής προσφέρει χρόνο, ενέργεια και ικανότητες για την υποστήριξη δράσεων που στοχεύουν σε ένα καλύτερο μέλλον για όλους μας. Εθελοντισμός δεν είναι μόνο η συμμετοχή σε δραστηριότητες, είναι η ευκαιρία να αλλάξουμε την κοινωνία και να προσφέρουμε σε άλλους χωρίς αντάλλαγμα. Η εμπειρία του εθελοντή είναι μια εμπειρία αναγνώρισης, εξέλιξης και συνεισφοράς.",
+            "volunteer-text-2": "Όταν συμμετέχουμε ως εθελοντές, προσφέρουμε όχι μόνο βοήθεια, αλλά και την ευκαιρία για προσωπική ανάπτυξη. Ενισχύουμε την κοινότητα, διευρύνουμε τους ορίζοντές μας και μαθαίνουμε μέσα από τις εμπειρίες μας. Ο εθελοντισμός προσφέρει την ευκαιρία να συνεργαστούμε με άλλους ανθρώπους, να εμπλουτίσουμε τις γνώσεις μας και να γίνουμε μέρος μιας ομάδας που εργάζεται για έναν κοινό σκοπό.",
+            "volunteer-text-3": "Αν θέλεις να βοηθήσεις, γεμάτος ενθουσιασμό και διάθεση, γίνε μέλος της ομάδας μας και εθελοντής στις δράσεις μας. Μάθε πώς μπορείς να προσφέρεις στον κόσμο γύρω σου και να εξελιχθείς με το έργο μας!",
+            "volunteer-btn-form": "Συμπλήρωσε τη φόρμα συμμετοχής",
+            "volunteer-btn-back": "Γύρισε πίσω",
+            "modal-title": "Φόρμα Εγγραφής",
+            "form-fullName": "Ονοματεπώνυμο",
+            "form-email": "Email",
+            "form-phone": "Τηλέφωνο",
+            "form-city": "Τόπος Κατοικίας",
+            "form-address": "Διεύθυνση",
+            "form-message": "Γράψε το μήνυμά σου εδώ...",
+            "form-submit": "Υποβολή",
+            "member-title": "Γίνε Μέλος",
+            "member-description": "Όταν γίνεσαι μέλος της κοινότητας μας, αποκτάς πρόσβαση σε δράσεις, εκδηλώσεις και ευκαιρίες για να αναπτύξεις τις ικανότητές σου και να συνεισφέρεις στην κοινωνία μας.",
+            "member-description1": "Ετήσια Συνδρομή Εγγραφής 100 ευρώ. ",
+
+            "member-benefits-title": "Πλεονεκτήματα του να Είσαι Μέλος",
+            "benefit-1": "Πρόσβαση σε Αποκλειστικές Δράσεις και Εκδηλώσεις – Από εκπαιδευτικά σεμινάρια και πολιτιστικά φεστιβάλ έως διεθνή συνέδρια, η συμμετοχή σου συμβάλλει στην προσωπική σου εξέλιξη.",
+            "benefit-2": "Ειδικές Τιμές και Εκπτώσεις στα εισητήρια και πρόσβαση για όλες τις εκδηλώσεις και δρώμενα του Φεστιβάλ εντός και εκτός Ελλάδας.",
+            "benefit-3": "Ειδικές Τιμές στους προορισμούς του φεστιβάλ σε ξενοδοχεία, εστιατόρια, μετακίνηση.",
+
+            "benefit-4": "Δικτύωση με Κορυφαίους Επαγγελματίες και Δημιουργικούς Ανθρώπους – Δημιουργία ισχυρών συνεργασιών και ανταλλαγή ιδεών με άτομα που μοιράζονται τις ίδιες αξίες και στόχους.",
+            "benefit-5": "Πρόσβαση σε Μοναδικά Εκπαιδευτικά Προγράμματα – Εξειδικευμένα προγράμματα για την ανάπτυξη ηγετικών ικανοτήτων και την εκμάθηση νέων τεχνολογιών.",
+            "benefit-6": "Ευκαιρίες Εθελοντισμού και Κοινωνικής Προσφοράς – Συμμετοχή σε δράσεις που ενισχύουν την κοινωνική πρόοδο και αλληλεγγύη.",
+            "benefit-7": "Συμμετοχή σε Διεθνή Δίκτυα – Συνδεσιμότητα με οργανισμούς και άτομα σε όλο τον κόσμο, για ανταλλαγή και συνεργασία σε παγκόσμιο επίπεδο.",
+            "benefit-8": "Αίσθηση Συνοχής και Ανήκειν – Γίνε μέρος μιας κοινότητας που στηρίζει την κοινωνική αλλαγή και τη συνεχιζόμενη εξέλιξη των μελών της.",
+            "btn-fill-form": "Συμπλήρωσε τη φόρμα συμμετοχής",
+            "btn-go-back": "Γύρισε πίσω",
+            "form-submit": "Υποβολή",
+            "contact-title": "Επικοινωνήστε μαζί μας",
+            "form-name": "Το όνομά σας",
+            "contact-email": "Το email σας",
+            "contact-message": "Μήνυμά σας",
+            "contact-submit": "Αποστολή",
+            "info-title": "Στοιχεία Επικοινωνίας",
+            "info-address": "Διεύθυνση:<br> Λάμπρου Κατσώνη 51, Αθήνα, Τ.Κ. 11471",
+            "info-phone": "Τηλέφωνο:<br> +30 211 2154573 ",
+            "info-email": "Email:<br> amkeinteraction@mail.com",
+            "follow-title": "Ακολουθήστε μας",
+            "social-facebook": "Facebook",
+            "social-instagram": "Instagram",
+            "social-google": "Google Business",
+            "sponsor-title": "Γίνε Χορηγός",
+            "sponsor-description": "Με τη χορηγική σου υποστήριξη, γίνεσαι αναπόσπαστο μέρος της αποστολής μας και συμβάλλεις ουσιαστικά στην υλοποίηση δράσεων, εκδηλώσεων και πρωτοβουλιών που προάγουν την ανάπτυξη, τον πολιτισμό και την κοινωνική προσφορά. Η συνεισφορά σου ενδυναμώνει το έργο μας και επιτρέπει την επέκταση του θετικού μας αντίκτυπου.",
+            "sponsor-how": "Πώς μπορείς να γίνεις Χορηγός; Υπάρχουν διάφορα επίπεδα και τρόποι χορηγικής υποστήριξης, προσαρμοσμένοι στις ανάγκες και τους στόχους κάθε ενδιαφερόμενου. Επικοινώνησε μαζί μας για να συζητήσουμε τις λεπτομέρειες.",
+            "sponsor-benefits-title": "Πλεονεκτήματα του να Είσαι Χορηγός",
+            "sponsor-benefit-1": "Ενίσχυση Προβολής και Αναγνωρισιμότητας: Απόκτησε προβολή της επωνυμίας σου σε ένα ευρύ κοινό μέσω των εκδηλώσεων, των ψηφιακών μας πλατφορμών και του επικοινωνιακού μας υλικού.",
+            "sponsor-benefit-2": "Σύνδεση με Αξίες και Κοινωνική Προσφορά: Ταύτισε το brand σου με πρωτοβουλίες που έχουν θετικό αντίκτυπο στην κοινωνία, την εκπαίδευση και τον πολιτισμό, ενισχύοντας την εταιρική κοινωνική σου ευθύνη.",
+            "sponsor-benefit-3": "Πρόσβαση σε Δίκτυο και Εκδηλώσεις: Έχετε πρόσβαση στις αποκλειστικές μας εκδηλώσεις, ευκαιρίες δικτύωσης με μέλη, επαγγελματίες, δημιουργούς και άλλους χορηγούς.",
+            "sponsor-benefit-4": "Ειδικές Ευκαιρίες Προβολής: Ανάλογα με το επίπεδο χορηγίας, μπορεί να περιλαμβάνονται ειδικές παρουσιάσεις, συμμετοχή σε πάνελ, ή άλλες εξατομικευμένες δράσεις προβολής.",
+            "sponsor-benefit-5": "Συμβολή σε Συγκεκριμένα Έργα: Δυνατότητα υποστήριξης συγκεκριμένων δράσεων ή εκπαιδευτικών προγραμμάτων που ευθυγραμμίζονται με τους στόχους σου.",
+            "sponsor-benefit-6": "Ενίσχυση Εταιρικής Εικόνας: Δείξε έμπρακτα τη στήριξη σου σε πρωτοβουλίες που εμπνέουν και δημιουργούν θετική αλλαγή.",
+            "btn-open-sponsor-form": "Συμπλήρωσε τη φόρμα χορηγίας"
+
+        },
+        en: {
+            "main-title": "A.M.K.E. DIETHNIS DRASI",
+            "subtitle": "INTERACTION",
+            "slogan": "Modern Cultural Presence with a Global Perspective",
+            "nav-home": "HOME",
+            "nav-about": "ABOUT",
+            "actions": "PROJECTS",
+            "nav-culture": "Culture",
+            "nav-tourism": "Tourism",
+            "nav-environment": "Environment",
+            "nav-education": "Education",
+            "nav-technology": "Technology",
+            "participation": "PARTICIPATE",
+            "nav-volunteer": "Become a Volunteer",
+            "nav-member": "Become a Member",
+            "nav-sponsor": "Become a Sponsor",
+            "nav-contact": "CONTACT",
+            "about-title": "About Us",
+            "about-text": "<strong>A.M.K.E. DIETHNIS DRASI - INTERACTION</strong> is a Non-Profit Civil Company active in the fields of culture, art, and creativity. Our goal is to enhance Greece’s and modern Greek artists’ contribution to the global cultural scene through collaborations, festivals, educational programs, and artistic productions.",
+            "typing-text": "We promote Greek Culture Internationally",
+            "projects-title": "Projects",
+            "join-us-title": "Join Us",
+            "join-us-member": "Become a member:",
+            "join-us-member-description": "Becoming a member of our team is not just a registration — it’s a commitment to a better world. As a member, you have the opportunity to actively participate in our actions and become part of a community with shared values.",
+            "join-us-volunteer": "Become a volunteer:",
+            "join-us-volunteer-description": "If you want to offer time, creativity, and energy, you can contribute to our actions and gain valuable experience through giving.",
+            "join-us-button": "Learn more",
+            "contact-title": "Contact Us",
+            "footer-text": "© A.M.K.E. DIETHNIS DRASI - INTERACTION | All rights reserved",
+            "about-description": "<strong>A.M.K.E. DIETHNIS DRASI – INTERACTION</strong> was founded in 2024, aiming to connect today’s Greece with the world.",
+            "main-goals-title": "Our main goals include:",
+            "goal-1": "Promoting the contribution of Greece and modern Greek artists and creators in the global cultural arena",
+            "goal-2": "Connecting the Greek diaspora worldwide with today’s Greece",
+            "goal-3": "Showcasing modern Greek culture and promoting art, literature, music, and other aspects of culture",
+            "goal-4": "Developing initiatives for the promotion of tourism activities",
+            "goal-5": "Protecting the environment and improving the living standards and quality of life in Greece",
+            "goal-6": "Participating in initiatives for environmental protection and fostering ecological awareness",
+            "goal-7": "Managing waste and energy",
+            "goal-8": "Promoting science and education through partnerships with Greek and international universities",
+            "goal-9": "Applying artificial intelligence across sectors",
+            "goal-10": "Utilizing technology and innovation",
+            "collaboration-text": "The activities of <STRONG>A.M.K.E. DIETHNIS DRASI – INTERACTION</STRONG> are carried out in collaboration with countries around the world where there is need and potential for cooperation.",
+            "service-intro": "To serve and promote its objectives, A.M.K.E. DIETHNIS DRASI – INTERACTION:",
+            "service-1": "Organizes events",
+            "service-2": "Collaborates with similar organizations and agencies in Greece and abroad",
+            "service-3": "Participates in national, regional, and international networks",
+            "service-4": "Organizes cultural activities, educational programs, and seminars in various fields",
+            "service-5": "Ensures youth education on environmental awareness",
+            "service-6": "Hosts exhibitions, performances, concerts, and programs that promote culture abroad",
+            "service-7": "Showcases tourist destinations, organizes trips and activities that highlight cultural heritage",
+            "service-8": "Conducts conferences on environmental and scientific topics",
+            "service-9": "Partners with educational institutions and universities abroad",
+            "ticker-1": "Promoting modern Greek culture worldwide",
+            "ticker-2": "Linking tourism with showcasing modern culture",
+            "ticker-3": "Presenting a modern cultural dimension of environmental awareness",
+            "ticker-4": "Connecting education with showcasing the modern Greek spirit",
+            "ticker-5": "Integrating technology into the broader concept of modern culture",
+            "projects-title": "Projects",
+            "btn-culture": "Culture",
+            "btn-tourism": "Tourism",
+            "btn-environment": "Environment",
+            "btn-education": "Education",
+            "btn-technology": "Technology",
+            "square-1": "Project Participation",
+            "square-2": "International Collaborations",
+            "square-3": "Events",
+            "square-4": "Cultural Programs",
+            "partners-title": "Partners & Supporters",
+            "culture-title": "Culture",
+            "culture-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION promotes and showcases modern Greek culture worldwide. Our goal is to support Greek creators, spread Greek art, music, literature, and build cultural bridges with other countries.",
+            "exhibition-title": "Organizing Exhibitions, Concerts, Performances in Greece and Abroad",
+            "exhibition-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION takes on the organization and promotion of visual arts exhibitions, music concerts, theater performances, and other cultural events. We aim to showcase the works of Greek and international artists in renowned venues both in Greece and abroad, offering the public high-quality cultural experiences and strengthening cultural production.",
+            "cultural-exchange-title": "Cultural Exchanges with International Artistic Organizations",
+            "cultural-exchange-description": "We consider cultural exchanges essential for mutual understanding and development. We actively collaborate with international artistic organizations, institutions, and bodies to implement joint programs, host artists, and exchange know-how. These actions strengthen ties between cultures and give Greek creators the opportunity to engage with different artistic approaches and audiences.",
+            "showcase-creators-title": "Showcasing Greek Creators Through International Collaborations",
+            "showcase-creators-description": "Our priority is the systematic showcasing of Greek creators in the international art scene. Through participation in international festivals, exhibitions, conferences, and collaborations with galleries and cultural organizations abroad, we aim to highlight the talent and originality of contemporary Greek creation, expanding their audience and opening new paths in their careers.",
+            "global-networks-title": "Participation in Global Cultural Networks",
+            "global-networks-description": "Our active participation in international cultural networks and platforms is vital to achieving our goals. Through these networks, we exchange ideas, engage in discussions on contemporary trends in culture, develop collaborations, and connect with other professionals and organizations from around the world. This connectivity enhances the visibility of Greek cultural scenes and contributes to global cultural diversity.",
+            "tourism-title": "Tourism",
+            "tourism-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION develops initiatives to promote tourism activities, showcasing Greece’s rich cultural heritage and unique destinations globally. Our goal is sustainable tourism development and the promotion of modern Greek identity.",
+            "tourism-destinations-title": "Showcasing Tourist Destinations",
+            "tourism-destinations-description": "We showcase tourist destinations in Greece, highlighting their history, culture, natural beauty, and modern infrastructure. Through the creation and dissemination of high-quality material, we aim to attract visitors from around the world.",
+            "tourism-travel-title": "Organizing Trips and Activities",
+            "tourism-travel-description": "We organize trips and activities that highlight cultural heritage and local peculiarities. We design experiences that combine education, entertainment, and immersion in authentic Greek life, offering unique moments for visitors.",
+            "environment-title": "Environment",
+            "environment-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION is committed to environmental protection and promoting sustainable development. Through our actions, we aim to upgrade the area, improve the quality of life for residents, and develop ecological knowledge and awareness.",
+            "environment-initiative-title": "Participation in Environmental Protection Initiatives",
+            "environment-initiative-description": "We actively participate in initiatives aimed at protecting the natural environment. We support and implement actions to preserve biodiversity, protect ecosystems, and address environmental challenges.",
+            "environment-education-title": "Development of Ecological Knowledge and Awareness",
+            "environment-education-description": "We invest in educating and raising public awareness, especially among youth, on environmental protection issues. We organize educational programs, seminars, and events that encourage understanding of environmental issues and the adoption of responsible behaviors.",
+            "environment-waste-energy-title": "Promotion of Best Practices in Waste and Energy Management",
+            "environment-waste-energy-description": "We develop and promote initiatives to improve waste management and energy conservation. We inform about modern recycling, composting practices, and the use of renewable energy sources, contributing to a more sustainable future.",
+            "environment-seminars-title": "Organizing Environmental Themed Seminars",
+            "environment-seminars-description": "We organize seminars and events focusing on current environmental issues. We bring together experts, academics, and organizations to exchange knowledge, present research, and discuss solutions for environmental protection.",
+            "education-title": "Education",
+            "education-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION focuses on promoting education across various fields, enhancing knowledge, skill development, and international collaboration in academia. Our goal is to contribute to lifelong learning and scientific training.",
+            "education-collab-title": "Partnerships with Educational Institutions and Universities",
+            "education-collab-description": "We develop strategic partnerships with Greek and international educational institutions and universities. Through joint programs, research initiatives, and exchanges, we aim to promote academic excellence, bridge the gap between theory and practice, and create international opportunities for students and academics.",
+            "education-programs-title": "Organizing Educational Programs and Seminars",
+            "education-programs-description": "We organize and implement educational programs and seminars on various topics, covering diverse scientific and social fields. These activities target a wide audience, aiming to develop new skills, update knowledge, and enhance personal and professional development.",
+            "education-environment-title": "Youth Environmental Awareness Education",
+            "education-environment-description": "We consider environmental education for youth fundamental for a sustainable future. We create and support programs that raise awareness and inform young people about environmental issues, encouraging the development of ecological consciousness and responsible practices for environmental protection.",
+            "education-conferences-title": "Hosting Scientific Conferences and Events",
+            "education-conferences-description": "We organize conferences and events focusing on scientific topics, including environmental sciences. These gatherings serve as a platform for presenting research, exchanging ideas, and discussing the latest developments, promoting scientific dialogue and knowledge dissemination.",
+            "tech-title": "Technology",
+            "tech-description": "A.M.K.E. DIETHNIS DRASI - INTERACTION embraces technology and innovation as central pillars for achieving its goals. We seek to utilize modern digital tools and promote pioneering solutions in all our areas of action.",
+            "tech-innovation-title": "Utilizing Technology and Promoting Innovation",
+            "tech-innovation-description": "We actively support the integration of technology and the cultivation of innovation in all our fields of action. We encourage the adoption of new digital tools, platforms, and methodologies that improve processes, promote research, and contribute to the development of pioneering solutions for contemporary challenges.",
+            "tech-ai-title": "Applying Artificial Intelligence in Various Sectors",
+            "tech-ai-description": "We explore and promote the responsible application of Artificial Intelligence (AI) in various sectors of our action, from education and culture to environmental protection. We highlight the capabilities of AI for data analysis, process automation, and initiative support, contributing to the utilization of new technologies for the benefit of society.",
+            "tech-edu-innovation-title": "Utilizing Technology and Promoting Innovation in Education",
+            "tech-edu-innovation-description": "We actively support the integration of technology and the cultivation of innovation in education and science. We encourage the adoption of digital tools and methodologies that improve learning, promote research, and contribute to the development of pioneering solutions.",
+            "tech-ai-edu-title": "Applying Artificial Intelligence in Education and Research",
+            "tech-ai-edu-description": "We explore and promote the responsible application of Artificial Intelligence (AI) in the educational and scientific field. We highlight the capabilities of AI for personalized learning, data analysis, process automation, and research support.",
+            "join-section-title": "Join Us",
+            "join-member-label": "Become a member:",
+            "join-member-text": "Becoming a member of our team is not just a registration — it’s a commitment to a better world. As a member, you have the opportunity to actively participate in our actions and become part of a community with shared values. You will have the chance to contribute to society, gain new knowledge, and build lasting relationships with others who share the same philosophies and goals.",
+            "join-volunteer-label": "Become a volunteer:",
+            "join-volunteer-text": "If you want to offer time, creativity, and energy, you can contribute to our actions and gain valuable experience through giving. Volunteering means participating in actions that help promote culture, education, and social solidarity, and gives you the opportunity to actively contribute to projects that make a difference in the community.",
+            "join-conclusion": "By actively participating, you not only offer to others but also develop personally. Become part of a team that works with vision and purpose, for a better world for all!",
+            "btn-volunteer": "Become a Volunteer",
+            "btn-member": "Become a Member",
+            "volunteer-title": "The Value of Volunteering",
+            "volunteer-text-1": "Volunteering is an invaluable act of offering to society and the world around us. Volunteers offer their time, energy, and skills to support actions aimed at a better future for all of us. Volunteering is not just participating in activities; it is an opportunity to change society and offer to others without expecting anything in return. The experience of a volunteer is one of recognition, development, and contribution.",
+            "volunteer-text-2": "When we volunteer, we not only provide help but also the opportunity for personal growth. We strengthen the community, broaden our horizons, and learn through our experiences. Volunteering offers the opportunity to collaborate with other people, enrich our knowledge, and become part of a team working towards a common goal.",
+            "volunteer-text-3": "If you want to help, full of enthusiasm and willingness, join our team and volunteer in our actions. Learn how you can contribute to the world around you and grow with our work!",
+            "volunteer-btn-form": "Fill out the participation form",
+            "volunteer-btn-back": "Go back",
+            "modal-title": "Registration Form",
+            "form-fullName": "Full Name",
+            "form-email": "Email",
+            "form-phone": "Phone",
+            "form-city": "City",
+            "form-address": "Address",
+            "form-message": "Write your message here...",
+            "form-submit": "Submit",
+            "member-title": "Become a Member",
+            "member-description": "When you become a member of our community, you gain access to activities, events, and opportunities to develop your skills and contribute to our society.",
+            "member-description1": "Annual Membership Fee 100 euros. ",
+
+            "member-benefits-title": "Benefits of Being a Member",
+            "benefit-1": "Access to Exclusive Activities and Events – From educational seminars and cultural festivals to international conferences, your participation contributes to your personal development.",
+            "benefit-2": "Special Prices and Discounts on tickets and access to all Festival events and happenings in and outside Greece.",
+            "benefit-3": "Special Prices at festival destinations for hotels, restaurants, transportation.",
+
+            "benefit-4": "Networking with Leading Professionals and Creative People – Building strong collaborations and exchanging ideas with individuals who share the same values and goals.",
+            "benefit-5": "Access to Unique Educational Programs – Specialized programs for developing leadership skills and learning new technologies.",
+            "benefit-6": "Volunteering and Social Contribution Opportunities – Participation in actions that enhance social progress and solidarity.",
+            "benefit-7": "Participation in International Networks – Connectivity with organizations and individuals worldwide, for exchange and collaboration on a global level.",
+            "benefit-8": "Sense of Cohesion and Belonging – Become part of a community that supports social change and the continuous development of its members.",
+            "btn-fill-form": "Fill out the participation form",
+            "btn-go-back": "Go back",
+            "form-submit": "Submit",
+            "contact-title": "Contact Us",
+            "form-name": "Your Name",
+            "contact-email": "Your Email",
+            "contact-message": "Your Message",
+            "contact-submit": "Send",
+            "info-title": "Contact Information",
+            "info-address": "Address:<br> Lamprou Katsoni 51, Athens, P.C. 11471",
+            "info-phone": "Phone:<br> +30 211 2154573 ",
+            "info-email": "Email:<br> amkeinteraction@mail.com",
+            "follow-title": "Follow Us",
+            "social-facebook": "Facebook",
+            "social-instagram": "Instagram",
+            "social-google": "Google Business",
+             "sponsor-title": "Become a Sponsor",
+            "sponsor-description": "With your sponsorship support, you become an integral part of our mission and contribute significantly to the implementation of actions, events, and initiatives that promote development, culture, and social contribution. Your contribution strengthens our work and allows us to expand our positive impact.",
+            "sponsor-how": "How can you become a Sponsor? There are various levels and ways of sponsorship support, tailored to the needs and goals of each interested party. Contact us to discuss the details.",
+            "sponsor-benefits-title": "Benefits of Being a Sponsor",
+            "sponsor-benefit-1": "Increased Visibility and Recognition: Gain exposure for your brand to a wide audience through our events, digital platforms, and communication materials.",
+            "sponsor-benefit-2": "Connection with Values and Social Contribution: Align your brand with initiatives that have a positive impact on society, education, and culture, strengthening your corporate social responsibility.",
+            "sponsor-benefit-3": "Access to Network and Events: You get access to our exclusive events, networking opportunities with members, professionals, creators, and other sponsors.",
+            "sponsor-benefit-4": "Special Promotion Opportunities: Depending on the sponsorship level, this may include special presentations, participation in panels, or other tailored promotional activities.",
+            "sponsor-benefit-5": "Contribution to Specific Projects: Opportunity to support specific actions or educational programs that align with your goals.",
+            "sponsor-benefit-6": "Enhance Corporate Image: Demonstrate your practical support for initiatives that inspire and create positive change.",
+            "btn-open-sponsor-form": "Fill out the sponsorship form"
+
+        }
+    };
+
+    function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute("data-language", lang);
+        localStorage.setItem("language", lang);
+        updateContent();
+    }
+
+    function updateContent() {
+        const lang = document.documentElement.lang;
+        document.querySelectorAll('[data-lang-key]').forEach(element => {
+            const key = element.getAttribute('data-lang-key');
+            if (translations[lang] && translations[lang][key]) {
+                element.innerHTML = translations[lang][key];
+            }
+        });
+        // Update form placeholders
+        if (lang === 'el') {
+            const fullNameInput = document.querySelector('.modal-content input[name="fullName"]');
+            const emailInput = document.querySelector('.modal-content input[name="email"]');
+            const phoneInput = document.querySelector('.modal-content input[name="phone"]');
+            const cityInput = document.querySelector('.modal-content input[name="addressCity"]');
+            const addressInput = document.querySelector('.modal-content input[name="addressLine"]');
+            const messageTextarea = document.querySelector('.modal-content textarea[name="message"]');
+
+            if(fullNameInput) fullNameInput.placeholder = translations.el["form-fullName"];
+            if(emailInput) emailInput.placeholder = translations.el["form-email"];
+            if(phoneInput) phoneInput.placeholder = translations.el["form-phone"];
+            if(cityInput) cityInput.placeholder = translations.el["form-city"];
+            if(addressInput) addressInput.placeholder = translations.el["form-address"];
+            if(messageTextarea) messageTextarea.placeholder = translations.el["form-message"];
+
+        } else if (lang === 'en') {
+            const fullNameInput = document.querySelector('.modal-content input[name="fullName"]');
+            const emailInput = document.querySelector('.modal-content input[name="email"]');
+            const phoneInput = document.querySelector('.modal-content input[name="phone"]');
+            const cityInput = document.querySelector('.modal-content input[name="addressCity"]');
+            const addressInput = document.querySelector('.modal-content input[name="addressLine"]');
+            const messageTextarea = document.querySelector('.modal-content textarea[name="message"]');
+
+            if(fullNameInput) fullNameInput.placeholder = translations.en["form-fullName"];
+            if(emailInput) emailInput.placeholder = translations.en["form-email"];
+            if(phoneInput) phoneInput.placeholder = translations.en["form-phone"];
+            if(cityInput) cityInput.placeholder = translations.en["form-city"];
+            if(addressInput) addressInput.placeholder = translations.en["form-address"];
+            if(messageTextarea) messageTextarea.placeholder = translations.en["form-message"];
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateContent);
+
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('active');
+    }
+
+</script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lang.css">
+
+    <style>
+        .join-button {
+            background: #F4D35E;
+            color: #2C3E50;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .join-button:hover {
+            background: #e9c846;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(44, 62, 80, 0.8);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 8% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2C3E50;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            width: 100%;
+            background: #f9f9f9;
+            color: #2C3E50;
+        }
+
+        form button {
+            background: #F4D35E;
+            color: #2C3E50;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #e9c846;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
+
+        .aos-text ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-section h3 {
+            font-size: 1.8rem;
+            color: #003366;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-section p,
+        .content-section ul {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .left-align {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 0;
+        }
+
+        .content-section ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content-section ul li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            color: #003366;
+            font-size: 0.9rem;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="big.png" alt="Λογότυπο" class="logo">
+            </a>
+            <div class="title-container">
+                <h1>
+                    <span class="title-main" data-lang-key="main-title"></span>
+                    <span class="dash"> - </span>
+                    <span class="title-sub" data-lang-key="subtitle"></span>
+                </h1>
+                <p data-lang-key="slogan"></p>
+            </div>
+
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav-home"></a></li>
+                    <li><a href="about.html" data-lang-key="nav-about"></a></li>
+                    <li class="dropdown">
+                        <a href="projects.html" class="dropdown-toggle">
+                            <span data-lang-key="actions"></span>
+                            <span class="arrow">▼</span>
+                        </a> <div class="dropdown-content">
+                            <a href="culture_page.html" data-lang-key="nav-culture"></a>
+                            <a href="tourism_page.html" data-lang-key="nav-tourism"></a>
+                            <a href="environment_page.html" data-lang-key="nav-environment"></a>
+                            <a href="education_page.html" data-lang-key="nav-education"></a>
+                            <a href="technology_page.html" data-lang-key="nav-technology"></a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="connect.html" class="dropdown-toggle">
+                            <span data-lang-key="participation"></span>
+                            <span class="arrow">▼</span>
+                        </a> <div class="dropdown-content">
+                            <a href="volunteer.html" data-lang-key="nav-volunteer"></a>
+                            <a href="member.html" data-lang-key="nav-member"></a>
+                            <a href="sponsor.html" data-lang-key="nav-sponsor"></a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" data-lang-key="nav-contact"></a></li>
+                </ul>
+                <div class="language-switcher">
+                    <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+                    <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+                </div>
+
+            </nav>
+
+        </header>
+        <section class="content-section">
+            <h3 data-aos="fade-right" data-lang-key="sponsor-title"></h3>
+            <p data-aos="fade-right" data-lang-key="sponsor-description"></p>
+            <p data-aos="fade-right" data-lang-key="sponsor-how"></p>
+
+            <div class="left-align" data-aos="fade-right">
+                <h4 data-lang-key="sponsor-benefits-title"></h4>
+                <ul>
+                    <li data-aos="fade-right" data-aos-delay="50" data-lang-key="sponsor-benefit-1"></li>
+                    <li data-aos="fade-right" data-aos-delay="100" data-lang-key="sponsor-benefit-2"></li>
+                    <li data-aos="fade-right" data-aos-delay="150" data-lang-key="sponsor-benefit-3"></li>
+                    <li data-aos="fade-right" data-aos-delay="200" data-lang-key="sponsor-benefit-4"></li>
+                    <li data-aos="fade-right" data-aos-delay="250" data-lang-key="sponsor-benefit-5"></li>
+                    <li data-aos="fade-right" data-aos-delay="300" data-lang-key="sponsor-benefit-6"></li>
+                </ul>
+                 <button class="join-button" id="openModalBtn" data-lang-key="btn-open-sponsor-form"></button>
+                <a href="connect.html" class="join-button" data-lang-key="btn-go-back"></a>
+            </div>
+        </section>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 data-lang-key="modal-title"></h3>
+                <form action="https://formspree.io/f/xblgwrjr" method="POST" onsubmit="showSuccessMessage(event)">
+                    <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
+                    <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
+                    <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
+                    <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
+                    <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
+                    <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+                    <button type="submit" data-lang-key="form-submit"></button>
+                </form>
+            </div>
+        </div>
+
+
+        <footer>
+            <p data-lang-key="footer-text"></p>
+        </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            easing: 'ease-in-out',
+            offset: 100,
+            once: true,
+        });
+
+        // Modal functionality
+        const openModalBtn = document.getElementById('openModalBtn');
+        const modal = document.getElementById('modal');
+
+        if (openModalBtn) {
+            openModalBtn.addEventListener('click', () => {
+                modal.style.display = 'block';
+                 // Update placeholders when modal opens (optional, but good practice)
+                updateContent();
+            });
+        }
+
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Form submission handling
+        function showSuccessMessage(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert(document.documentElement.lang === 'el' ? "Το μήνυμά σας στάλθηκε με επιτυχία!" : "Your message was sent successfully!");
+                    form.reset();
+                    closeModal(); // Close modal after successful submission
+                } else {
+                    alert(document.documentElement.lang === 'el' ? "Παρουσιάστηκε πρόβλημα. Δοκιμάστε ξανά." : "An issue occurred. Please try again.");
+                }
+            }).catch(error => {
+                alert(document.documentElement.lang === 'el' ? "Σφάλμα σύνδεσης. Ελέγξτε τη σύνδεσή σας." : "Connection error. Please check your connection.");
+            });
+        }
+
+        // Ensure placeholders are updated on load and language switch
+        document.addEventListener('DOMContentLoaded', updateContent);
+
+    </script>
+
+</body>
+
+</html>
