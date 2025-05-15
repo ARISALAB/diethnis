@@ -170,8 +170,10 @@ const translations = {
   "social-google": "Google Business",
     "btn-sponsor": "Γίνε Χορηγός",
     "join-sponsor-label": "Γίνε Χορηγός:",
-    "join-sponsor-text": "Η υποστήριξη σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεων μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμα μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντας την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν."
-
+    "join-sponsor-text": "Η υποστήριξη σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεων μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμα μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντας την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν.",
+    
+"join-us-sponsor-description": "Η χορηγία σας είναι ζωτικής σημασίας για τις δράσεις μας, μετατρέποντας το όραμά μας σε έργα με αντίκτυπο. Ως χορηγός, προβάλλετε την επιχείρησή σας συνδέοντάς την με τον πολιτισμό, την κοινωνική προσφορά και την καινοτομία. Δείξτε την εταιρική σας ευθύνη και γίνετε συν-δημιουργός αλλαγής.",
+    "join-us-sponsor": "Γίνε χορηγός"
 },
 en: {
 
@@ -350,7 +352,9 @@ en: {
   "social-google": "Google Business",
  "btn-sponsor": "Become a Sponsor",
     "join-sponsor-label": "Become a Sponsor:",
-    "join-sponsor-text": "Your support as a sponsor is vital for the realization of our activities. Your contribution, whether financial or in-kind, enables us to turn our vision into reality and complete projects with significant impact. As a sponsor, you empower our work while promoting your business, connecting it with values such as culture, social contribution, and innovation. It is an opportunity to demonstrate your corporate responsibility and become a co-creator in initiatives that inspire and bring change."
+    "join-sponsor-text": "Your support as a sponsor is vital for the realization of our activities. Your contribution, whether financial or in-kind, enables us to turn our vision into reality and complete projects with significant impact. As a sponsor, you empower our work while promoting your business, connecting it with values such as culture, social contribution, and innovation. It is an opportunity to demonstrate your corporate responsibility and become a co-creator in initiatives that inspire and bring change.",
+    "join-us-sponsor-description": "Your sponsorship is vital for our activities, transforming our vision into impactful projects. As a sponsor, you promote your business by linking it with culture, social contribution, and innovation. Demonstrate your corporate social responsibility and become a co-creator of change.",
+    "join-us-sponsor": "Become a Sponsor"
   }
 };
 
