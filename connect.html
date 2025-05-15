@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Συμμετοχή - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
-      <link rel="icon" type="image/jpeg" href="big.jpg">
-<script>
-  const savedLang = localStorage.getItem("language") || "el";
-  document.documentElement.lang = savedLang;
-  document.documentElement.setAttribute("data-language", savedLang);
-</script>
+    <link rel="icon" type="image/jpeg" href="big.jpg">
+    <script>
+        const savedLang = localStorage.getItem("language") || "el";
+        document.documentElement.lang = savedLang;
+        document.documentElement.setAttribute("data-language", savedLang);
+    </script>
 
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
@@ -18,126 +18,128 @@
     <link rel="stylesheet" href="lang.css">
     <script src="lang.js" defer></script>
     <style>
-    /* Πρόσθετο CSS για τα κουμπιά */
-    .join-button {
-      background: #F4D35E;
-      color: #2C3E50;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.95em;
-      transition: background 0.3s ease;
-      display: inline-block;  /* Τα κουμπιά θα εμφανίζονται το ένα δίπλα στο άλλο */
-      margin-right: 10px;  /* Απόσταση μεταξύ των κουμπιών */
-    }
+        /* Πρόσθετο CSS για τα κουμπιά */
+        .join-button {
+            background: #F4D35E;
+            color: #2C3E50;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background 0.3s ease;
+            display: inline-block;
+            /* Τα κουμπιά θα εμφανίζονται το ένα δίπλα στο άλλο */
+            margin: 10px;
+            /* Απόσταση μεταξύ των κουμπιών και από πάνω/κάτω */
+        }
 
-    .join-button:hover {
-      background: #e9c846;
-    }
+        .join-button:hover {
+            background: #e9c846;
+        }
 
-    /* Ενότητα με τα κουμπιά να είναι στο κέντρο */
-    #join-us .content-wrapper {
-      text-align: center;
-    }
-    .join-button {
-  display: inline-block;
-  margin: 10px; /* Προσθέτει περιθώριο γύρω από τα κουμπιά */
-}
- 
-ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style-position: inside;
-}
-.aos-text ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style-position: inside;
-}
+        /* ΝΕΟΣ ΚΑΝΟΝΑΣ: Περιέκτης για τα κουμπιά με κεντράρισμα */
+        .button-container {
+            text-align: center;
+            margin-top: 20px; /* Προσθέτει λίγο κενό πάνω από τα κουμπιά */
+        }
 
-    .content-section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 40px 20px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+        /* Ενότητα με τα κουμπιά να είναι στο κέντρο (αυτός ο κανόνας μπορεί να μην χρειάζεται αν χρησιμοποιείτε το .button-container) */
+        /* #join-us .content-wrapper {
+             text-align: center;
+           } */
 
-    .content-section h3 {
-      font-size: 1.8rem;
-      color: #003366;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+        ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
 
-    .content-section p,
-    .content-section ul {
-      font-size: 1.05rem;
-      margin-bottom: 20px;
-    }
+        .aos-text ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+        }
 
-    .left-align {
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-left: 0;
-}
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-.content-section ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-}
+        .content-section h3 {
+            font-size: 1.8rem;
+            color: #003366;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.content-section ul li {
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 20px;
-}
+        .content-section p,
+        .content-section ul {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
 
-.content-section ul li::before {
-  content: "➤";
-  position: absolute;
-  left: 0;
-  color: #003366;
-  font-size: 0.9rem;
-}
+        .left-align {
+            text-align: left;
+            /* Κρατάμε αυτό για την λίστα και την παράγραφο */
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 0;
+        }
+
+        .content-section ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content-section ul li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            color: #003366;
+            font-size: 0.9rem;
+        }
 
 
-    .center {
-      text-align: center;
-    }
+        .center {
+            text-align: center;
+        }
 
-   
-  </style>
+
+    </style>
 </head>
-<body>
- 
-<!-- Hamburger menu -->
-<div class="hamburger" onclick="toggleMenu()">☰</div>
 
-  <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="big.png" alt="Λογότυπο" class="logo">
-      </a>
-      <div class="title-container">
-        <h1>
-          <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
-          <span class="dash"> - </span>
-          <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
-        </h1>
-        <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
-      </div>
-  
-      <!-- Language Switcher -->
-      <!-- Language Switcher -->
-   
-  
-  <nav id="main-nav">
+<body>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="big.png" alt="Λογότυπο" class="logo">
+            </a>
+            <div class="title-container">
+                <h1>
+                    <span class="title-main" data-lang-key="main-title">Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ</span>
+                    <span class="dash"> - </span>
+                    <span class="title-sub" data-lang-key="subtitle">INTERACTION</span>
+                </h1>
+                <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
+            </div>
+
+            <nav id="main-nav">
                 <ul>
                     <li><a href="index.html" data-lang-key="nav-home"></a></li>
                     <li><a href="about.html" data-lang-key="nav-about"></a></li>
@@ -145,7 +147,8 @@ ul {
                         <a href="projects.html" class="dropdown-toggle">
                             <span data-lang-key="actions"></span>
                             <span class="arrow">▼</span>
-                        </a> <div class="dropdown-content">
+                        </a>
+                        <div class="dropdown-content">
                             <a href="culture_page.html" data-lang-key="nav-culture"></a>
                             <a href="tourism_page.html" data-lang-key="nav-tourism"></a>
                             <a href="environment_page.html" data-lang-key="nav-environment"></a>
@@ -157,7 +160,8 @@ ul {
                         <a href="connect.html" class="dropdown-toggle">
                             <span data-lang-key="participation"></span>
                             <span class="arrow">▼</span>
-                        </a> <div class="dropdown-content">
+                        </a>
+                        <div class="dropdown-content">
                             <a href="volunteer.html" data-lang-key="nav-volunteer"></a>
                             <a href="member.html" data-lang-key="nav-member"></a>
                             <a href="sponsor.html" data-lang-key="nav-sponsor"></a>
@@ -172,49 +176,51 @@ ul {
 
             </nav>
 
-  </header>
-  <section class="content-section">
-    <div class="content-wrapper">
-      <h3 data-lang-key="join-section-title">Δήλωσε Συμμετοχή</h3>
-      <div class="left-align" data-aos="fade-up">
-        <ul>
-          <li data-aos="fade-up" data-aos-delay="50">
-            <strong data-lang-key="join-member-label">Γίνε μέλος:</strong>
-            <span data-lang-key="join-member-text">
-              Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες. Θα έχεις την ευκαιρία να συνεισφέρεις στο κοινωνικό σύνολο, να αποκτήσεις νέες γνώσεις και να δημιουργήσεις διαρκείς σχέσεις με άλλους ανθρώπους που μοιράζονται τις ίδιες φιλοσοφίες και στόχους.
-            </span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="100">
-            <strong data-lang-key="join-volunteer-label">Γίνε εθελοντής:</strong>
-            <span data-lang-key="join-volunteer-text">
-              Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά. Εθελοντισμός σημαίνει συμμετοχή σε δράσεις που βοηθούν στην προώθηση του πολιτισμού, της εκπαίδευσης και της κοινωνικής αλληλεγγύης, και σου δίνει τη δυνατότητα να συμβάλεις ενεργά σε έργα που κάνουν τη διαφορά στην κοινότητα.
-            </span>
-          </li>
-        </ul>
-        <p data-lang-key="join-conclusion">
-          Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό, για έναν καλύτερο κόσμο για όλους!
-        </p>
-        <a href="volunteer.html" class="join-button" data-lang-key="btn-volunteer">Γίνε Εθελοντής</a>
-        <a href="member.html" class="join-button" data-lang-key="btn-member">Γίνε Μέλος</a>
-                  <a href="sponsor.html" class="join-button" data-lang-key="btn-sponsor">Γίνε Μέλος</a>
+    </header>
+    <section class="content-section">
+        <div class="content-wrapper">
+            <h3 data-lang-key="join-section-title">Δήλωσε Συμμετοχή</h3>
+            <div class="left-align" data-aos="fade-up">
+                <ul>
+                    <li data-aos="fade-up" data-aos-delay="50">
+                        <strong data-lang-key="join-member-label">Γίνε μέλος:</strong>
+                        <span data-lang-key="join-member-text">
+                            Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες. Θα έχεις την ευκαιρία να συνεισφέρεις στο κοινωνικό σύνολο, να αποκτήσεις νέες γνώσεις και να δημιουργήσεις διαρκείς σχέσεις με άλλους ανθρώπους που μοιράζονται τις ίδιες φιλοσοφίες και στόμους.
+                        </span>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="100">
+                        <strong data-lang-key="join-volunteer-label">Γίνε εθελοντής:</strong>
+                        <span data-lang-key="join-volunteer-text">
+                            Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά. Εθελοντισμός σημαίνει συμμετοχή σε δράσεις που βοηθούν στην προώθηση του πολιτισμού, της εκπαίδευσης και της κοινωνικής αλληλεγγύης, και σου δίνει τη δυνατότητα να συμβάλεις ενεργά σε έργα που κάνουν τη διαφορά στην κοινότητα.
+                        </span>
+                    </li>
+                </ul>
+                <p data-lang-key="join-conclusion">
+                    Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό, για έναν καλύτερο κόσμο για όλους!
+                </p>
+                <div class="button-container">
+                    <a href="volunteer.html" class="join-button" data-lang-key="btn-volunteer">Γίνε Εθελοντής</a>
+                    <a href="member.html" class="join-button" data-lang-key="btn-member">Γίνε Μέλος</a>
+                    <a href="sponsor.html" class="join-button" data-lang-key="btn-sponsor">Γίνε Χορηγός</a>
+                    </div>
+                </div>
+        </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-  
 
-  <footer>
-    <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
-  </footer>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
-  <script>
-    AOS.init({
-      duration: 3000,
-      easing: 'ease-in-out',
-      offset: 100,
-      once: true,
-    });
-  </script>
+    <footer>
+        <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            easing: 'ease-in-out',
+            offset: 100,
+            once: true,
+        });
+    </script>
 </body>
+
 </html>
