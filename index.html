@@ -20,6 +20,135 @@
     <script src="lang.js" defer></script>
 
     <style>
+        /* Ενημερωμένοι κανόνες για το project-gallery */
+/* Ενημερωμένοι κανόνες για το project-gallery με μπλε background και πιο ομαλή εμφάνιση */
+
+#projects {
+    padding: 60px 0; /* Περισσότερο κενό πάνω/κάτω */
+    text-align: center;
+    background-color: #005f73; /* Μπλε background (όπως το κουμπί topBtn) */
+    color: white; /* Προεπιλεγμένο χρώμα κειμένου για την ενότητα */
+}
+
+#projects h3 {
+     /* Διατήρηση των υπαρχόντων styles για το h3 */
+     color: white; /* Χρώμα τίτλου λευκό για το μπλε φόντο */
+     font-size: 2.4em; /* Ελαφρώς μεγαλύτερο μέγεθος */
+     margin-bottom: 40px; /* Περισσότερο κενό κάτω από τον τίτλο */
+     border-bottom: 4px solid #F4D35E; /* Πιο έντονη γραμμή */
+     display: inline-block;
+     padding-bottom: 10px; /* Περισσότερο padding κάτω από τον τίτλο */
+     /* Τα animation styles (opacity, transform, transition) για το h3 παραμένουν από τον γενικό κανόνα */
+}
+
+/* Σιγουρέψου ότι ο γενικός κανόνας για το h3 swipe animation λειτουργεί και για το λευκό κείμενο */
+/* .content-section h3::before, #projects h3::before, #join-us h3::before { ... background-color: #F4D35E; ... } - Αυτό είναι σωστό */
+
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Διάταξη 3x2 */
+    gap: 30px; /* Αυξήστε κι άλλο το κενό */
+    padding: 0 30px; /* Περισσότερο κενό από τις πλευρές */
+    max-width: 1200px;
+    margin: 0 auto 50px auto; /* Κεντράρισμα και περισσότερο κενό κάτω */
+    box-sizing: border-box;
+}
+
+.project-gallery img {
+    width: 100%;
+    height: 280px; /* Ελαφρώς μεγαλύτερο σταθερό ύψος */
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Πιο έντονη αρχική σκιά */
+    cursor: pointer;
+    /* ΠΟΛΥ ΠΙΟ ΟΜΑΛΗ ΜΕΤΑΒΑΣΗ */
+    transition: transform 1.2s ease-out, box-shadow 0.6s ease-out, opacity 1.2s ease-in-out;
+    /* Αυξήθηκε η διάρκεια σε 1.2s για transform και opacity */
+
+    /* Αρχική κατάσταση για το εφέ εμφάνισης */
+    opacity: 0;
+    transform: translateY(80px) scale(0.9); /* Ξεκινά λίγο πιο κάτω, ελαφρώς μικρότερη */
+}
+
+.project-gallery img:hover {
+    transform: translateY(-20px) scale(1.1) rotate(3deg); /* Ακόμα πιο έντονη ανύψωση, μεγέθυνση, περιστροφή */
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5); /* Πολύ πιο έντονη σκιά στο hover */
+}
+
+/* Κλάση για το κλιμακωτό εφέ (παραμένει ίδια, η ομαλότητα έρχεται από το transition) */
+.project-gallery img.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+/* Media query για οθόνες tablet (2x3 διάταξη) */
+@media (max-width: 1024px) {
+    #projects {
+        padding: 50px 0;
+    }
+     #projects h3 {
+          font-size: 2.2em;
+          margin-bottom: 30px;
+      }
+    .project-gallery {
+         grid-template-columns: repeat(2, 1fr); /* 2 στήλες */
+         gap: 25px;
+         padding: 0 20px;
+         margin: 0 auto 40px auto;
+    }
+    .project-gallery img {
+        height: 250px; /* Ελαφρώς μικρότερο ύψος */
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+         transform: translateY(60px) scale(0.92); /* Προσαρμογή αρχικής θέσης */
+    }
+     .project-gallery img:hover {
+         transform: translateY(-15px) scale(1.07) rotate(2deg);
+         box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+     }
+      .project-gallery img.is-visible {
+           transform: translateY(0) scale(1);
+      }
+}
+
+/* Media query για μικρές οθόνες (κινητά) */
+@media (max-width: 768px) {
+    #projects {
+        padding: 40px 0;
+    }
+     #projects h3 {
+          font-size: 2em;
+          margin-bottom: 25px;
+     }
+    .project-gallery {
+        display: flex; /* Επιστροφή σε Flexbox για στήλη */
+        flex-direction: column;
+        gap: 20px; /* Λίγο περισσότερο κενό και σε κινητά */
+        padding: 0 15px; /* Λίγο περισσότερο padding από τις άκρες */
+        margin: 0 auto 30px auto;
+    }
+
+    .project-gallery img {
+        width: 100%;
+        height: auto;
+        max-height: 320px; /* Μέγιστο ύψος για κινητά */
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(50px) scale(0.97); /* Λιγότερο έντονο αρχικό shift */
+    }
+    .project-gallery img:hover {
+         transform: translateY(-8px) scale(1.04) rotate(0deg);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+     .project-gallery img.is-visible {
+           transform: translateY(0) scale(1);
+      }
+
+}
         .dropdown {
             position: relative;
         }
@@ -954,7 +1083,84 @@
             once: false,
         });
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Για τις εικόνες του project gallery
+    const projectImages = document.querySelectorAll('.project-gallery img');
 
+    if (projectImages.length > 0) {
+        const observerOptions = {
+            root: null, // Χρησιμοποιεί το viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Ενεργοποιείται όταν το 10% της *εικόνας* είναι ορατό
+        };
+
+        // Δημιουργία ενός IntersectionObserver για κάθε εικόνα
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Βρίσκουμε την εικόνα που ενεργοποίησε το γεγονός
+                const image = entry.target;
+                 // Βρίσκουμε τον δείκτη (index) της εικόνας στην αρχική NodeList
+                const index = Array.from(projectImages).indexOf(image);
+
+
+                if (entry.isIntersecting) {
+                    // Όταν η εικόνα μπαίνει στο viewport
+                    // console.log(`Image ${index} entering viewport`); // Για debugging
+                    // Εφαρμόζουμε την κλάση 'is-visible' με κλιμακωτή καθυστέρηση βάσει του index
+                    setTimeout(() => {
+                         image.classList.add('is-visible');
+                    }, index * 150); // Καθυστέρηση 150ms ανάλογα με τη σειρά
+
+                } else {
+                    // Όταν η εικόνα βγαίνει από το viewport
+                    // console.log(`Image ${index} leaving viewport`); // Για debugging
+                    // Αφαιρούμε την κλάση 'is-visible' για να επανέλθει στην αρχική κατάσταση
+                    // Χωρίς delay στην εξαφάνιση
+                     image.classList.remove('is-visible');
+
+                     // Προαιρετικό: Εάν θέλεις να ακυρωθεί το setTimeout αν η εικόνα φύγει πριν ολοκληρωθεί το animation
+                     // Αυτό είναι πιο σύνθετο και μπορεί να απαιτεί αποθήκευση των timer IDs.
+                     // Για απλότητα και επαρκή λειτουργία, συνήθως η παραπάνω αφαίρεση της κλάσης αρκεί.
+                }
+            });
+        }, observerOptions);
+
+        // Παρατήρησε ΚΑΘΕ εικόνα στη γκαλερί
+        projectImages.forEach(image => {
+            observer.observe(image);
+        });
+    }
+
+    // Κώδικας για τα h3 animations (παραμένει ίδιος)
+    const animatedHeadings = document.querySelectorAll('h3');
+    const h3ObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const h3Observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('h3-visible');
+                // Αν θέλεις και τα h3 να επανεμφανίζονται, αφαίρεσε το unobserve
+                // observer.unobserve(entry.target);
+            } else {
+                 // Αν θέλεις και τα h3 να κρύβονται, πρόσθεσε remove class
+                 // entry.target.classList.remove('h3-visible');
+            }
+        });
+    }, h3ObserverOptions);
+
+     animatedHeadings.forEach(heading => {
+        if (!heading.closest('.modal-content')) {
+            h3Observer.observe(heading);
+        }
+    });
+
+});
+</script>
 </body>
 
 </html>
