@@ -167,7 +167,8 @@ const translations = {
   "follow-title": "Ακολουθήστε μας",
   "social-facebook": "Facebook",
   "social-instagram": "Instagram",
-  "social-google": "Google Business"
+  "social-google": "Google Business",
+    "btn-sponsor": "Γίνε Χορηγός"
 
 },
 en: {
@@ -344,8 +345,8 @@ en: {
   "follow-title": "Follow Us",
   "social-facebook": "Facebook",
   "social-instagram": "Instagram",
-  "social-google": "Google Business"
-
+  "social-google": "Google Business",
+ "btn-sponsor": "Become a Sponsor"
   }
 };
 
