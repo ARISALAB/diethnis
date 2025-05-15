@@ -168,7 +168,9 @@ const translations = {
   "social-facebook": "Facebook",
   "social-instagram": "Instagram",
   "social-google": "Google Business",
-    "btn-sponsor": "Γίνε Χορηγός"
+    "btn-sponsor": "Γίνε Χορηγός",
+    "join-sponsor-label": "Γίνε Χορηγός:",
+    "join-sponsor-text": "Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμά μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντάς την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν."
 
 },
 en: {
@@ -346,7 +348,9 @@ en: {
   "social-facebook": "Facebook",
   "social-instagram": "Instagram",
   "social-google": "Google Business",
- "btn-sponsor": "Become a Sponsor"
+ "btn-sponsor": "Become a Sponsor",
+    "join-sponsor-label": "Become a Sponsor:",
+    "join-sponsor-text": "Your support as a sponsor is vital for the realization of our activities. Your contribution, whether financial or in-kind, enables us to turn our vision into reality and complete projects with significant impact. As a sponsor, you empower our work while promoting your business, connecting it with values such as culture, social contribution, and innovation. It is an opportunity to demonstrate your corporate responsibility and become a co-creator in initiatives that inspire and bring change."
   }
 };
 
