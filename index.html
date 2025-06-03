@@ -1164,6 +1164,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 </script>
+     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#000" // Χρώμα του popup (μαύρο)
+          },
+          "button": {
+            "background": "#f1d600" // Χρώμα του κουμπιού (κίτρινο)
+          }
+        },
+        "content": {
+          "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
+          "dismiss": "Κατάλαβα!",
+          "link": "Μάθετε περισσότερα",
+          "href": "https://www.yourwebsite.com/privacy-policy.html" // **ΣΗΜΑΝΤΙΚΟ: Αλλάξτε αυτό το link με την Πολιτική Απορρήτου σας**
+        }
+      })
+    });
+    </script>
 </body>
 
 </html>
