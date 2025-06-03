@@ -872,7 +872,31 @@
         </svg>
     </button>
     <script src="script.js"></script>
-
+ <script>
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#000"
+      },
+      "button": {
+        "background": "#f1d600"
+      }
+    },
+    "content": {
+      "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
+      "dismiss": "Κατάλαβα!",
+      "link": "Μάθετε περισσότερα",
+      "href": "https://www.yourwebsite.com/privacy-policy.html"
+    },
+    // Πρόσθεσε αυτή τη ρύθμιση για να εμφανίζεται πάντα
+    "cookie": {
+      "name": "cookieconsent_status", // Το προεπιλεγμένο όνομα cookie
+      "expiryDays": 0 // Ορίζει τη λήξη σε 0 ημέρες, οπότε δεν θα αποθηκευτεί ποτέ μόνιμα
+    }
+  })
+});
+</script>
     <script>
         function openModal() {
             document.getElementById('modal').style.display = 'block';
@@ -1167,31 +1191,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
   
- <script>
-window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#000"
-      },
-      "button": {
-        "background": "#f1d600"
-      }
-    },
-    "content": {
-      "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
-      "dismiss": "Κατάλαβα!",
-      "link": "Μάθετε περισσότερα",
-      "href": "https://www.yourwebsite.com/privacy-policy.html"
-    },
-    // Πρόσθεσε αυτή τη ρύθμιση για να εμφανίζεται πάντα
-    "cookie": {
-      "name": "cookieconsent_status", // Το προεπιλεγμένο όνομα cookie
-      "expiryDays": 0 // Ορίζει τη λήξη σε 0 ημέρες, οπότε δεν θα αποθηκευτεί ποτέ μόνιμα
-    }
-  })
-});
-</script>
+
 </body>
 
 </html>
