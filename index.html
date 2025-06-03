@@ -873,7 +873,7 @@
     </button>
         <script src="script.js"></script>
 
- <script>
+<script>
 window.addEventListener("load", function(){
   window.cookieconsent.initialise({
     "palette": {
@@ -884,16 +884,12 @@ window.addEventListener("load", function(){
         "background": "#f1d600"
       }
     },
+    "theme": "base",
     "content": {
-      "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
+      "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να διασφαλίσει ότι θα έχετε την καλύτερη εμπειρία στον ιστότοπό μας.",
       "dismiss": "Κατάλαβα!",
       "link": "Μάθετε περισσότερα",
-      "href": "https://www.yourwebsite.com/privacy-policy.html"
-    },
-    // Πρόσθεσε αυτή τη ρύθμιση για να εμφανίζεται πάντα
-    "cookie": {
-      "name": "cookieconsent_status", // Το προεπιλεγμένο όνομα cookie
-      "expiryDays": 0 // Ορίζει τη λήξη σε 0 ημέρες, οπότε δεν θα αποθηκευτεί ποτέ μόνιμα
+      "href": "https://cookiesandyou.com/" // Μπορείτε να αλλάξετε αυτό το URL σε μια δική σας πολιτική cookies
     }
   })
 });
