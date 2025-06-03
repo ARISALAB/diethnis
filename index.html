@@ -1,47 +1,12 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/jpeg" href="big.jpg">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-    <script>
-        // Αρχικοποίηση Cookie Consent με DOMContentLoaded για νωρίτερη εμφάνιση
-        document.addEventListener("DOMContentLoaded", function(){
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#000"
-                    },
-                    "button": {
-                        "background": "#f1d600"
-                    }
-                },
-                "content": {
-                    "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
-                    "dismiss": "Κατάλαβα!",
-                    "link": "Μάθετε περισσότερα",
-                    "href": "https://www.yourwebsite.com/privacy-policy.html"
-                },
-                "cookie": {
-                    "name": "cookieconsent_status",
-                    "expiryDays": 0 // Ορίζει τη λήξη σε 0 ημέρες για να εμφανίζεται πάντα
-                }
-            });
-        });
-    </script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJ6142EJPG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XJ6142EJPG');
-    </script>
-
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
         const savedLang = localStorage.getItem("language") || "el";
         document.documentElement.lang = savedLang;
@@ -58,169 +23,134 @@
 
     <style>
         /* Ενημερωμένοι κανόνες για το project-gallery */
-        /* Ενημερωμένοι κανόνες για το project-gallery με μπλε background και πιο ομαλή εμφάνιση */
+/* Ενημερωμένοι κανόνες για το project-gallery με μπλε background και πιο ομαλή εμφάνιση */
 
-        #projects {
-            padding: 60px 0;
-            /* Περισσότερο κενό πάνω/κάτω */
-            text-align: center;
-            background-color: #2C3E50;
-            /* Μπλε background (όπως το κουμπί topBtn) */
-            color: white;
-            /* Προεπιλεγμένο χρώμα κειμένου για την ενότητα */
-        }
+#projects {
+    padding: 60px 0; /* Περισσότερο κενό πάνω/κάτω */
+    text-align: center;
+    background-color: #2C3E50;; /* Μπλε background (όπως το κουμπί topBtn) */
+    color: white; /* Προεπιλεγμένο χρώμα κειμένου για την ενότητα */
+}
 
-        #projects h3 {
-            /* Διατήρηση των υπαρχόντων styles για το h3 */
-            color: white;
-            /* Χρώμα τίτλου λευκό για το μπλε φόντο */
-            font-size: 2.4em;
-            /* Ελαφρώς μεγαλύτερο μέγεθος */
-            margin-bottom: 40px;
-            /* Περισσότερο κενό κάτω από τον τίτλο */
-            border-bottom: 4px solid #F4D35E;
-            /* Πιο έντονη γραμμή */
-            display: inline-block;
-            padding-bottom: 10px;
-            /* Περισσότερο padding κάτω από τον τίτλο */
-            /* Τα animation styles (opacity, transform, transition) για το h3 παραμένουν από τον γενικό κανόνα */
-        }
+#projects h3 {
+     /* Διατήρηση των υπαρχόντων styles για το h3 */
+     color: white; /* Χρώμα τίτλου λευκό για το μπλε φόντο */
+     font-size: 2.4em; /* Ελαφρώς μεγαλύτερο μέγεθος */
+     margin-bottom: 40px; /* Περισσότερο κενό κάτω από τον τίτλο */
+     border-bottom: 4px solid #F4D35E; /* Πιο έντονη γραμμή */
+     display: inline-block;
+     padding-bottom: 10px; /* Περισσότερο padding κάτω από τον τίτλο */
+     /* Τα animation styles (opacity, transform, transition) για το h3 παραμένουν από τον γενικό κανόνα */
+}
 
-        /* Σιγουρέψου ότι ο γενικός κανόνας για το h3 swipe animation λειτουργεί και για το λευκό κείμενο */
-        /* .content-section h3::before, #projects h3::before, #join-us h3::before { ... background-color: #F4D35E; ... } - Αυτό είναι σωστό */
+/* Σιγουρέψου ότι ο γενικός κανόνας για το h3 swipe animation λειτουργεί και για το λευκό κείμενο */
+/* .content-section h3::before, #projects h3::before, #join-us h3::before { ... background-color: #F4D35E; ... } - Αυτό είναι σωστό */
 
 
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            /* Διάταξη 3x2 */
-            gap: 30px;
-            /* Αυξήστε κι άλλο το κενό */
-            padding: 0 30px;
-            /* Περισσότερο κενό από τις πλευρές */
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-            /* Κεντράρισμα και περισσότερο κενό κάτω */
-            box-sizing: border-box;
-        }
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Διάταξη 3x2 */
+    gap: 30px; /* Αυξήστε κι άλλο το κενό */
+    padding: 0 30px; /* Περισσότερο κενό από τις πλευρές */
+    max-width: 1200px;
+    margin: 0 auto 50px auto; /* Κεντράρισμα και περισσότερο κενό κάτω */
+    box-sizing: border-box;
+}
 
-        .project-gallery img {
-            width: 100%;
-            height: 280px;
-            /* Ελαφρώς μεγαλύτερο σταθερό ύψος */
-            object-fit: cover;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            /* Πιο έντονη αρχική σκιά */
-            cursor: pointer;
-            /* ΠΟΛΥ ΠΙΟ ΟΜΑΛΗ ΜΕΤΑΒΑΣΗ */
-            transition: transform 1.2s ease-out, box-shadow 0.6s ease-out, opacity 1.2s ease-in-out;
-            /* Αυξήθηκε η διάρκεια σε 1.2s για transform και opacity */
+.project-gallery img {
+    width: 100%;
+    height: 280px; /* Ελαφρώς μεγαλύτερο σταθερό ύψος */
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Πιο έντονη αρχική σκιά */
+    cursor: pointer;
+    /* ΠΟΛΥ ΠΙΟ ΟΜΑΛΗ ΜΕΤΑΒΑΣΗ */
+    transition: transform 1.2s ease-out, box-shadow 0.6s ease-out, opacity 1.2s ease-in-out;
+    /* Αυξήθηκε η διάρκεια σε 1.2s για transform και opacity */
 
-            /* Αρχική κατάσταση για το εφέ εμφάνισης */
-            opacity: 0;
-            transform: translateY(80px) scale(0.9);
-            /* Ξεκινά λίγο πιο κάτω, ελαφρώς μικρότερη */
-        }
+    /* Αρχική κατάσταση για το εφέ εμφάνισης */
+    opacity: 0;
+    transform: translateY(80px) scale(0.9); /* Ξεκινά λίγο πιο κάτω, ελαφρώς μικρότερη */
+}
 
-        .project-gallery img:hover {
-            transform: translateY(-20px) scale(1.1) rotate(3deg);
-            /* Ακόμα πιο έντονη ανύψωση, μεγέθυνση, περιστροφή */
-            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
-            /* Πολύ πιο έντονη σκιά στο hover */
-        }
+.project-gallery img:hover {
+    transform: translateY(-20px) scale(1.1) rotate(3deg); /* Ακόμα πιο έντονη ανύψωση, μεγέθυνση, περιστροφή */
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5); /* Πολύ πιο έντονη σκιά στο hover */
+}
 
-        /* Κλάση για το κλιμακωτό εφέ (παραμένει ίδια, η ομαλότητα έρχεται από το transition) */
-        .project-gallery img.is-visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+/* Κλάση για το κλιμακωτό εφέ (παραμένει ίδια, η ομαλότητα έρχεται από το transition) */
+.project-gallery img.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
 
-        /* Media query για οθόνες tablet (2x3 διάταξη) */
-        @media (max-width: 1024px) {
-            #projects {
-                padding: 50px 0;
-            }
+/* Media query για οθόνες tablet (2x3 διάταξη) */
+@media (max-width: 1024px) {
+    #projects {
+        padding: 50px 0;
+    }
+     #projects h3 {
+          font-size: 2.2em;
+          margin-bottom: 30px;
+      }
+    .project-gallery {
+         grid-template-columns: repeat(2, 1fr); /* 2 στήλες */
+         gap: 25px;
+         padding: 0 20px;
+         margin: 0 auto 40px auto;
+    }
+    .project-gallery img {
+        height: 250px; /* Ελαφρώς μικρότερο ύψος */
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+         transform: translateY(60px) scale(0.92); /* Προσαρμογή αρχικής θέσης */
+    }
+     .project-gallery img:hover {
+         transform: translateY(-15px) scale(1.07) rotate(2deg);
+         box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+     }
+      .project-gallery img.is-visible {
+           transform: translateY(0) scale(1);
+      }
+}
 
-            #projects h3 {
-                font-size: 2.2em;
-                margin-bottom: 30px;
-            }
+/* Media query για μικρές οθόνες (κινητά) */
+@media (max-width: 768px) {
+    #projects {
+        padding: 40px 0;
+    }
+     #projects h3 {
+          font-size: 2em;
+          margin-bottom: 25px;
+     }
+    .project-gallery {
+        display: flex; /* Επιστροφή σε Flexbox για στήλη */
+        flex-direction: column;
+        gap: 20px; /* Λίγο περισσότερο κενό και σε κινητά */
+        padding: 0 15px; /* Λίγο περισσότερο padding από τις άκρες */
+        margin: 0 auto 30px auto;
+    }
 
-            .project-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                /* 2 στήλες */
-                gap: 25px;
-                padding: 0 20px;
-                margin: 0 auto 40px auto;
-            }
+    .project-gallery img {
+        width: 100%;
+        height: auto;
+        max-height: 320px; /* Μέγιστο ύψος για κινητά */
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(50px) scale(0.97); /* Λιγότερο έντονο αρχικό shift */
+    }
+    .project-gallery img:hover {
+         transform: translateY(-8px) scale(1.04) rotate(0deg);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+     .project-gallery img.is-visible {
+           transform: translateY(0) scale(1);
+      }
 
-            .project-gallery img {
-                height: 250px;
-                /* Ελαφρώς μικρότερο ύψος */
-                border-radius: 10px;
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-                transform: translateY(60px) scale(0.92);
-                /* Προσαρμογή αρχικής θέσης */
-            }
-
-            .project-gallery img:hover {
-                transform: translateY(-15px) scale(1.07) rotate(2deg);
-                box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
-            }
-
-            .project-gallery img.is-visible {
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Media query για μικρές οθόνες (κινητά) */
-        @media (max-width: 768px) {
-            #projects {
-                padding: 40px 0;
-            }
-
-            #projects h3 {
-                font-size: 2em;
-                margin-bottom: 25px;
-            }
-
-            .project-gallery {
-                display: flex;
-                /* Επιστροφή σε Flexbox για στήλη */
-                flex-direction: column;
-                gap: 20px;
-                /* Λίγο περισσότερο κενό και σε κινητά */
-                padding: 0 15px;
-                /* Λίγο περισσότερο padding από τις άκρες */
-                margin: 0 auto 30px auto;
-            }
-
-            .project-gallery img {
-                width: 100%;
-                height: auto;
-                max-height: 320px;
-                /* Μέγιστο ύψος για κινητά */
-                object-fit: cover;
-                border-radius: 8px;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-                transform: translateY(50px) scale(0.97);
-                /* Λιγότερο έντονο αρχικό shift */
-            }
-
-            .project-gallery img:hover {
-                transform: translateY(-8px) scale(1.04) rotate(0deg);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            .project-gallery img.is-visible {
-                transform: translateY(0) scale(1);
-            }
-
-        }
-
+}
         .dropdown {
             position: relative;
         }
@@ -354,7 +284,7 @@
             padding-right: 30px;
             /* Κάνει χώρο για το βελάκι */
             position: relative;
-            /* Χ χρειάζεται για το position: absolute του ::after */
+            /* Χρειάζεται για το position: absolute του ::after */
         }
 
         /* CSS: Βελάκι στο κουμπί */
@@ -516,7 +446,6 @@
             from {
                 width: 0;
             }
-
             to {
                 width: 100%;
             }
@@ -525,12 +454,10 @@
 
         /* Keyframes for the blinking cursor animation */
         @keyframes blink-caret {
-
             from,
             to {
                 border-color: transparent
             }
-
             50% {
                 border-color: orange;
             }
@@ -825,10 +752,10 @@
             <h3 data-lang-key="join-us-title">Δήλωσε Συμμετοχή</h3>
             <p><strong data-lang-key="join-us-member">Γίνε μέλος:</strong> <span data-lang-key="join-us-member-description">Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες.</span></p>
             <p><strong data-lang-key="join-us-volunteer">Γίνε εθελοντής:</strong> <span data-lang-key="join-us-volunteer-description">Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά.</span></p>
-            <p>
-                <strong data-lang-key="join-us-sponsor">Γίνε χορηγός:</strong>
-                <span data-lang-key="join-us-sponsor-description">Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμά μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντάς την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν.</span>
-            </p>
+<p>
+    <strong data-lang-key="join-us-sponsor">Γίνε χορηγός:</strong>
+    <span data-lang-key="join-us-sponsor-description">Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμά μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντάς την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν.</span>
+</p>
             <a href="connect.html" class="join-button" data-lang-key="join-us-button" data-aos="zoom-in" data-aos-delay="200">Μάθε περισσότερα</a>
         </div>
     </section>
@@ -860,6 +787,9 @@
             });
         });
     </script>
+
+
+
 
 
     <div id="modal" class="modal">
@@ -941,18 +871,327 @@
             <circle cx="20" cy="20" r="18" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" />
         </svg>
     </button>
+        <script src="script.js"></script>
+
+ <script>
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#000"
+      },
+      "button": {
+        "background": "#f1d600"
+      }
+    },
+    "content": {
+      "message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να βελτιώσει την εμπειρία σας.",
+      "dismiss": "Κατάλαβα!",
+      "link": "Μάθετε περισσότερα",
+      "href": "https://www.yourwebsite.com/privacy-policy.html"
+    },
+    // Πρόσθεσε αυτή τη ρύθμιση για να εμφανίζεται πάντα
+    "cookie": {
+      "name": "cookieconsent_status", // Το προεπιλεγμένο όνομα cookie
+      "expiryDays": 0 // Ορίζει τη λήξη σε 0 ημέρες, οπότε δεν θα αποθηκευτεί ποτέ μόνιμα
+    }
+  })
+});
+</script>
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Κλείσιμο αν πατηθεί έξω από το modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function showSuccessMessage(event) {
+            const message = document.getElementById("successMessage");
+            message.style.display = "block";
+
+            // Μπορείς να προσθέσεις delay για να το δει ο χρήστης
+            setTimeout(() => {
+                message.style.display = "none";
+            }, 4000);
+        }
+    </script>
+
+    <script>
+        const topBtn = document.getElementById("topBtn");
+        const circle = document.querySelector("#progressCircle circle");
+        const radius = 18; // Νέο radius
+        const circumference = 2 * Math.PI * radius;
+
+        // Ορίζουμε stroke dash values βάσει του νέου κύκλου
+        circle.style.strokeDasharray = `${circumference}`;
+        circle.style.strokeDashoffset = `${circumference}`;
+
+        function updateProgress() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            const draw = circumference * (1 - scrollPercent);
+            circle.style.strokeDashoffset = draw;
+
+            // Εμφάνιση ή απόκρυψη του κουμπιού
+            if (scrollTop > 100) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        }
+
+        window.addEventListener("scroll", updateProgress);
+
+        // Κλικ για scroll top
+        topBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <script>
+        const textToType = "Προβάλλουμε τον Ελληνικό Πολιτισμό Διεθνώς";
+        const typingTextElement = document.getElementById('typing-text');
+        const imageContainer = document.querySelector('.image-container'); // The element to observe
+
+        // Set the full text content initially (it's hidden by CSS)
+        typingTextElement.textContent = textToType;
+
+        // Flag to ensure the sequence is triggered only once
+        let animationSequenceTriggered = false;
+
+        // Create an Intersection Observer for the image container
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Check if the observed element (imageContainer) is intersecting the viewport
+                // and approximately in the center (threshold 0.5) and animations haven't triggered yet
+                // Using intersectionRatio >= 0.5 to check if at least 50% of the element is visible
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !animationSequenceTriggered) {
+
+                    // --- Trigger the Entrance (Climb Up/Fade In) Animation ---
+                    // Add the 'is-visible' class to trigger the CSS transition
+                    typingTextElement.classList.add('is-visible');
+
+                    // Mark the sequence as triggered
+                    animationSequenceTriggered = true;
+
+                    // --- Listen for the end of the Entrance Animation ---
+                    // Use a one-time event listener for the transition end
+                    typingTextElement.addEventListener('transitionend', function handler(event) {
+                        // Ensure it's one of the transitions we care about (top or opacity)
+                        if (event.propertyName === 'top' || event.propertyName === 'opacity') {
+
+                            // --- Trigger the Typing Animation ---
+                            // Add the 'is-typing' class to trigger the CSS animations for typing and blinking
+                            typingTextElement.classList.add('is-typing');
+
+                            // --- Clean up ---
+                            // Remove this specific transitionend listener
+                            typingTextElement.removeEventListener('transitionend', handler);
+                        }
+                    });
+
+
+                    // --- Stop Observing ---
+                    // Stop observing the image container after triggering the sequence
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            // Options for the observer
+            // Use a threshold of 0.5 to trigger when 50% of the target is visible
+            threshold: 0.5
+        });
+
+        // Start observing the image container
+        observer.observe(imageContainer);
+
+
+        // --- Listen for the end of the Typing Animation ---
+        // This listener removes the blinking cursor after the typing is complete
+        typingTextElement.addEventListener('animationend', (event) => {
+            // Check if the completed animation is the 'typing' animation (or related via media queries)
+            if (event.animationName.startsWith('typing')) {
+                // Typing animation finished, remove the blinking cursor border
+                typingTextElement.style.borderRight = 'none';
+
+                // Optionally, remove the blink-caret animation as well, keeping the typing animation state
+                if (typingTextElement.style.animation) {
+                    // Split animation string by comma, filter out blink-caret, join back
+                    typingTextElement.style.animation = typingTextElement.style.animation.split(',').filter(anim => !anim.includes('blink-caret')).join(',');
+                } else {
+                    // Fallback if animation style is not directly set
+                    typingTextElement.style.borderRight = 'none';
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const headings = document.querySelectorAll("h3");
+
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.9;
+
+            headings.forEach(h3 => {
+                const h3Top = h3.getBoundingClientRect().top;
+
+                if (h3Top < triggerBottom) {
+                    h3.classList.add("revealed");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+    </script>
+
+
+    <script>
+        // Εντοπίζουμε όλα τα h3 που θέλουμε να παρακολουθήσουμε
+        const animatedH3s = document.querySelectorAll('.content-section h3, #projects h3, #join-us h3');
+
+        // Δημιουργία ενός μοναδικού observer
+        const h3Observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('h3-visible', 'revealed');
+                    h3Observer.unobserve(entry.target); // Σταμάτα την παρακολούθηση
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Παρατήρησε κάθε h3 μόνο μία φορά
+        animatedH3s.forEach(h3 => {
+            h3Observer.observe(h3);
+        });
+    </script>
+    <script>
+        // Συνάρτηση για την ανίχνευση αν το στοιχείο είναι στο οπτικό πεδίο
+        function isElementInView(el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        // Εντολή για τα h3 στοιχεία
+        const h3Elements = document.querySelectorAll('h3');
+
+        // Λειτουργία για την παρακολούθηση του scroll
+        window.addEventListener('scroll', function() {
+            h3Elements.forEach(function(h3) {
+                if (isElementInView(h3)) {
+                    h3.classList.add('revealed'); // Προσθήκη της κλάσης 'revealed' όταν είναι ορατό
+                } else {
+                    h3.classList.remove('revealed'); // Αφαίρεση της κλάσης όταν δεν είναι ορατό
+                }
+            });
+        });
+    </script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
+            duration: 1000, // Αυξήστε τη διάρκεια για πιο εμφανή κίνηση
             easing: 'ease-in-out',
             offset: 100,
+            // Αλλάξτε το once: true σε once: false για επανάληψη (μόνο στο scroll down)
             once: false,
         });
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Για τις εικόνες του project gallery
+    const projectImages = document.querySelectorAll('.project-gallery img');
 
-    <script src="script.js"></script>
+    if (projectImages.length > 0) {
+        const observerOptions = {
+            root: null, // Χρησιμοποιεί το viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Ενεργοποιείται όταν το 10% της *εικόνας* είναι ορατό
+        };
+
+        // Δημιουργία ενός IntersectionObserver για κάθε εικόνα
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Βρίσκουμε την εικόνα που ενεργοποίησε το γεγονός
+                const image = entry.target;
+                 // Βρίσκουμε τον δείκτη (index) της εικόνας στην αρχική NodeList
+                const index = Array.from(projectImages).indexOf(image);
+
+
+                if (entry.isIntersecting) {
+                    // Όταν η εικόνα μπαίνει στο viewport
+                    // console.log(`Image ${index} entering viewport`); // Για debugging
+                    // Εφαρμόζουμε την κλάση 'is-visible' με κλιμακωτή καθυστέρηση βάσει του index
+                    setTimeout(() => {
+                         image.classList.add('is-visible');
+                    }, index * 150); // Καθυστέρηση 150ms ανάλογα με τη σειρά
+
+                } else {
+                    // Όταν η εικόνα βγαίνει από το viewport
+                    // console.log(`Image ${index} leaving viewport`); // Για debugging
+                    // Αφαιρούμε την κλάση 'is-visible' για να επανέλθει στην αρχική κατάσταση
+                    // Χωρίς delay στην εξαφάνιση
+                     image.classList.remove('is-visible');
+
+                     // Προαιρετικό: Εάν θέλεις να ακυρωθεί το setTimeout αν η εικόνα φύγει πριν ολοκληρωθεί το animation
+                     // Αυτό είναι πιο σύνθετο και μπορεί να απαιτεί αποθήκευση των timer IDs.
+                     // Για απλότητα και επαρκή λειτουργία, συνήθως η παραπάνω αφαίρεση της κλάσης αρκεί.
+                }
+            });
+        }, observerOptions);
+
+        // Παρατήρησε ΚΑΘΕ εικόνα στη γκαλερί
+        projectImages.forEach(image => {
+            observer.observe(image);
+        });
+    }
+
+    // Κώδικας για τα h3 animations (παραμένει ίδιος)
+    const animatedHeadings = document.querySelectorAll('h3');
+    const h3ObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const h3Observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('h3-visible');
+                // Αν θέλεις και τα h3 να επανεμφανίζονται, αφαίρεσε το unobserve
+                // observer.unobserve(entry.target);
+            } else {
+                 // Αν θέλεις και τα h3 να κρύβονται, πρόσθεσε remove class
+                 // entry.target.classList.remove('h3-visible');
+            }
+        });
+    }, h3ObserverOptions);
+
+     animatedHeadings.forEach(heading => {
+        if (!heading.closest('.modal-content')) {
+            h3Observer.observe(heading);
+        }
+    });
+
+});
+</script>
+  
 
 </body>
 
