@@ -172,7 +172,7 @@ const translations = {
     "cookie-deny": "Απόρριψη",
     "cookie-learn-more": "Μάθετε περισσότερα",
     "cookie-privacy-policy-url": "el1.pdf",
-        "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"terms.html\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"privacy.html\" target=\"_blank\">Πολιτική Απορρήτου</a>."
+    "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"el2.pdf\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"el3.pdf\" target=\"_blank\">Πολιτική Απορρήτου</a>."
 
   },
   en: {
@@ -522,7 +522,7 @@ const translations = {
     "cookie-deny": "Deny",
     "cookie-learn-more": "Learn more",
     "cookie-privacy-policy-url": "en1.pdf",
-        "accept-terms-text": "Read and accept our <a href=\"terms.html\" target=\"_blank\">Terms of Use</a> and <a href=\"privacy.html\" target=\"_blank\">Privacy Policy</a>."
+    "accept-terms-text": "Read and accept our <a href=\"en2.pdf\" target=\"_blank\">Terms of Use</a> and <a href=\"en3.pdf\" target=\"_blank\">Privacy Policy</a>."
 
   }
 };
