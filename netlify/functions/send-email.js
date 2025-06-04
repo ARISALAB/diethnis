@@ -1,43 +1,83 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
-  }
+    // Μόνο αιτήματα POST
+    if (event.httpMethod !== 'POST') {
+        return { statusCode: 405, body: 'Method Not Allowed' };
+    }
 
-  const { name, email, message } = JSON.parse(event.body);
+    try {
+        const data = JSON.parse(event.body);
 
-  // Δημιουργία transporter αντικειμένου χρησιμοποιώντας SMTP
-  // Αντικαταστήστε με τα δικά σας διαπιστευτήρια SMTP
-  const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST, // π.χ. 'smtp.gmail.com' ή 'smtp.mail.yahoo.com'
-    port: process.env.EMAIL_PORT, // π.χ. 465 (για SSL) ή 587 (για TLS)
-    secure: process.env.EMAIL_SECURE === 'true', // true for 465, false for other ports
-    auth: {
-      user: process.env.EMAIL_USER, // Το email σας
-      pass: process.env.EMAIL_PASS, // Ο κωδικός πρόσβασης ή ο κωδικός εφαρμογής
-    },
-  });
+        // Ελέγχουμε αν το checkbox αποδοχής όρων είναι τσεκαρισμένο
+        if (!data.acceptTerms) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({ message: 'Terms and Privacy Policy must be accepted.' }),
+            };
+        }
 
-  try {
-    await transporter.sendMail({
-      from: `"${name}" <${email}>`, // Ο αποστολέας (από τη φόρμα)
-      to: 'amkeinteraction@gmail.com', // Η διεύθυνση στην οποία θέλετε να σταλούν τα emails
-      subject: `New contact form submission from ${name}`,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
-    });
+        // Αναγνώριση τύπου φόρμας
+        const formType = data.formType || "Επικοινωνίας"; // Default σε "Επικοινωνίας" αν δεν υπάρχει
+        let subject = `Νέο μήνυμα από τη φόρμα ${formType} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+        let emailBody = '';
+        let recipientEmail = 'amkeinteraction@gmail.com'; // Το email στο οποίο θα στέλνονται
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Email sent successfully!' }),
-    };
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Failed to send email.', error: error.message }),
-    };
-  }
+        if (formType === "Εθελοντισμός") {
+            subject = `Νέα Αίτηση Εθελοντισμού από ${data.fullName} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            emailBody = `
+                <h2>Νέα Αίτηση Εθελοντισμού</h2>
+                <p><strong>Όνομα:</strong> ${data.fullName}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Τηλέφωνο:</strong> ${data.phone}</p>
+                <p><strong>Πόλη:</strong> ${data.addressCity}</p>
+                <p><strong>Διεύθυνση:</strong> ${data.addressLine}</p>
+                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message}</p>
+                <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
+            `;
+        } else { // Για φόρμα Επικοινωνίας (ή άλλες)
+            subject = `Νέο μήνυμα από ${data.name} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            emailBody = `
+                <h2>Νέο Μήνυμα Επικοινωνίας</h2>
+                <p><strong>Όνομα:</strong> ${data.name}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Μήνυμα:</strong><br>${data.message}</p>
+                <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
+            `;
+        }
+
+        // Ρυθμίσεις Nodemailer
+        const transporter = nodemailer.createTransport({
+            host: process.env.EMAIL_HOST,
+            port: parseInt(process.env.EMAIL_PORT), // Μετατροπή σε αριθμό
+            secure: process.env.EMAIL_SECURE === 'true', // Μετατροπή από string σε boolean
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+
+        // Email options
+        const mailOptions = {
+            from: process.env.EMAIL_USER, // Από το email που στέλνει
+            to: recipientEmail, // Στο email της ΑΜΚΕ
+            subject: subject,
+            html: emailBody,
+            replyTo: data.email // Ο αποστολέας του email μπορεί να απαντήσει στον χρήστη
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ message: 'Email sent successfully!' }),
+        };
+
+    } catch (error) {
+        console.error('Error sending email:', error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ message: 'Failed to send email.', error: error.message }),
+        };
+    }
 };
