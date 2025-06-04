@@ -10,9 +10,6 @@ exports.handler = async (event) => {
         const data = JSON.parse(event.body);
 
         // Ελέγχουμε αν το checkbox αποδοχής όρων είναι τσεκαρισμένο
-        // Το πεδίο acceptTerms θα είναι 'on' αν είναι τσεκαρισμένο, ή απουσιάζει αν δεν είναι.
-        // Εφόσον έχουμε required στο HTML, θα είναι πάντα 'on' αν υποβληθεί η φόρμα.
-        // Αυτός ο έλεγχος είναι μια επιπλέον ασφάλεια.
         if (!data.acceptTerms) {
             return {
                 statusCode: 400,
@@ -51,7 +48,19 @@ exports.handler = async (event) => {
                 <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
                 <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
             `;
-        } else { // Για φόρμα Επικοινωνίας (formType === "Επικοινωνίας" ή απουσιάζει)
+        } else if (formType === "Χορηγός") {
+            subject = `Νέα Αίτηση Χορηγίας από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            emailBody = `
+                <h2>Νέα Αίτηση Χορηγίας</h2>
+                <p><strong>Όνομα:</strong> ${data.fullName || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Τηλέφωνο:</strong> ${data.phone || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Οργανισμός/Εταιρεία:</strong> ${data.organization || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
+            `;
+        }
+        else { // Για φόρμα Επικοινωνίας (formType === "Επικοινωνίας" ή απουσιάζει)
             subject = `Νέο μήνυμα από ${data.name || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBody = `
                 <h2>Νέο Μήνυμα Επικοινωνίας</h2>
@@ -65,8 +74,8 @@ exports.handler = async (event) => {
         // Ρυθμίσεις Nodemailer
         const transporter = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
-            port: parseInt(process.env.EMAIL_PORT), // Μετατροπή σε αριθμό
-            secure: process.env.EMAIL_SECURE === 'true', // Μετατροπή από string 'true'/'false' σε boolean
+            port: parseInt(process.env.EMAIL_PORT),
+            secure: process.env.EMAIL_SECURE === 'true',
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
@@ -75,11 +84,11 @@ exports.handler = async (event) => {
 
         // Email options
         const mailOptions = {
-            from: process.env.EMAIL_USER, // Το email από το οποίο στέλνετε (το δικό σας Gmail)
-            to: recipientEmail, // Το email της ΑΜΚΕ
+            from: process.env.EMAIL_USER,
+            to: recipientEmail,
             subject: subject,
             html: emailBody,
-            replyTo: data.email // Ο αποστολέας του email μπορεί να απαντήσει στον χρήστη που συμπλήρωσε τη φόρμα
+            replyTo: data.email
         };
 
         await transporter.sendMail(mailOptions);
