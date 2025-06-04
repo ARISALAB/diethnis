@@ -10,6 +10,9 @@ exports.handler = async (event) => {
         const data = JSON.parse(event.body);
 
         // Ελέγχουμε αν το checkbox αποδοχής όρων είναι τσεκαρισμένο
+        // Το πεδίο acceptTerms θα είναι 'on' αν είναι τσεκαρισμένο, ή απουσιάζει αν δεν είναι.
+        // Εφόσον έχουμε required στο HTML, θα είναι πάντα 'on' αν υποβληθεί η φόρμα.
+        // Αυτός ο έλεγχος είναι μια επιπλέον ασφάλεια.
         if (!data.acceptTerms) {
             return {
                 statusCode: 400,
@@ -19,29 +22,42 @@ exports.handler = async (event) => {
 
         // Αναγνώριση τύπου φόρμας
         const formType = data.formType || "Επικοινωνίας"; // Default σε "Επικοινωνίας" αν δεν υπάρχει
-        let subject = `Νέο μήνυμα από τη φόρμα ${formType} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+
+        let subject = '';
         let emailBody = '';
-        let recipientEmail = 'amkeinteraction@gmail.com'; // Το email στο οποίο θα στέλνονται
+        const recipientEmail = 'amkeinteraction@gmail.com'; // Το email στο οποίο θα στέλνονται ΟΛΑ τα μηνύματα
 
         if (formType === "Εθελοντισμός") {
-            subject = `Νέα Αίτηση Εθελοντισμού από ${data.fullName} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            subject = `Νέα Αίτηση Εθελοντισμού από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBody = `
                 <h2>Νέα Αίτηση Εθελοντισμού</h2>
-                <p><strong>Όνομα:</strong> ${data.fullName}</p>
-                <p><strong>Email:</strong> ${data.email}</p>
-                <p><strong>Τηλέφωνο:</strong> ${data.phone}</p>
-                <p><strong>Πόλη:</strong> ${data.addressCity}</p>
-                <p><strong>Διεύθυνση:</strong> ${data.addressLine}</p>
-                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message}</p>
+                <p><strong>Όνομα:</strong> ${data.fullName || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Τηλέφωνο:</strong> ${data.phone || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Πόλη:</strong> ${data.addressCity || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Διεύθυνση:</strong> ${data.addressLine || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
                 <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
             `;
-        } else { // Για φόρμα Επικοινωνίας (ή άλλες)
-            subject = `Νέο μήνυμα από ${data.name} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+        } else if (formType === "Μέλος") {
+            subject = `Νέα Αίτηση Μέλους από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            emailBody = `
+                <h2>Νέα Αίτηση Μέλους</h2>
+                <p><strong>Όνομα:</strong> ${data.fullName || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Τηλέφωνο:</strong> ${data.phone || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Πόλη:</strong> ${data.addressCity || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Διεύθυνση:</strong> ${data.addressLine || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
+            `;
+        } else { // Για φόρμα Επικοινωνίας (formType === "Επικοινωνίας" ή απουσιάζει)
+            subject = `Νέο μήνυμα από ${data.name || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBody = `
                 <h2>Νέο Μήνυμα Επικοινωνίας</h2>
-                <p><strong>Όνομα:</strong> ${data.name}</p>
-                <p><strong>Email:</strong> ${data.email}</p>
-                <p><strong>Μήνυμα:</strong><br>${data.message}</p>
+                <p><strong>Όνομα:</strong> ${data.name || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Μήνυμα:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
                 <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
             `;
         }
@@ -50,7 +66,7 @@ exports.handler = async (event) => {
         const transporter = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: parseInt(process.env.EMAIL_PORT), // Μετατροπή σε αριθμό
-            secure: process.env.EMAIL_SECURE === 'true', // Μετατροπή από string σε boolean
+            secure: process.env.EMAIL_SECURE === 'true', // Μετατροπή από string 'true'/'false' σε boolean
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
@@ -59,11 +75,11 @@ exports.handler = async (event) => {
 
         // Email options
         const mailOptions = {
-            from: process.env.EMAIL_USER, // Από το email που στέλνει
-            to: recipientEmail, // Στο email της ΑΜΚΕ
+            from: process.env.EMAIL_USER, // Το email από το οποίο στέλνετε (το δικό σας Gmail)
+            to: recipientEmail, // Το email της ΑΜΚΕ
             subject: subject,
             html: emailBody,
-            replyTo: data.email // Ο αποστολέας του email μπορεί να απαντήσει στον χρήστη
+            replyTo: data.email // Ο αποστολέας του email μπορεί να απαντήσει στον χρήστη που συμπλήρωσε τη φόρμα
         };
 
         await transporter.sendMail(mailOptions);
