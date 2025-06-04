@@ -128,13 +128,19 @@
 
     <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
 
-        <!-- Φόρμα Επικοινωνίας -->
-<form class="contact-form" method="POST">
+       <form class="contact-form" method="POST">
   <input type="text" name="name" placeholder="" data-lang-key="form-name" required />
-          <input type="email" name="email" placeholder="" data-lang-key="form-email" required />
-          <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
-          <button type="submit" data-lang-key="form-submit">Αποστολή</button>
-        </form>
+  <input type="email" name="email" placeholder="" data-lang-key="form-email" required />
+  <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+
+  <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 350px; max-width: 1500px;">
+    <input type="checkbox" id="accept-terms" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
+    <label for="accept-terms" data-lang-key="accept-terms-text">
+      Διαβάστε και αποδεχτείτε τους <a href="terms.html" target="_blank">Όρους Χρήσης</a> και την <a href="privacy.html" target="_blank">Πολιτική Απορρήτου</a>.
+    </label>
+  </div>
+  <button type="submit" data-lang-key="form-submit">Αποστολή</button>
+</form>
 
         <div class="contact-info" style="flex: 1; min-width: 250px; font-size: 1em; line-height: 1.8;">
           <h4 data-lang-key="info-title">Στοιχεία Επικοινωνίας</h4>
@@ -216,6 +222,14 @@
 const form = document.querySelector(".contact-form");
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    // ΝΕΟΣ ΕΛΕΓΧΟΣ: Ελέγξτε αν το checkbox έχει τσεκαριστεί
+    const acceptTermsCheckbox = document.getElementById("accept-terms");
+    if (!acceptTermsCheckbox.checked) {
+      alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+      return; // Σταματά την υποβολή της φόρμας
+    }
+    // ΤΕΛΟΣ ΝΕΟΥ ΕΛΕΓΧΟΥ
 
     // Συλλογή δεδομένων φόρμας
     const formData = new FormData(form);
