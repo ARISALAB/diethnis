@@ -899,6 +899,8 @@ window.addEventListener("load", function() {
         },
         "type": "opt-in",
         "revokable": false, // <-- ΑΛΛΑΞΕ ΑΥΤΟ ΣΕ false
+          "revokeBtn": false, // <-- ΠΡΟΣΘΕΣΕ ΑΥΤΟ
+
         "position": "bottom",
         "onStatusChange": function(status, chosenBefore) {
           console.log('Cookie consent status changed:', status, 'chosenBefore:', chosenBefore);
