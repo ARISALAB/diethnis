@@ -592,7 +592,7 @@ function updateCookieConsentLanguage(lang) {
             "href": langContent["cookie-privacy-policy-url"]
         },
         "type": "opt-in",
-        "revokable": true,
+        "revokable": false, // <-- ΑΛΛΑΞΕ ΑΥΤΟ ΤΟ TRUE ΣΕ FALSE
         "position": "bottom",
         "onStatusChange": function(status, chosenBefore) {
           console.log('Cookie consent status changed:', status, 'chosenBefore:', chosenBefore);
