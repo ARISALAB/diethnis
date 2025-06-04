@@ -320,28 +320,31 @@
       </section>
       
       <!-- Modal -->
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
-     <form class="volunteer-form"> <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
+     <div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
+        <form class="volunteer-form">
+            <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
             <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
             <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
             <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
             <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
             <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
-    <input type="hidden" name="language" id="form-language"> </form>
+
+            <input type="hidden" name="language" id="form-language">
 
             <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 100%;">
                 <input type="checkbox" id="accept-terms-volunteer" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
                 <label for="accept-terms-volunteer" data-lang-key="accept-terms-text">
-                  Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+                    Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
                 </label>
             </div>
+            
             <button type="submit" data-lang-key="form-submit">Υποβολή</button>
-          </form>
+        </form>
         </div>
-      </div>
+</div>
       
     <footer>
         <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
