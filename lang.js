@@ -171,7 +171,9 @@ const translations = {
     "cookie-accept": "Αποδοχή Cookies",
     "cookie-deny": "Απόρριψη",
     "cookie-learn-more": "Μάθετε περισσότερα",
-    "cookie-privacy-policy-url": "el1.pdf" 
+    "cookie-privacy-policy-url": "el1.pdf",
+        "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"terms.html\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"privacy.html\" target=\"_blank\">Πολιτική Απορρήτου</a>."
+
   },
   en: {
     "main-title": "A.M.K.E. DIETHNIS DRASI",
@@ -519,7 +521,9 @@ const translations = {
     "cookie-accept": "Accept Cookies",
     "cookie-deny": "Deny",
     "cookie-learn-more": "Learn more",
-    "cookie-privacy-policy-url": "en1.pdf" 
+    "cookie-privacy-policy-url": "en1.pdf",
+        "accept-terms-text": "Read and accept our <a href=\"terms.html\" target=\"_blank\">Terms of Use</a> and <a href=\"privacy.html\" target=\"_blank\">Privacy Policy</a>."
+
   }
 };
 
