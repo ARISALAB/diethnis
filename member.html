@@ -316,53 +316,60 @@
         });
     </script>
 
-    <script>
-        const memberForm = document.querySelector(".member-form"); // Επιλέγουμε τη φόρμα μέλους
+   <script>
+    const memberForm = document.querySelector(".member-form");
 
-        memberForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
+    memberForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-            // Έλεγχος checkbox αποδοχής όρων
-            const acceptTermsCheckbox = document.getElementById("accept-terms-member");
-            if (!acceptTermsCheckbox.checked) {
-                alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
-                return; // Σταματά την υποβολή της φόρμας
+        // Έλεγχος checkbox αποδοχής όρων
+        const acceptTermsCheckbox = document.getElementById("accept-terms-member");
+        if (!acceptTermsCheckbox.checked) {
+            alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+            return;
+        }
+
+        // Συλλογή δεδομένων φόρμας
+        const formData = new FormData(memberForm);
+        const data = {};
+        for (let [key, value] of formData.entries()) {
+            data[key] = value;
+        }
+
+        // --- ΝΕΑ ΠΡΟΣΘΗΚΗ ΓΙΑ ΤΗ ΓΛΩΣΣΑ ---
+        // Βρίσκει την τρέχουσα γλώσσα από το html tag (που ρυθμίζεται από το lang.js)
+        const currentLang = document.documentElement.lang;
+        // Προσθέτει την πληροφορία της γλώσσας στα δεδομένα που στέλνονται
+        data.language = currentLang;
+        // --- ΤΕΛΟΣ ΝΕΩΝ ΠΡΟΣΘΗΚΩΝ ---
+
+        // Προσθήκη ενός πεδίου που να προσδιορίζει από ποια φόρμα έρχεται το email
+        data.formType = "Μέλος"; // Αυτό είναι σωστό για τη φόρμα μέλους
+
+        try {
+            // Στέλνουμε τα δεδομένα στη Netlify Function
+            const response = await fetch('/.netlify/functions/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                alert("Η αίτηση μέλους σας υποβλήθηκε επιτυχώς!");
+                memberForm.reset(); // Καθαρίζουμε τη φόρμα
+                closeModal(); // Κλείνει το modal μετά την επιτυχή υποβολή
+            } else {
+                const errorData = await response.json();
+                alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης: " + (errorData.message || "Άγνωστο σφάλμα"));
             }
-
-            // Συλλογή δεδομένων φόρμας
-            const formData = new FormData(memberForm);
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-
-            // Προσθήκη ενός πεδίου που να προσδιορίζει από ποια φόρμα έρχεται το email
-            data.formType = "Μέλος"; // Αυτό θα βοηθήσει τη Netlify Function να διακρίνει τη φόρμα
-
-            try {
-                // Στέλνουμε τα δεδομένα στη Netlify Function
-                const response = await fetch('/.netlify/functions/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                if (response.ok) {
-                    alert("Η αίτηση μέλους σας υποβλήθηκε επιτυχώς!");
-                    memberForm.reset(); // Καθαρίζουμε τη φόρμα
-                    closeModal(); // Κλείνει το modal μετά την επιτυχή υποβολή
-                } else {
-                    const errorData = await response.json();
-                    alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης: " + (errorData.message || "Άγνωστο σφάλμα"));
-                }
-            } catch (error) {
-                console.error('Error during form submission:', error);
-                alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης. Παρακαλώ δοκιμάστε ξανά αργότερα.");
-            }
-        });
-    </script>
+        } catch (error) {
+            console.error('Error during form submission:', error);
+            alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης. Παρακαλώ δοκιμάστε ξανά αργότερα.");
+        }
+    });
+</script>
 </body>
 
 </html>
