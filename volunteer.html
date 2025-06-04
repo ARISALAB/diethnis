@@ -324,13 +324,19 @@
         <div class="modal-content">
           <span class="close" onclick="closeModal()">&times;</span>
           <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
-          <form action="https://formsubmit.co/akronservices@mail.com" method="POST" onsubmit="showSuccessMessage(event)">
-            <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
+     <form class="volunteer-form"> <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
             <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
             <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
             <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
             <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
             <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+
+            <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 100%;">
+                <input type="checkbox" id="accept-terms-volunteer" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
+                <label for="accept-terms-volunteer" data-lang-key="accept-terms-text">
+                  Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+                </label>
+            </div>
             <button type="submit" data-lang-key="form-submit">Υποβολή</button>
           </form>
         </div>
@@ -339,7 +345,7 @@
     <footer>
         <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
       </footer>
-    <script src="script.js"></script>
+   <script src="script.js"></script>
     <script>
         const openModalBtn = document.getElementById('openModalBtn');
         const modal = document.getElementById('modal');
@@ -358,10 +364,11 @@
             }
         });
 
-        function showSuccessMessage(event) {
-            event.preventDefault();
-            alert('Η φόρμα υποβλήθηκε με επιτυχία!');
-        }
+        // Αφαιρέστε αυτή τη συνάρτηση, θα αντικατασταθεί
+        // function showSuccessMessage(event) {
+        //     event.preventDefault();
+        //     alert('Η φόρμα υποβλήθηκε με επιτυχία!');
+        // }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -378,8 +385,53 @@
           nav.style.display = nav.style.display === "flex" ? "none" : "flex";
         }
 
-        
-        </script>
+    </script>
+    <script>
+        const volunteerForm = document.querySelector(".volunteer-form"); // Επιλέγουμε τη φόρμα εθελοντισμού
+
+        volunteerForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Έλεγχος checkbox
+            const acceptTermsCheckbox = document.getElementById("accept-terms-volunteer");
+            if (!acceptTermsCheckbox.checked) {
+                alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+                return; // Σταματά την υποβολή
+            }
+
+            // Συλλογή δεδομένων φόρμας
+            const formData = new FormData(volunteerForm);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Προσθήκη ενός πεδίου που να προσδιορίζει από ποια φόρμα έρχεται το email
+            data.formType = "Εθελοντισμός"; // Ή "Volunteer Application" για τα logs/email
+
+            try {
+                const response = await fetch('/.netlify/functions/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    alert("Η αίτηση εθελοντισμού σας υποβλήθηκε επιτυχώς!");
+                    volunteerForm.reset();
+                    closeModal(); // Κλείνει το modal μετά την επιτυχή υποβολή
+                } else {
+                    const errorData = await response.json();
+                    alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης: " + (errorData.message || "Άγνωστο σφάλμα"));
+                }
+            } catch (error) {
+                console.error('Error during form submission:', error);
+                alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης. Παρακαλώ δοκιμάστε ξανά αργότερα.");
+            }
+        });
+    </script>
         
 </body>
 
