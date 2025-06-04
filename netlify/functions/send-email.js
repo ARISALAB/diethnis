@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event) => {
-    // Μόνο αιτήματα POST
+    // Μόνο αιτήματα POST επιτρέπονται
     if (event.httpMethod !== 'POST') {
         return { statusCode: 405, body: 'Method Not Allowed' };
     }
@@ -9,7 +9,7 @@ exports.handler = async (event) => {
     try {
         const data = JSON.parse(event.body);
 
-        // Ελέγχουμε αν το checkbox αποδοχής όρων είναι τσεκαρισμένο
+        // Έλεγχος αν το checkbox αποδοχής όρων είναι τσεκαρισμένο
         if (!data.acceptTerms) {
             return {
                 statusCode: 400,
@@ -17,18 +17,18 @@ exports.handler = async (event) => {
             };
         }
 
-        // Αναγνώριση τύπου φόρμας
-        const formType = data.formType || "Επικοινωνίας"; // Default σε "Επικοινωνίας" αν δεν υπάρχει
+        // Αναγνώριση τύπου φόρμας, με default σε "Επικοινωνίας"
+        const formType = data.formType || "Επικοινωνίας";
 
         let subjectToAMKE = '';
         let emailBodyToAMKE = '';
-        let subjectToUser = ''; // ΝΕΟ: Θέμα για το email προς τον χρήστη
-        let emailBodyToUser = ''; // ΝΕΟ: Περιεχόμενο για το email προς τον χρήστη
+        let subjectToUser = '';
+        let emailBodyToUser = '';
 
         const recipientEmailAMKE = 'amkeinteraction@gmail.com'; // Το email της ΑΜΚΕ
 
-        // Γλώσσα του χρήστη (αν την έχουμε από τη φόρμα ή default)
-        const userLanguage = data.language || 'el'; // Υποθέτουμε ότι υπάρχει ένα πεδίο 'language' στη φόρμα ή default 'el'
+        // Γλώσσα του χρήστη (αν υπάρχει από τη φόρμα ή default 'el')
+        const userLanguage = data.language || 'el';
 
         // Κείμενα για το αυτοματοποιημένο email προς τον χρήστη (πολύγλωσσα)
         const autoReplyTexts = {
@@ -45,7 +45,8 @@ exports.handler = async (event) => {
                     addressLine: 'Διεύθυνση',
                     organization: 'Οργανισμός/Εταιρεία',
                     message: 'Μήνυμα/Σχόλια'
-                }
+                },
+                logoHtml: '<img src="https://raw.githubusercontent.com/ARISALAB/diethnis/main/BIG.jpg" alt="Λογότυπο ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ" style="max-width: 150px; height: auto; display: block; margin: 0 auto 20px auto;">'
             },
             en: {
                 subject: 'Message Received Confirmation - N.P.O. INTERNATIONAL ACTION',
@@ -60,13 +61,14 @@ exports.handler = async (event) => {
                     addressLine: 'Address',
                     organization: 'Organization/Company',
                     message: 'Message/Comments'
-                }
+                },
+                logoHtml: '<img src="https://raw.githubusercontent.com/ARISALAB/diethnis/main/BIG.jpg" alt="N.P.O. INTERNATIONAL ACTION Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto 20px auto;">'
             }
         };
 
-        const currentAutoReplyText = autoReplyTexts[userLanguage] || autoReplyTexts['el']; // Fallback to Greek
+        const currentAutoReplyText = autoReplyTexts[userLanguage] || autoReplyTexts['el']; // Fallback στα Ελληνικά
 
-        // --- Διαμόρφωση Email προς την ΑΜΚΕ ---
+        // --- Διαμόρφωση Email προς την ΑΜΚΕ και τον Χρήστη, ανάλογα με τον τύπο της φόρμας ---
         if (formType === "Εθελοντισμός") {
             subjectToAMKE = `Νέα Αίτηση Εθελοντισμού από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBodyToAMKE = `
@@ -82,6 +84,7 @@ exports.handler = async (event) => {
             // Διαμόρφωση Email προς τον Χρήστη
             subjectToUser = currentAutoReplyText.subject;
             emailBodyToUser = `
+                ${currentAutoReplyText.logoHtml}
                 <h2>${currentAutoReplyText.heading}</h2>
                 <p>${currentAutoReplyText.body}</p>
                 <hr>
@@ -107,9 +110,10 @@ exports.handler = async (event) => {
                 <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
                 <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
             `;
-             // Διαμόρφωση Email προς τον Χρήστη
+            // Διαμόρφωση Email προς τον Χρήστη
             subjectToUser = currentAutoReplyText.subject;
             emailBodyToUser = `
+                ${currentAutoReplyText.logoHtml}
                 <h2>${currentAutoReplyText.heading}</h2>
                 <p>${currentAutoReplyText.body}</p>
                 <hr>
@@ -136,6 +140,7 @@ exports.handler = async (event) => {
             // Διαμόρφωση Email προς τον Χρήστη
             subjectToUser = currentAutoReplyText.subject;
             emailBodyToUser = `
+                ${currentAutoReplyText.logoHtml}
                 <h2>${currentAutoReplyText.heading}</h2>
                 <p>${currentAutoReplyText.body}</p>
                 <hr>
@@ -147,8 +152,7 @@ exports.handler = async (event) => {
                 <hr>
                 <p>${currentAutoReplyText.closing}</p>
             `;
-        }
-        else { // Για φόρμα Επικοινωνίας (formType === "Επικοινωνίας" ή απουσιάζει)
+        } else { // Για φόρμα Επικοινωνίας (formType === "Επικοινωνίας" ή απουσιάζει)
             subjectToAMKE = `Νέο μήνυμα από ${data.name || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBodyToAMKE = `
                 <h2>Νέο Μήνυμα Επικοινωνίας</h2>
@@ -160,6 +164,7 @@ exports.handler = async (event) => {
             // Διαμόρφωση Email προς τον Χρήστη
             subjectToUser = currentAutoReplyText.subject;
             emailBodyToUser = `
+                ${currentAutoReplyText.logoHtml}
                 <h2>${currentAutoReplyText.heading}</h2>
                 <p>${currentAutoReplyText.body}</p>
                 <hr>
@@ -175,29 +180,29 @@ exports.handler = async (event) => {
         const transporter = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: parseInt(process.env.EMAIL_PORT),
-            secure: process.env.EMAIL_SECURE === 'true',
+            secure: process.env.EMAIL_SECURE === 'true', // Χρησιμοποιεί SSL/TLS αν είναι 'true'
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.EMAIL_USER, // Το email από το οποίο στέλνετε (π.χ. το δικό σας Gmail)
+                pass: process.env.EMAIL_PASS, // Ο κωδικός ή το App Password του email
             },
         });
 
         // Email options για την ΑΜΚΕ
         const mailOptionsToAMKE = {
-            from: process.env.EMAIL_USER, // Το email από το οποίο στέλνετε (το δικό σας Gmail)
+            from: process.env.EMAIL_USER, // Από ποιο email στέλνετε
             to: recipientEmailAMKE, // Το email της ΑΜΚΕ
             subject: subjectToAMKE,
             html: emailBodyToAMKE,
-            replyTo: data.email // Ο αποστολέας του email μπορεί να απαντήσει στον χρήστη
+            replyTo: data.email // Επιτρέπει στην ΑΜΚΕ να απαντήσει απευθείας στον χρήστη
         };
 
         // Email options για τον Χρήστη (αυτοματοποιημένη απάντηση)
         const mailOptionsToUser = {
-            from: process.env.EMAIL_USER, // Το email από το οποίο στέλνετε
+            from: process.env.EMAIL_USER, // Από ποιο email στέλνετε
             to: data.email, // Το email του χρήστη που συμπλήρωσε τη φόρμα
             subject: subjectToUser,
             html: emailBodyToUser,
-            replyTo: recipientEmailAMKE // Ο χρήστης μπορεί να απαντήσει στο email της ΑΜΚΕ
+            replyTo: recipientEmailAMKE // Επιτρέπει στον χρήστη να απαντήσει στο email της ΑΜΚΕ
         };
 
         // Στέλνουμε και τα δύο emails
