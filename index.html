@@ -875,52 +875,34 @@
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
 
 <script>
-window.addEventListener("load", function(){
-  // Βεβαιωθείτε ότι το translations object από το lang.js είναι διαθέσιμο
-  if (typeof translations === 'undefined') {
-    console.error("translations object not found. Make sure lang.js is loaded before cookie consent script.");
-    return;
-  }
-
-  const currentLang = localStorage.getItem("language") || "el"; // Παίρνουμε την τρέχουσα γλώσσα
-  const langContent = translations[currentLang]; // Παίρνουμε τις μεταφράσεις για την τρέχουσα γλώσσα
-
-  if (!langContent) {
-    console.error(`Translations for language "${currentLang}" not found.`);
-    return;
-  }
-
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#2C3E50",
-        "text": "#FFFFFF"
-      },
-      "button": {
-        "background": "#F4D35E",
-        "text": "#2C3E50"
-      }
-    },
-    "theme": "base",
-    "content": {
-      "message": langContent["cookie-message"],       // Κείμενο από το lang.js
-      "dismiss": langContent["cookie-accept"],        // Κείμενο από το lang.js
-      "deny": langContent["cookie-deny"],             // Κείμενο από το lang.js
-      "link": langContent["cookie-learn-more"],       // Κείμενο από το lang.js
-      "href": langContent["cookie-privacy-policy-url"] // URL από το lang.js
-    },
-    "type": "opt-in",
-    "revokable": true,
-    "position": "bottom", // Όπως ζητήσατε (κάτω κέντρο)
-    "onStatusChange": function(status, chosenBefore) {
-      console.log('Cookie consent status changed:', status, 'chosenBefore:', chosenBefore);
-      // Εδώ μπορείτε να προσθέσετε λογική για το τι συμβαίνει όταν ο χρήστης αποδέχεται ή αρνείται
-      // π.χ., αν χρησιμοποιείτε Google Analytics, φορτώστε το μόνο αν status === 'allow'
-    },
-    "onInitialise": function(status) {
-      console.log('Cookie consent banner initialized with status: ', status);
-    }
-  });
+window.addEventListener("load", function() {
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": { "background": "#252e39" },
+            "button": { "background": "#14a7d0" }
+        },
+        "content": {
+            "message": langContent["cookie-message"],
+            "dismiss": langContent["cookie-accept"],
+            "allow": langContent["cookie-accept"],
+            "deny": langContent["cookie-deny"],
+            "link": langContent["cookie-learn-more"],
+            "href": langContent["cookie-privacy-policy-url"]
+        },
+        "cookie": { // <-- ΠΡΟΣΘΕΣΕ ΑΥΤΟ ΤΟ BLOCK
+            "name": "cookieconsent_status",
+            "expiryDays": 0
+        },
+        "type": "opt-in",
+        "revokable": false, // <-- ΑΛΛΑΞΕ ΑΥΤΟ ΣΕ false
+        "position": "bottom",
+        "onStatusChange": function(status, chosenBefore) {
+          console.log('Cookie consent status changed:', status, 'chosenBefore:', chosenBefore);
+        },
+        "onInitialise": function(status) {
+          console.log('Cookie consent banner re-initialized with status: ', status);
+        }
+    });
 });
 </script>
     <script>
