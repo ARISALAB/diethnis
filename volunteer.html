@@ -330,6 +330,7 @@
             <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
             <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
             <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+    <input type="hidden" name="language" id="form-language"> </form>
 
             <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 100%;">
                 <input type="checkbox" id="accept-terms-volunteer" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
@@ -387,7 +388,7 @@
 
     </script>
     <script>
-        const volunteerForm = document.querySelector(".volunteer-form"); // Επιλέγουμε τη φόρμα εθελοντισμού
+    const volunteerForm = document.querySelector(".volunteer-form"); // Επιλέγουμε τη φόρμα εθελοντισμού
 
         volunteerForm.addEventListener("submit", async function (e) {
             e.preventDefault();
@@ -406,8 +407,15 @@
                 data[key] = value;
             }
 
+            // --- ΝΕΑ ΠΡΟΣΘΗΚΗ ΓΙΑ ΤΗ ΓΛΩΣΣΑ ---
+            // Βρίσκει την τρέχουσα γλώσσα από το html tag (που ρυθμίζεται από το lang.js)
+            const currentLang = document.documentElement.lang;
+            // Προσθέτει την πληροφορία της γλώσσας στα δεδομένα που στέλνονται
+            data.language = currentLang;
+            // --- ΤΕΛΟΣ ΝΕΩΝ ΠΡΟΣΘΗΚΩΝ ---
+
             // Προσθήκη ενός πεδίου που να προσδιορίζει από ποια φόρμα έρχεται το email
-            data.formType = "Εθελοντισμός"; // Ή "Volunteer Application" για τα logs/email
+            data.formType = "Εθελοντισμός"; // Αυτό είναι σωστό για τη φόρμα εθελοντισμού
 
             try {
                 const response = await fetch('/.netlify/functions/send-email', {
