@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemailer": "^6.x.x" // <- Αυτή η γραμμή είναι απαραίτητη
+    "nodemailer": "^6.x.x" 
   }
 }
