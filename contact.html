@@ -221,46 +221,52 @@
   </script>
   <script>
 const form = document.querySelector(".contact-form");
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    // ΝΕΟΣ ΕΛΕΓΧΟΣ: Ελέγξτε αν το checkbox έχει τσεκαριστεί
-    const acceptTermsCheckbox = document.getElementById("accept-terms");
-    if (!acceptTermsCheckbox.checked) {
-      alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
-      return; // Σταματά την υποβολή της φόρμας
+  const acceptTermsCheckbox = document.getElementById("accept-terms");
+  if (!acceptTermsCheckbox.checked) {
+    alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+    return;
+  }
+
+  // *** ΠΡΟΣΘΕΣΕ ΑΥΤΗ ΤΗ ΓΡΑΜΜΗ ***
+  // Βρίσκει την τρέχουσα γλώσσα από το html tag (που ρυθμίζεται από το lang.js)
+  const currentLang = document.documentElement.lang;
+  // Ενημερώνει την τιμή του κρυφού πεδίου "language"
+  document.getElementById("form-language").value = currentLang;
+
+  // Συλλογή δεδομένων φόρμας
+  const formData = new FormData(form);
+  const data = {};
+  for (let [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+
+  // Τώρα, το αντικείμενο 'data' θα περιέχει το 'language'
+  // και η Netlify Function θα το διαβάσει σωστά.
+
+  try {
+    const response = await fetch('/.netlify/functions/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert("Το μήνυμά σας εστάλη επιτυχώς!");
+      form.reset();
+    } else {
+      const errorData = await response.json();
+      alert("Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος: " + (errorData.message || "Άγνωστο σφάλμα"));
     }
-    // ΤΕΛΟΣ ΝΕΟΥ ΕΛΕΓΧΟΥ
-
-    // Συλλογή δεδομένων φόρμας
-    const formData = new FormData(form);
-    const data = {};
-    for (let [key, value] of formData.entries()) {
-      data[key] = value;
-    }
-
-    try {
-      // Στέλνουμε τα δεδομένα στη Netlify Function
-      const response = await fetch('/.netlify/functions/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        alert("Το μήνυμά σας εστάλη επιτυχώς!");
-        form.reset();
-      } else {
-        const errorData = await response.json();
-        alert("Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος: " + (errorData.message || "Άγνωστο σφάλμα"));
-      }
-    } catch (error) {
-      console.error('Error during form submission:', error);
-      alert("Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος. Παρακαλώ δοκιμάστε ξανά αργότερα.");
-    }
-  });
+  } catch (error) {
+    console.error('Error during form submission:', error);
+    alert("Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος. Παρακαλώ δοκιμάστε ξανά αργότερα.");
+  }
+});
 </script>
 
   <script src="script.js"></script>
