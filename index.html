@@ -1205,7 +1205,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
   
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cookiePolicyWidget = document.querySelector("#cookie-policy-widget"); // ή το σωστό ID/κλάση
+    const consent = localStorage.getItem("cookieConsent");
 
+    if (consent && cookiePolicyWidget) {
+      cookiePolicyWidget.style.display = "none";
+    }
+  });
+</script>
 </body>
 
 </html>
