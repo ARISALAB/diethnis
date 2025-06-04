@@ -666,15 +666,22 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h3 data-lang-key="modal-title"></h3>
-                <form action="https://formspree.io/f/xblgwrjr" method="POST" onsubmit="showSuccessMessage(event)">
-                    <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
-                    <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
-                    <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
-                    <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
-                    <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
-                    <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
-                    <button type="submit" data-lang-key="form-submit"></button>
-                </form>
+<form class="sponsor-form"> <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
+            <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
+            <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
+            <input type="text" name="companyName" placeholder="" data-lang-key="form-companyName">
+            <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
+            <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
+            <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
+
+            <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 100%;">
+                <input type="checkbox" id="accept-terms-sponsor" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
+                <label for="accept-terms-sponsor" data-lang-key="accept-terms-text">
+                  Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+                </label>
+            </div>
+            <button type="submit" data-lang-key="form-submit">Υποβολή</button>
+          </form>
             </div>
         </div>
 
