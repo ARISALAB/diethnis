@@ -58,7 +58,12 @@
       background-color: #0a9396;
     }
 
-   
+   .contact-info p a[href^="tel:"] {
+    color: blue !important; /* ή οποιοδήποτε χρώμα θέλεις για τον σύνδεσμο */
+    text-decoration: underline !important;
+    cursor: pointer !important;
+    pointer-events: auto !important; /* Αυτό είναι πολύ σημαντικό! */
+}
   </style>
 </head>
 <body>
