@@ -171,8 +171,16 @@ const translations = {
     "cookie-deny": "Απόρριψη",
     "cookie-learn-more": "Μάθετε περισσότερα",
     "cookie-privacy-policy-url": "el1.pdf",
-    "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"el2.pdf\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"el3.pdf\" target=\"_blank\">Πολιτική Απορρήτου</a>."
-
+    "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"el2.pdf\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"el3.pdf\" target=\"_blank\">Πολιτική Απορρήτου</a>.",
+// ΝΕΕΣ ΜΕΤΑΦΡΑΣΕΙΣ - Ελληνικά
+    "berlin-summary": "Το ταξίδι του @Grisfestival στο Βερολίνο ολοκληρώθηκε με τον πιο όμορφο τρόπο, γεμάτο δημιουργία, συγκίνηση και έμπνευση.",
+    "berlin-thanks-all": "Ένα μεγάλο ευχαριστώ σε όλους όσοι συνέβαλαν ώστε το όραμα του φεστιβάλ να γίνει πραγματικότητα και να ταξιδέψει ακόμη πιο μακριά.",
+    "berlin-mission-statement": "Από τη Νέα Υόρκη και τη Λευκωσία, την Αθήνα έως το #Βερολίνο, το GRis Festival συνεχίζει να αποτελεί έναν ζωντανό χώρο συνάντησης για καλλιτέχνες, επιστήμονες και κοινό, προάγοντας τη σύγχρονη ελληνική ταυτότητα και τη διαπολιτισμική σύνδεση με τον κόσμο.",
+    "berlin-thanks-partners": "Ένα ιδιαίτερο ευχαριστώ στους πολύτιμους συνεργάτες μας, που με το πάθος, τη συνέπεια και τη δημιουργικότητά τους συνέβαλαν καθοριστικά στην επιτυχία του φεστιβάλ",
+    "berlin-thanks-contributors": "Ευχαριστούμε επίσης όλους τους καλλιτέχνες, εθελοντές και φορείς που στήριξαν τη διοργάνωση στο Βερολίνο και πίστεψαν στην αποστολή μας.",
+    "berlin-institutional-supporters": "Με βαθιά ευγνωμοσύνη προς τους θεσμικούς μας υποστηρικτές: Υπουργείο Πολιτισμού, Υπουργείο Εξωτερικών / Γ.Γ. Απόδημου Ελληνισμού, Ελληνικός Οργανισμός Τουρισμού, Πρεσβεία της Ελλάδος στο Βερολίνο, ΕΚΠΑ, Freie Universität Berlin CeMoG, καθώς και την Ελληνική Κοινότητα Βερολίνου.",
+    "berlin-communication-sponsors": "Τους Χορηγούς Επικοινωνίας: @ertofficial @ert3official_ @ertworld @voiceofgreece_ert Cosmo sta ellinika @εξαντα",
+    "btn-learn-more-berlin": "Μάθετε περισσότερα" // ΝΕΑ ΜΕΤΑΦΡΑΣΗ
   },
   en: {
     "main-title": "A.M.K.E. DIETHNIS DRASI",
@@ -519,8 +527,16 @@ const translations = {
     "cookie-deny": "Deny",
     "cookie-learn-more": "Learn more",
     "cookie-privacy-policy-url": "en1.pdf",
-    "accept-terms-text": "Read and accept our <a href=\"en2.pdf\" target=\"_blank\">Terms of Use</a> and <a href=\"en3.pdf\" target=\"_blank\">Privacy Policy</a>."
-
+    "accept-terms-text": "Read and accept our <a href=\"en2.pdf\" target=\"_blank\">Terms of Use</a> and <a href=\"en3.pdf\" target=\"_blank\">Privacy Policy</a>.",
+"berlin-summary": "The journey of @Grisfestival in Berlin concluded in the most beautiful way, full of creation, emotion, and inspiration.",
+    "berlin-thanks-all": "A big thank you to everyone who contributed to making the festival's vision a reality and for traveling even further.",
+    "berlin-mission-statement": "From New York and Nicosia, Athens to #Berlin, the GRis Festival continues to be a vibrant meeting place for artists, scientists, and the public, promoting modern Greek identity and cross-cultural connection with the world.",
+    "berlin-thanks-partners": "A special thank you to our valuable partners, whose passion, consistency, and creativity were instrumental to the festival's success.",
+    "berlin-thanks-contributors": "We also thank all the artists, volunteers, and organizations that supported the event in Berlin and believed in our mission.",
+    "berlin-institutional-supporters": "With deep gratitude to our institutional supporters: Ministry of Culture, Ministry of Foreign Affairs / General Secretariat for Greeks Abroad, Greek National Tourism Organization, Embassy of Greece in Berlin, NKUA, Freie Universität Berlin CeMoG, as well as the Greek Community of Berlin.",
+    "berlin-communication-sponsors": "Our Communication Sponsors: @ertofficial @ert3official_ @ertworld @voiceofgreece_ert Cosmo sta ellinika @exanta",
+    "btn-learn-more-berlin": "Learn more" // ΝΕΑ ΜΕΤΑΦΡΑΣΗ
+  
   }
 };
 
