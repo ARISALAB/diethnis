@@ -756,6 +756,329 @@
             }
         }
     </style>
+<section id="gris-festival" class="content-section">
+  <div class="content-wrapper" data-aos="fade-up">
+    <h3 class="section-title">GRis Festival</h3>
+   <p class="summary-text" data-lang-key="berlin-summary">
+Το ταξίδι του @Grisfestival στο Βερολίνο ολοκληρώθηκε με τον πιο όμορφο τρόπο, γεμάτο δημιουργία, συγκίνηση και έμπνευση.    </p>
+
+    <p class="mission-statement" data-lang-key="berlin-thanks-all">
+Ένα μεγάλο ευχαριστώ σε όλους όσοι συνέβαλαν ώστε το όραμα του φεστιβάλ να γίνει πραγματικότητα και να ταξιδέψει ακόμη πιο μακριά.    </p>
+ <p class="mission-statement" data-lang-key="berlin-mission-statement">
+     Από τη Νέα Υόρκη και τη Λευκωσία, την Αθήνα έως το #Βερολίνο, το GRis Festival συνεχίζει να αποτελεί έναν ζωντανό χώρο συνάντησης για καλλιτέχνες, επιστήμονες και κοινό, προάγοντας τη σύγχρονη ελληνική ταυτότητα και τη διαπολιτισμική σύνδεση με τον κόσμο.
+    </p>
+<p class="mission-statement" data-lang-key="berlin-thanks-partners">
+Ένα ιδιαίτερο ευχαριστώ στους πολύτιμους συνεργάτες μας, που με το πάθος, τη συνέπεια και τη δημιουργικότητά τους συνέβαλαν καθοριστικά στην επιτυχία του φεστιβάλ
+    </p>
+
+<p class="mission-statement" data-lang-key="berlin-thanks-contributors">
+Ευχαριστούμε επίσης όλους τους καλλιτέχνες, εθελοντές και φορείς που στήριξαν τη διοργάνωση στο Βερολίνο και πίστεψαν στην αποστολή μας.    </p>
+
+    <p class="mission-statement" data-lang-key="berlin-institutional-supporters">
+Με βαθιά ευγνωμοσύνη προς τους θεσμικούς μας υποστηρικτές:
+Υπουργείο Πολιτισμού, Υπουργείο Εξωτερικών / Γ.Γ. Απόδημου Ελληνισμού, Ελληνικός Οργανισμός Τουρισμού, Πρεσβεία της Ελλάδος στο Βερολίνο, ΕΚΠΑ, Freie Universität Berlin CeMoG, καθώς και την Ελληνική Κοινότητα Βερολίνου.    </p>
+
+
+<p class="mission-statement" data-lang-key="berlin-communication-sponsors">
+Τους Χορηγους  Επικοινωνίας:
+@ertofficial @ert3official_ @ertworld @voiceofgreece_ert Cosmo sta ellinika @εξαντα</p>
+   <div class="button-container">
+      <a href="https://grisfestival.com/gris-festival-berlin-2025/" target="_blank" class="join-button" data-aos="zoom-in" data-aos-delay="200" data-lang-key="btn-learn-more-berlin">
+        Μάθετε περισσότερα
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+
+        <div class="carousel-container" id="projects-carousel">
+            
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="800.jpg" alt="Εικαστική Έκθεση"></div>
+                <div class="carousel-slide"><img src="801.jpg" alt="Μουσική Παράσταση"></div>
+                <div class="carousel-slide"><img src="802.jpg" alt="Θεατρικό Εργαστήρι"></div>
+                <div class="carousel-slide"><img src="803.jpg" alt="Στρογγυλή Τράπεζα"></div>
+                <div class="carousel-slide"><img src="804.jpg" alt="Φωτογραφικό Αφιέρωμα"></div>
+                <div class="carousel-slide"><img src="805.jpg" alt="Χορευτική Εκδήλωση"></div>
+            </div>
+
+            <button class="carousel-btn carousel-prev" aria-label="Προηγούμενη εικόνα">&lt;</button>
+            <button class="carousel-btn carousel-next" aria-label="Επόμενη εικόνα">&gt;</button>
+
+            <div class="carousel-indicators">
+                </div>
+            
+        </div>
+        </div>
+</section>
+<style>
+
+/* Στυλ για το Carousel */
+
+.carousel-container {
+    overflow: hidden;
+    position: relative; 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; 
+    /* width: fit-content; ΔΕΝ χρειάζεται πλέον, το track θα έχει το συνολικό πλάτος όλων των slides */
+}
+
+/* Default: Mobile / Tablet (1 εικόνα ανά προβολή) */
+.carousel-slide {
+    flex: 0 0 100%; 
+    max-width: 100%;
+}
+
+/* Desktop/Laptop (3 εικόνες ανά προβολή) */
+@media (min-width: 768px) {
+    .carousel-slide {
+        flex: 0 0 33.333%; /* 100% / 3 */
+        max-width: 33.333%;
+    }
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Στυλ για τα Κουμπιά Πλοήγησης */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    line-height: 1;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Στυλ για τους Δείκτες (Indicators) */
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+    background-color: #007bff; /* Χρώμα για τον ενεργό δείκτη */
+    transform: scale(1.2);
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.getElementById('projects-carousel');
+    if (!carouselContainer) return;
+
+    const track = carouselContainer.querySelector('.carousel-track');
+    // Οι αρχικές 6 φωτογραφίες (slides)
+    const originalSlides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
+    const N = originalSlides.length; // 6
+    const C = 3; // Αριθμός κλώνων που χρειάζονται (ίσο με τις max ορατές φωτογραφίες)
+
+    const prevButton = carouselContainer.querySelector('.carousel-prev');
+    const nextButton = carouselContainer.querySelector('.carousel-next');
+    const indicatorsContainer = carouselContainer.querySelector('.carousel-indicators');
+
+    let trackPositionIndex; // Παρακολουθεί την τρέχουσα θέση στη συνολική ράγα (μαζί με τους κλώνους)
+    
+    // 1. Δημιουργία Κλώνων για Ατέρμονο Loop
+    
+    // Προσθήκη των πρώτων C slides στο τέλος (για μετάβαση από το 6 στο 1)
+    for (let i = 0; i < C; i++) {
+        // Χρησιμοποιούμε true για βαθιά κλωνοποίηση (μαζί με την εικόνα)
+        track.appendChild(originalSlides[i].cloneNode(true)); 
+    }
+    // Προσθήκη των τελευταίων C slides στην αρχή (για μετάβαση από το 1 στο 6)
+    for (let i = N - C; i < N; i++) {
+        track.prepend(originalSlides[i].cloneNode(true));
+    }
+    
+    // Συνολικά slides: [4, 5, 6 (κλώνοι), 1, 2, 3, 4, 5, 6 (πρωτότυπα), 1, 2, 3 (κλώνοι)]
+    const totalSlides = N + 2 * C; // 12
+    const firstRealSlideIndex = C; // 3 (το 1ο πρωτότυπο slide)
+    const lastRealSlideIndex = N + C - 1; // 8 (το 6ο πρωτότυπο slide)
+    
+    // 2. Responsive Helpers
+    const getSlidesPerView = () => window.innerWidth >= 768 ? 3 : 1;
+    
+    const getCurrentStepWidth = () => {
+        const containerWidth = carouselContainer.getBoundingClientRect().width;
+        const slidesPerView = getSlidesPerView();
+        // Το πλάτος βήματος είναι πάντα το πλάτος ενός μεμονωμένου slide
+        return containerWidth / slidesPerView;
+    };
+    
+    // 3. Εφαρμογή της Μεταμόρφωσης (Transform)
+    const applyTransform = (index) => {
+        const stepWidth = getCurrentStepWidth();
+        const amountToMove = index * stepWidth;
+        track.style.transform = 'translateX(-' + amountToMove + 'px)';
+    };
+
+    // 4. Ενημέρωση Ενεργού Δείκτη
+    const updateActiveDot = (realIndex) => {
+        const dots = Array.from(indicatorsContainer.querySelectorAll('.carousel-dot'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        // Το realIndex είναι 0-5
+        if (dots[realIndex]) {
+            dots[realIndex].classList.add('active');
+        }
+    }
+
+    // 5. Συνάρτηση Μετακίνησης (με τη λογική του άλματος/Jump)
+    const moveToSlide = (newIndex, animated = true) => {
+        
+        trackPositionIndex = newIndex;
+        
+        // Απενεργοποίηση transition για το άλμα (jump)
+        // Η μετάβαση είναι 0.5s, οπότε το timeout πρέπει να είναι 500ms
+        track.style.transition = animated ? 'transform 0.5s ease-in-out' : 'none';
+
+        // Εφαρμογή της ολίσθησης
+        applyTransform(trackPositionIndex);
+
+        // Υπολογισμός του πραγματικού δείκτη (0-5) για την ενημέρωση του dot
+        let realIndex = trackPositionIndex - C; 
+        
+        // Χειρισμός δείκτη όταν βρισκόμαστε στους κλώνους
+        if (realIndex < 0) {
+            // Στους κλώνους της αρχής (π.χ. index 2 -> realIndex -1): Αντιστοιχεί στο slide 6 (5)
+            realIndex = realIndex + N; 
+        } else if (realIndex >= N) {
+            // Στους κλώνους του τέλους (π.χ. index 9 -> realIndex 6): Αντιστοιχεί στο slide 1 (0)
+            realIndex = realIndex - N;
+        }
+        updateActiveDot(realIndex);
+        
+        // 6. Λογική Άλματος (Jump) - Μετά το τέλος της ομαλής μετάβασης
+        
+        // Μετακίνηση προς τα πίσω (από 1 στο 6)
+        if (trackPositionIndex === firstRealSlideIndex - 1) { // 2: Χτύπησε τον αριστερό κλώνο (slide 6)
+            setTimeout(() => {
+                // Άλμα στην θέση του τελευταίου πρωτότυπου slide (Index 8)
+                moveToSlide(lastRealSlideIndex, false); // Άμεσο άλμα (χωρίς animation)
+            }, 500); 
+        } 
+        // Μετακίνηση προς τα εμπρός (από 6 στο 1)
+        else if (trackPositionIndex === lastRealSlideIndex + 1) { // 9: Χτύπησε τον δεξιό κλώνο (slide 1)
+            setTimeout(() => {
+                // Άλμα στην θέση του πρώτου πρωτότυπου slide (Index 3)
+                moveToSlide(firstRealSlideIndex, false); // Άμεσο άλμα (χωρίς animation)
+            }, 500); 
+        }
+    };
+    
+    // 7. Δημιουργία Δεικτών (μόνο για τα 6 πρωτότυπα slides)
+    originalSlides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) {
+            dot.classList.add('active');
+        }
+        dot.addEventListener('click', () => {
+            // Ο δείκτης 0 αντιστοιχεί στο πραγματικό slide με index 3
+            moveToSlide(index + firstRealSlideIndex);
+            resetAutoplayTimer();
+        });
+        indicatorsContainer.appendChild(dot);
+    });
+
+    // 8. Navigation Listeners
+    nextButton.addEventListener('click', () => {
+        moveToSlide(trackPositionIndex + 1);
+        resetAutoplayTimer();
+    });
+
+    prevButton.addEventListener('click', () => {
+        moveToSlide(trackPositionIndex - 1);
+        resetAutoplayTimer();
+    });
+
+    // 9. Autoplay Logic
+    const autoSlideInterval = 5000;
+    let autoSlide;
+    let autoplayTimeout; 
+
+    const startAutoplay = () => {
+        if (!autoSlide) {
+            autoSlide = setInterval(() => {
+                moveToSlide(trackPositionIndex + 1);
+            }, autoSlideInterval);
+        }
+    }
+
+    const stopAutoplay = () => {
+        clearInterval(autoSlide);
+        autoSlide = null;
+    }
+    
+    const resetAutoplayTimer = () => {
+        stopAutoplay();
+        clearTimeout(autoplayTimeout);
+        autoplayTimeout = setTimeout(startAutoplay, autoSlideInterval); 
+    }
+    
+    carouselContainer.addEventListener('mouseover', stopAutoplay);
+    carouselContainer.addEventListener('mouseleave', startAutoplay);
+    
+    // 10. Responsive Logic
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        stopAutoplay();
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Επανατοποθέτηση στην τρέχουσα θέση (με άμεσο jump)
+            moveToSlide(trackPositionIndex, false); 
+            startAutoplay();
+        }, 200);
+    });
+    
+    // Αρχική ρύθμιση: Ξεκινάμε από το 1ο πρωτότυπο slide (index 3)
+    trackPositionIndex = firstRealSlideIndex; 
+    applyTransform(trackPositionIndex);
+    updateActiveDot(0);
+    startAutoplay();
+});
+</script>
     <section id="join-us" class="content-section1">
         <div class="rotating-circle-bg"></div>
 
