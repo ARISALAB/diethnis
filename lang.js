@@ -174,12 +174,9 @@ const translations = {
     "accept-terms-text": "Διαβάστε και αποδεχτείτε τους <a href=\"el2.pdf\" target=\"_blank\">Όρους Χρήσης</a> και την <a href=\"el3.pdf\" target=\"_blank\">Πολιτική Απορρήτου</a>.",
 // ΝΕΕΣ ΜΕΤΑΦΡΑΣΕΙΣ - Ελληνικά
     "berlin-summary": "Το ταξίδι του @Grisfestival στο Βερολίνο ολοκληρώθηκε με τον πιο όμορφο τρόπο, γεμάτο δημιουργία, συγκίνηση και έμπνευση.",
-    "berlin-thanks-all": "Ένα μεγάλο ευχαριστώ σε όλους όσοι συνέβαλαν ώστε το όραμα του φεστιβάλ να γίνει πραγματικότητα και να ταξιδέψει ακόμη πιο μακριά.",
-    "berlin-mission-statement": "Από τη Νέα Υόρκη και τη Λευκωσία, την Αθήνα έως το #Βερολίνο, το GRis Festival συνεχίζει να αποτελεί έναν ζωντανό χώρο συνάντησης για καλλιτέχνες, επιστήμονες και κοινό, προάγοντας τη σύγχρονη ελληνική ταυτότητα και τη διαπολιτισμική σύνδεση με τον κόσμο.",
-    "berlin-thanks-partners": "Ένα ιδιαίτερο ευχαριστώ στους πολύτιμους συνεργάτες μας, που με το πάθος, τη συνέπεια και τη δημιουργικότητά τους συνέβαλαν καθοριστικά στην επιτυχία του φεστιβάλ",
-    "berlin-thanks-contributors": "Ευχαριστούμε επίσης όλους τους καλλιτέχνες, εθελοντές και φορείς που στήριξαν τη διοργάνωση στο Βερολίνο και πίστεψαν στην αποστολή μας.",
-    "berlin-institutional-supporters": "Με βαθιά ευγνωμοσύνη προς τους θεσμικούς μας υποστηρικτές: Υπουργείο Πολιτισμού, Υπουργείο Εξωτερικών / Γ.Γ. Απόδημου Ελληνισμού, Ελληνικός Οργανισμός Τουρισμού, Πρεσβεία της Ελλάδος στο Βερολίνο, ΕΚΠΑ, Freie Universität Berlin CeMoG, καθώς και την Ελληνική Κοινότητα Βερολίνου.",
-    "berlin-communication-sponsors": "Τους Χορηγούς Επικοινωνίας: @ertofficial @ert3official_ @ertworld @voiceofgreece_ert Cosmo sta ellinika @εξαντα",
+    "berlin-thanks-all": "Υπό την αιγίδα και υποστήριξη του Υπουργείου Πολιτισμού, του Υπουργείου Εξωτερικών της Γενικής Γραμματείας Απόδημου Ελληνισμού, του ΕΟΤ, της Πρεσβείας της Ελλάδας στο Βερολίνο, του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών, του CeMoG του Freie Universitat, καθώς επίσης και τη συνεργασία και στήριξη της Ελληνική Κοινότητα Βερολίνου - Hellenische Gemeinde zu Berlin e. V. ",
+    "berlin-mission-statement": "Media Sponsors: ΕΡΤ  ΕΡΤ3 Η Φωνή Της Ελλάδας - ΕΡΤ  Hephaestus Wien - Österreichisch/Griechischer Integrationsverein Cosmo Sta Ellinika, Exantas",
+
     "btn-learn-more-berlin": "Μάθετε περισσότερα" // ΝΕΑ ΜΕΤΑΦΡΑΣΗ
   },
   en: {
@@ -347,7 +344,7 @@ const translations = {
     "join-sponsor-text": "Η υποστήριξη σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεων μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμα μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντας την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν.",
     "join-us-sponsor-description": "Ως χορηγός, προβάλλετε την επιχείρησή σας συνδέοντάς την με τον πολιτισμό, την κοινωνική προσφορά και την καινοτομία. Δείξτε την εταιρική σας ευθύνη και γίνετε συν-δημιουργός αλλαγής.",
     "join-us-sponsor": "Γίνε χορηγός:",
-
+"berlin-connection-title": "Διαπολιτισμική σύνδεση με Βερολίνο",
     // Cookie Consent Translations (Ελληνικά)
     "cookie-message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να διασφαλίσει ότι θα έχετε την καλύτερη εμπειρία στον ιστότοπό μας.",
     "cookie-accept": "Αποδοχή Cookies",
@@ -528,13 +525,10 @@ const translations = {
     "cookie-learn-more": "Learn more",
     "cookie-privacy-policy-url": "en1.pdf",
     "accept-terms-text": "Read and accept our <a href=\"en2.pdf\" target=\"_blank\">Terms of Use</a> and <a href=\"en3.pdf\" target=\"_blank\">Privacy Policy</a>.",
-"berlin-summary": "The journey of @Grisfestival in Berlin concluded in the most beautiful way, full of creation, emotion, and inspiration.",
-    "berlin-thanks-all": "A big thank you to everyone who contributed to making the festival's vision a reality and for traveling even further.",
-    "berlin-mission-statement": "From New York and Nicosia, Athens to #Berlin, the GRis Festival continues to be a vibrant meeting place for artists, scientists, and the public, promoting modern Greek identity and cross-cultural connection with the world.",
-    "berlin-thanks-partners": "A special thank you to our valuable partners, whose passion, consistency, and creativity were instrumental to the festival's success.",
-    "berlin-thanks-contributors": "We also thank all the artists, volunteers, and organizations that supported the event in Berlin and believed in our mission.",
-    "berlin-institutional-supporters": "With deep gratitude to our institutional supporters: Ministry of Culture, Ministry of Foreign Affairs / General Secretariat for Greeks Abroad, Greek National Tourism Organization, Embassy of Greece in Berlin, NKUA, Freie Universität Berlin CeMoG, as well as the Greek Community of Berlin.",
-    "berlin-communication-sponsors": "Our Communication Sponsors: @ertofficial @ert3official_ @ertworld @voiceofgreece_ert Cosmo sta ellinika @exanta",
+"berlin-summary": "The @Grisfestival journey in Berlin concluded in the most beautiful way, full of creation, emotion, and inspiration.",
+  "berlin-thanks-all": "Under the auspices and support of the Ministry of Culture, the Ministry of Foreign Affairs (General Secretariat for Greeks Abroad), the Greek National Tourism Organization (GNTO), the Embassy of Greece in Berlin, the National and Kapodistrian University of Athens, CeMoG of the Freie Universität, as well as the cooperation and support of the Hellenic Community of Berlin - Hellenische Gemeinde zu Berlin e. V. ",
+  "berlin-mission-statement": "Media Sponsors: ERT ERT3 The Voice of Greece - ERT Hephaestus Wien - Österreichisch/Griechischer Integrationsverein Cosmo Sta Ellinika, Exantas",
+  "berlin-connection-title": "Intercultural Connection with Berlin", // Η μετάφραση του νέου τίτλου
     "btn-learn-more-berlin": "Learn more" // ΝΕΑ ΜΕΤΑΦΡΑΣΗ
   
   }
