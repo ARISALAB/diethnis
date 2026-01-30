@@ -715,6 +715,7 @@
         <a href="projects.html" class="join-button" data-lang-key="join-us-button" data-aos="zoom-in" data-aos-delay="200">Μάθε περισσότερα</a>
 
     </section>
+
     <style>
         #join-us {
             position: relative;
@@ -756,65 +757,97 @@
             }
         }
     </style>
-<section id="gris-festival" class="content-section">
-  <div class="content-wrapper" data-aos="fade-up">
-    <img 
-    src="5000.JPG" 
-    alt="Εικόνα για τη Διαπολιτισμική σύνδεση με Βερολίνο"
-    style="
-        display: block; 
-        max-width: 200px; /* Μέγιστο πλάτος για να μοιάζει με logo */
-        height: auto; 
-        margin: 0 auto 15px; /* Κεντράρισμα και κενό κάτω */
-        /* Προαιρετικά: Μπορείτε να προσθέσετε ελαφρύ περίγραμμα ή σκιά */
-        /* border: 1px solid #ccc; */
-        /* border-radius: 5px; */
-    "
-/>
-<h3 class="section-title" data-lang-key="berlin-connection-title">
-    Διαπολιτισμική σύνδεση με Βερολίνο
-</h3>
-       <p class="summary-text" data-lang-key="berlin-summary">
-Το ταξίδι του @Grisfestival στο Βερολίνο ολοκληρώθηκε με τον πιο όμορφο τρόπο, γεμάτο δημιουργία, συγκίνηση και έμπνευση.    </p>
+    <div class="divider-wrapper">
+    <hr class="gold-divider">
+</div>
 
-    <p class="mission-statement" data-lang-key="berlin-thanks-all">
-Ένα μεγάλο ευχαριστώ σε όλους όσοι συνέβαλαν ώστε το όραμα του φεστιβάλ να γίνει πραγματικότητα και να ταξιδέψει ακόμη πιο μακριά.    </p>
- <p class="mission-statement" data-lang-key="berlin-mission-statement">
-     Από τη Νέα Υόρκη και τη Λευκωσία, την Αθήνα έως το #Βερολίνο, το GRis Festival συνεχίζει να αποτελεί έναν ζωντανό χώρο συνάντησης για καλλιτέχνες, επιστήμονες και κοινό, προάγοντας τη σύγχρονη ελληνική ταυτότητα και τη διαπολιτισμική σύνδεση με τον κόσμο.
-    </p>
-
-      <a href="https://grisfestival.com/gris-festival-berlin-2025/" target="_blank" class="join-button" data-aos="zoom-in" data-aos-delay="200" data-lang-key="btn-learn-more-berlin">
-        Μάθετε περισσότερα
-      </a>
-    </div>
-  </div>
+<section id="gris-festival" class="banner-section">
+    <div class="container" data-aos="fade-up">
+        <a href="https://grisfestival.com/gris-festival-berlin-2025/" target="_blank" class="banner-link">
+            <img src="5000.JPG" alt="Gris Festival Berlin" class="banner-image">
+        </a>
+    </div>
 </section>
 
-<section id="projects">
-    <div class="container">
-
-        <div class="carousel-container" id="projects-carousel">
-            
-            <div class="carousel-track">
-                <div class="carousel-slide"><img src="800.jpg" alt="Εικαστική Έκθεση"></div>
-                <div class="carousel-slide"><img src="801.jpg" alt="Μουσική Παράσταση"></div>
-                <div class="carousel-slide"><img src="802.jpg" alt="Θεατρικό Εργαστήρι"></div>
-                <div class="carousel-slide"><img src="803.jpg" alt="Στρογγυλή Τράπεζα"></div>
-                <div class="carousel-slide"><img src="804.jpg" alt="Φωτογραφικό Αφιέρωμα"></div>
-                <div class="carousel-slide"><img src="805.jpg" alt="Χορευτική Εκδήλωση"></div>
-            </div>
-
-            <button class="carousel-btn carousel-prev" aria-label="Προηγούμενη εικόνα">&lt;</button>
-            <button class="carousel-btn carousel-next" aria-label="Επόμενη εικόνα">&gt;</button>
-
-            <div class="carousel-indicators">
-                </div>
-            
-        </div>
-        </div>
+<section id="greece-culture-banner" class="banner-section">
+    <div class="container" data-aos="fade-up">
+        <a href="https://allofgreeceone.culture.gov.gr/" target="_blank" class="banner-link">
+            <img src="greece-banner.jpg" alt="Όλη η Ελλάδα ένας Πολιτισμός" class="banner-image">
+        </a>
+    </div>
 </section>
+
 <style>
 
+    /* Κοινές ρυθμίσεις για τα Banners */
+.banner-section {
+    background-color: #2C3E50; /* Το μπλε των projects */
+    padding: 80px 0;           /* Ίδια περιθώρια πάνω-κάτω */
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.banner-link {
+    display: inline-block;
+    width: 90%;
+    max-width: 60%;         /* Έλεγχος μεγέθους για να φαίνονται ως banner */
+    text-decoration: none;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.banner-image {
+    width: 100%;              /* Η εικόνα γεμίζει το banner-link */
+    height: auto;
+    display: block;
+    border-radius: 12px;      /* Ίδιες γωνίες */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Ίδια σκιά */
+    cursor: pointer;
+}
+
+/* Hover εφέ και για τα δύο */
+.banner-link:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+.banner-link:hover .banner-image {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Προσαρμογή για κινητά */
+@media (max-width: 768px) {
+    .banner-section {
+        padding: 50px 0;      /* Μικρότερα περιθώρια στα κινητά */
+    }
+    .banner-link {
+        width: 95%;           /* Λίγο περισσότερο πλάτος στα κινητά */
+    }
+}
+</style>
+<div class="divider-wrapper">
+    <hr class="gold-divider">
+</div>
+
+<section id="projects">
+    </section>
+
+<style>
+/* Χρυσή Διαχωριστική Γραμμή */
+.gold-divider {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #F4D35E, transparent);
+    border: none;
+    margin: 0 auto;
+    width: 80%; /* Δεν πιάνει όλη την οθόνη για να είναι πιο κομψή */
+    max-width: 1000px;
+}
+
+/* Αν θέλεις η γραμμή να είναι ακριβώς πάνω στο μπλε background χωρίς κενά */
+.divider-wrapper {
+    background-color: #2C3E50;
+    padding: 20px 0;
+    display: block;
+}
 /* Στυλ για το Carousel */
 
 .carousel-container {
