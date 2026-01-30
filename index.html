@@ -771,7 +771,7 @@
 
 <section id="greece-culture-banner" class="banner-section">
     <div class="container" data-aos="fade-up">
-        <a href="https://allofgreeceone.culture.gov.gr/" target="_blank" class="banner-link">
+        <a href="https://allofgreeceone.culture.gov.gr/?s=%CE%A5%CF%80%CE%BF%CE%B3%CE%B5%CE%B9%CE%B1+%CF%81%CE%B5%CF%8D%CE%BC%CE%B1%CF%84%CE%B1 target="_blank" class="banner-link">
             <img src="greece-banner.jpg" alt="Όλη η Ελλάδα ένας Πολιτισμός" class="banner-image">
         </a>
     </div>
@@ -779,10 +779,11 @@
 
 <style>
 
-    /* Κοινές ρυθμίσεις για τα Banners */
+
+/* Κοινές ρυθμίσεις για τα Banners */
 .banner-section {
-    background-color: #2C3E50; /* Το μπλε των projects */
-    padding: 80px 0;           /* Ίδια περιθώρια πάνω-κάτω */
+    background-color: #2C3E50;
+    padding: 60px 0; /* Μειωμένο padding για να μην πιάνει όλη την οθόνη το κενό */
     text-align: center;
     width: 100%;
     display: block;
@@ -791,38 +792,61 @@
 .banner-link {
     display: inline-block;
     width: 90%;
-    max-width: 90%;         /* Έλεγχος μεγέθους για να φαίνονται ως banner */
+    /* ΕΔΩ ΕΙΝΑΙ Η ΑΛΛΑΓΗ: Βάζουμε pixels αντί για ποσοστό για το desktop */
+    max-width: 700px; 
     text-decoration: none;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .banner-image {
-    width: 100%;              /* Η εικόνα γεμίζει το banner-link */
+    width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;      /* Ίδιες γωνίες */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Ίδια σκιά */
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
 
-/* Hover εφέ και για τα δύο */
-.banner-link:hover {
-    transform: translateY(-12px) scale(1.02);
+/* Χρυσή Διαχωριστική Γραμμή */
+.gold-divider {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #F4D35E, transparent);
+    border: none;
+    margin: 0 auto;
+    width: 60%; /* Πιο μικρή και κομψή */
+    max-width: 800px;
 }
 
-.banner-link:hover .banner-image {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+/* Wrapper για τη γραμμή πάνω στο μπλε φόντο */
+.divider-wrapper {
+    background-color: #2C3E50;
+    padding: 10px 0;
+}
+
+/* Hover εφέ */
+.banner-link:hover {
+    transform: translateY(-10px) scale(1.01);
 }
 
 /* Προσαρμογή για κινητά */
 @media (max-width: 768px) {
     .banner-section {
-        padding: 50px 0;      /* Μικρότερα περιθώρια στα κινητά */
+        padding: 40px 0;
     }
     .banner-link {
-        width: 95%;           /* Λίγο περισσότερο πλάτος στα κινητά */
+        width: 92%; /* Σχεδόν όλο το πλάτος στο κινητό */
+    }
+    .gold-divider {
+        width: 80%;
     }
 }
+</style>
+<div class="divider-wrapper">
+    <hr class="gold-divider">
+</div>
+
+<section id="projects">
+    </section>
 </style>
 <div class="divider-wrapper">
     <hr class="gold-divider">
@@ -1588,4 +1612,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
+
 
