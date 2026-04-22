@@ -1468,14 +1468,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Πιστοποιητικό εθελοντικής δράσης</li>
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Επαφή με διεθνείς συνεργάτες</li>
                         </ul>
-                        <a href="volunteer.html" class="p-card-btn">Εγγραφή ως Εθελοντής</a>
+                        <a href="volunteer.html" class="p-card-btn" data-lang-key="card-volunteer-btn">Εγγραφή ως Εθελοντής</a>
                     </div>
                 </div>
 
                 <!-- Κάρτα Μέλους (featured) -->
                 <div class="p-card featured">
                     <div class="p-card-top" style="background-image: url('7.jpg');">
-                        <span class="p-card-badge">Δημοφιλές</span>
+                        <span class="p-card-badge" data-lang-key="card-badge-popular">Δημοφιλές</span>
                         <div class="p-card-icon-wrap">
                             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
@@ -1489,7 +1489,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Δικαίωμα ψήφου στις γενικές συνελεύσεις</li>
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Δίκτυο συνεργατών και δημιουργών</li>
                         </ul>
-                        <a href="member.html" class="p-card-btn">Εγγραφή ως Μέλος</a>
+                        <a href="member.html" class="p-card-btn" data-lang-key="card-member-btn">Εγγραφή ως Μέλος</a>
                     </div>
                 </div>
 
@@ -1509,7 +1509,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Εταιρική κοινωνική ευθύνη σε δράση</li>
                             <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Αποκλειστικές συνεργασίες & co-branding</li>
                         </ul>
-                        <a href="sponsor.html" class="p-card-btn">Γίνε Χορηγός</a>
+                        <a href="sponsor.html" class="p-card-btn" data-lang-key="card-sponsor-btn">Γίνε Χορηγός</a>
                     </div>
                 </div>
 
@@ -1976,50 +1976,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.cookie = "cookieconsent_status=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 </script>
     <script src="lang.js" defer></script>
-    <script>
-    // Επέκταση langContent για τα νέα keys των καρτών συμμετοχής
-    document.addEventListener("DOMContentLoaded", function() {
-        const cardKeys = {
-            el: {
-                "card-volunteer-title": "Γίνε Εθελοντής",
-                "card-volunteer-tagline": "Πρόσφερε χρόνο, δημιουργικότητα και ενέργεια",
-                "card-member-title": "Γίνε Μέλος",
-                "card-member-tagline": "Για φυσικά πρόσωπα που θέλουν ενεργή συμμετοχή",
-                "card-sponsor-title": "Γίνε Χορηγός",
-                "card-sponsor-tagline": "Για εταιρείες και οργανισμούς κάθε μεγέθους",
-            },
-            en: {
-                "card-volunteer-title": "Become a Volunteer",
-                "card-volunteer-tagline": "Offer your time, creativity and energy",
-                "card-member-title": "Become a Member",
-                "card-member-tagline": "For individuals who want active participation",
-                "card-sponsor-title": "Become a Sponsor",
-                "card-sponsor-tagline": "For companies and organisations of any size",
-            }
-        };
-
-        function applyCardLang() {
-            const lang = document.documentElement.getAttribute("data-language") || "el";
-            const keys = cardKeys[lang] || cardKeys["el"];
-            document.querySelectorAll("[data-lang-key]").forEach(function(el) {
-                const key = el.getAttribute("data-lang-key");
-                if (keys[key] !== undefined) {
-                    el.innerHTML = keys[key];
-                }
-            });
-        }
-
-        applyCardLang();
-
-        // Παρακολούθηση αλλαγής γλώσσας
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(m) {
-                if (m.attributeName === "data-language") applyCardLang();
-            });
-        });
-        observer.observe(document.documentElement, { attributes: true });
-    });
-    </script>
 
 </body>
 
