@@ -1134,17 +1134,310 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoplay();
 });
 </script>
+    <style>
+        #join-us {
+            position: relative;
+            overflow: hidden;
+            background-color: #1e2d3d;
+            padding: 90px 20px 80px;
+            text-align: center;
+        }
+
+        #join-us::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(244,211,94,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 20% 100%, rgba(0,95,115,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #join-us h3 {
+            color: white !important;
+            font-size: 2.4em !important;
+            margin-bottom: 10px !important;
+            letter-spacing: -0.5px;
+        }
+
+        .join-us-subtitle {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.95em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .participation-cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            max-width: 1160px;
+            margin: 0 auto 50px auto;
+            align-items: stretch;
+        }
+
+        .p-card {
+            background: #ffffff;
+            border-radius: 4px;
+            width: 340px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+            position: relative;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .p-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+        .p-card.featured {
+            border-top: 3px solid #F4D35E;
+        }
+
+        .p-card-top {
+            padding: 44px 32px 32px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .p-card-top::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(20,35,50,0.78) 0%, rgba(20,35,50,0.92) 100%);
+        }
+
+        .p-card-top * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .p-card-icon-wrap {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+
+        .p-card-icon-wrap svg {
+            width: 100%;
+            height: 100%;
+            stroke: #F4D35E;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .p-card-title {
+            color: #ffffff;
+            font-size: 1.45em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+            line-height: 1.2;
+        }
+
+        .p-card-tagline {
+            color: rgba(255,255,255,0.62);
+            font-size: 0.85em;
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        .p-card-body {
+            padding: 30px 28px 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #ffffff;
+        }
+
+        .p-card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px 0;
+            text-align: left;
+        }
+
+        .p-card-features li {
+            color: #3a4a5c;
+            font-size: 0.9em;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(44,62,80,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        .p-card-features li:last-child {
+            border-bottom: none;
+        }
+
+        .p-card-check {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+        }
+
+        .p-card-check svg {
+            width: 16px;
+            height: 16px;
+            stroke: #2C3E50;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .p-card.featured .p-card-check svg {
+            stroke: #c4a520;
+        }
+
+        .p-card-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            background: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.88em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.25s ease, letter-spacing 0.25s ease;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .p-card-btn:hover {
+            background: #1a2634;
+            letter-spacing: 0.12em;
+        }
+
+        .p-card.featured .p-card-btn {
+            background: #F4D35E;
+            color: #1a2634;
+        }
+
+        .p-card.featured .p-card-btn:hover {
+            background: #e9c846;
+        }
+
+        .p-card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #F4D35E;
+            color: #1a2634;
+            font-size: 0.68em;
+            font-weight: 700;
+            padding: 5px 13px;
+            border-radius: 2px;
+            letter-spacing: 0.1em;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            #join-us { padding: 60px 16px; }
+            .participation-cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .p-card { width: 100%; max-width: 420px; }
+            #join-us h3 { font-size: 1.9em !important; }
+        }
+    </style>
+
     <section id="join-us" class="content-section1">
         <div class="rotating-circle-bg"></div>
-
         <div class="content-wrapper">
             <h3 data-lang-key="join-us-title">Δήλωσε Συμμετοχή</h3>
-            <p><strong data-lang-key="join-us-member">Γίνε μέλος:</strong> <span data-lang-key="join-us-member-description">Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες.</span></p>
-            <p><strong data-lang-key="join-us-volunteer">Γίνε εθελοντής:</strong> <span data-lang-key="join-us-volunteer-description">Αν θέλεις να προσφέρεις χρόνο, δημιουργικότητα και ενέργεια, μπορείς να συμβάλεις στις δράσεις μας και να αποκτήσεις πολύτιμες εμπειρίες μέσα από την προσφορά.</span></p>
-<p>
-    <strong data-lang-key="join-us-sponsor">Γίνε χορηγός:</strong>
-    <span data-lang-key="join-us-sponsor-description">Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμά μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο. Ως χορηγός, ενισχύεις το έργο μας και παράλληλα προβάλλεις την επιχείρησή σου, συνδέοντάς την με αξίες όπως ο πολιτισμός, η κοινωνική προσφορά και η καινοτομία. Είναι μια ευκαιρία να δείξεις την εταιρική σου ευθύνη και να γίνεις συν-δημιουργός σε πρωτοβουλίες που εμπνέουν και αλλάζουν.</span>
-</p>
+            <p class="join-us-subtitle">Επίλεξε τον τρόπο συμμετοχής σου στην αποστολή μας</p>
+
+            <div class="participation-cards" data-aos="fade-up">
+
+                <!-- Κάρτα Εθελοντή -->
+                <div class="p-card">
+                    <div class="p-card-top" style="background-image: url('2.jpg');">
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <div class="p-card-title" data-lang-key="join-us-volunteer">Γίνε Εθελοντής</div>
+                        <p class="p-card-tagline">Πρόσφερε χρόνο, δημιουργικότητα και ενέργεια</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Συμμετοχή σε πολιτιστικά projects & παραγωγές</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Πολύτιμες εμπειρίες & εθελοντικές ώρες</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Πιστοποιητικό εθελοντικής δράσης</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Επαφή με διεθνείς συνεργάτες</li>
+                        </ul>
+                        <a href="volunteer.html" class="p-card-btn">Εγγραφή ως Εθελοντής</a>
+                    </div>
+                </div>
+
+                <!-- Κάρτα Μέλους (featured) -->
+                <div class="p-card featured">
+                    <div class="p-card-top" style="background-image: url('7.jpg');">
+                        <span class="p-card-badge">Δημοφιλές</span>
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="p-card-title" data-lang-key="join-us-member">Γίνε Μέλος</div>
+                        <p class="p-card-tagline">Για φυσικά πρόσωπα που θέλουν ενεργή συμμετοχή</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Ενεργή συμμετοχή στις δράσεις της ΑΜΚΕ</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Πρόσβαση σε αποκλειστικές εκδηλώσεις</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Δικαίωμα ψήφου στις γενικές συνελεύσεις</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Δίκτυο συνεργατών και δημιουργών</li>
+                        </ul>
+                        <a href="member.html" class="p-card-btn">Εγγραφή ως Μέλος</a>
+                    </div>
+                </div>
+
+                <!-- Κάρτα Χορηγού -->
+                <div class="p-card">
+                    <div class="p-card-top" style="background-image: url('3.jpg');">
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <div class="p-card-title" data-lang-key="join-us-sponsor">Γίνε Χορηγός</div>
+                        <p class="p-card-tagline">Για εταιρείες και οργανισμούς κάθε μεγέθους</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Προβολή brand σε εκδηλώσεις & ΜΜΕ</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Συμμετοχή σε projects υψηλής απήχησης</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Εταιρική κοινωνική ευθύνη σε δράση</li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Αποκλειστικές συνεργασίες & co-branding</li>
+                        </ul>
+                        <a href="sponsor.html" class="p-card-btn">Γίνε Χορηγός</a>
+                    </div>
+                </div>
+
+            </div>
+
             <a href="connect.html" class="join-button" data-lang-key="join-us-button" data-aos="zoom-in" data-aos-delay="200">Μάθε περισσότερα</a>
         </div>
     </section>
@@ -1610,7 +1903,3 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
-
-
-
-
