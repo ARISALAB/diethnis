@@ -764,12 +764,21 @@
 <style>
 .banners-wrapper {
     background-color: #1e2d3d;
-    padding: 70px 40px;
+    padding: 40px 40px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.banners-inner {
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 32px;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 1160px;
 }
 
 .banner-card {
@@ -864,10 +873,10 @@
 
 /* Χρυσή Διαχωριστική Γραμμή */
 .gold-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(244,211,94,0.4), transparent);
+    height: 3px;
+    background: linear-gradient(to right, transparent, #F4D35E, transparent);
     border: none;
-    margin: 0 auto;
+    margin: 40px auto 0;
     width: 60%;
     max-width: 800px;
 }
@@ -879,8 +888,11 @@
 
 @media (max-width: 768px) {
     .banners-wrapper {
+        padding: 30px 16px 50px;
+    }
+    .banners-inner {
         flex-direction: column;
-        padding: 40px 20px;
+        align-items: center;
         gap: 20px;
     }
     .banner-card img {
@@ -891,12 +903,13 @@
 </style>
 
 <div class="banners-wrapper" data-aos="fade-up">
+    <div class="banners-inner">
     <a href="https://grisfestival.com/gris-festival-berlin-2025/" target="_blank" class="banner-card">
         <img src="5000.JPG" alt="Gris Festival Berlin">
         <div class="banner-card-overlay"></div>
-        <span class="banner-card-label">Συνεργασία</span>
+        <span class="banner-card-label" data-lang-key="banner-label-gris">Συνεργασία</span>
         <div class="banner-card-info">
-            <div class="banner-card-title">Gris Festival Berlin 2025</div>
+            <div class="banner-card-title" data-lang-key="banner-title-gris">Gris Festival Berlin 2025</div>
             <div class="banner-card-sub">
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 grisfestival.com
@@ -907,27 +920,18 @@
     <a href="https://allofgreeceone.culture.gov.gr/event/i-poiisi-sti-mousiki-krymmeni-poiisi-mystiki-synavlia/" target="_blank" class="banner-card">
         <img src="greece-banner.jpg" alt="Όλη η Ελλάδα ένας Πολιτισμός">
         <div class="banner-card-overlay"></div>
-        <span class="banner-card-label">Πολιτισμός</span>
+        <span class="banner-card-label" data-lang-key="banner-label-greece">Πολιτισμός</span>
         <div class="banner-card-info">
-            <div class="banner-card-title">Όλη η Ελλάδα ένας Πολιτισμός</div>
+            <div class="banner-card-title" data-lang-key="banner-title-greece">Όλη η Ελλάδα ένας Πολιτισμός</div>
             <div class="banner-card-sub">
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 culture.gov.gr
             </div>
         </div>
     </a>
-</div>
-
-
-<section id="projects">
-    </section>
-</style>
-<div class="divider-wrapper">
+    </div>
     <hr class="gold-divider">
 </div>
-
-<section id="projects">
-    </section>
 
 <style>
 /* Χρυσή Διαχωριστική Γραμμή */
