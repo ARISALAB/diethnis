@@ -192,6 +192,13 @@ const translations = {
     "card-sponsor-f3": "Εταιρική κοινωνική ευθύνη σε δράση",
     "card-sponsor-f4": "Αποκλειστικές συνεργασίες & co-branding",
     "berlin-connection-title": "Διαπολιτισμική σύνδεση με Βερολίνο",
+    "card-friend-title": "Γίνε Φίλος",
+    "card-friend-tagline": "Στήριξε ένα δυναμικό δίκτυο πολιτισμού και διεθνούς συνεργασίας",
+    "card-friend-f1": "Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις",
+    "card-friend-f2": "Ενημερώσεις και αποκλειστικές προσκλήσεις",
+    "card-friend-f3": "Εκπτώσεις σε εκδηλώσεις & δικτύωση",
+    "card-friend-f4": "Ετήσια Συνδρομή Φίλου: 25€",
+    "card-friend-btn": "Εγγραφή ως Φίλος",
 
     // Cookie Consent Translations (Ελληνικά)
     "cookie-message": "Αυτός ο ιστότοπος χρησιμοποιεί cookies για να διασφαλίσει ότι θα έχετε την καλύτερη εμπειρία στον ιστότοπό μας.",
@@ -604,6 +611,13 @@ const translations = {
     "card-sponsor-f2": "Participation in high-impact projects",
     "card-sponsor-f3": "Corporate social responsibility in action",
     "card-sponsor-f4": "Exclusive partnerships & co-branding",
+    "card-friend-title": "Become a Friend",
+    "card-friend-tagline": "Support a dynamic network of culture and international collaboration",
+    "card-friend-f1": "Access to selected events and cultural activities",
+    "card-friend-f2": "Updates and exclusive invitations",
+    "card-friend-f3": "Discounts on events & networking",
+    "card-friend-f4": "Annual Friend Subscription: €25",
+    "card-friend-btn": "Register as a Friend",
 
     // Cookie Consent Translations (Αγγλικά)
     "cookie-message": "This website uses cookies to ensure you get the best experience on our website.",
