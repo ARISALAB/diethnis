@@ -1456,23 +1456,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div class="participation-cards" data-aos="fade-up">
 
-                <!-- Κάρτα Εθελοντή -->
+                <!-- Κάρτα Φίλου -->
                 <div class="p-card">
                     <div class="p-card-top" style="background-image: url('2.jpg');">
                         <div class="p-card-icon-wrap">
                             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         </div>
-                        <div class="p-card-title" data-lang-key="card-volunteer-title">Γίνε Εθελοντής</div>
-                        <p class="p-card-tagline" data-lang-key="card-volunteer-tagline">Πρόσφερε χρόνο, δημιουργικότητα και ενέργεια</p>
+                        <div class="p-card-title" data-lang-key="card-friend-title">Γίνε Φίλος</div>
+                        <p class="p-card-tagline" data-lang-key="card-friend-tagline">Στήριξε ένα δυναμικό δίκτυο πολιτισμού και διεθνούς συνεργασίας</p>
                     </div>
                     <div class="p-card-body">
                         <ul class="p-card-features">
-                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-volunteer-f1">Συμμετοχή σε πολιτιστικά projects & παραγωγές</span></li>
-                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-volunteer-f2">Πολύτιμες εμπειρίες & εθελοντικές ώρες</span></li>
-                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-volunteer-f3">Πιστοποιητικό εθελοντικής δράσης</span></li>
-                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-volunteer-f4">Επαφή με διεθνείς συνεργάτες</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f1">Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f2">Ενημερώσεις και αποκλειστικές προσκλήσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f3">Εκπτώσεις σε εκδηλώσεις & δικτύωση</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f4">Ετήσια Συνδρομή Φίλου: 25€</span></li>
                         </ul>
-                        <a href="volunteer.html" class="p-card-btn" data-lang-key="card-volunteer-btn">Εγγραφή ως Εθελοντής</a>
+                        <a href="volunteer.html" class="p-card-btn" data-lang-key="card-friend-btn">Εγγραφή ως Φίλος</a>
                     </div>
                 </div>
 
@@ -1980,6 +1980,54 @@ document.addEventListener("DOMContentLoaded", function() {
   document.cookie = "cookieconsent_status=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 </script>
     <script src="lang.js" defer></script>
+
+    <script>
+    // Patch: Add friend card translation keys after lang.js loads
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof langContent !== "undefined") {
+            var friendKeys = {
+                "card-friend-title": {
+                    el: "Γίνε Φίλος",
+                    en: "Become a Friend"
+                },
+                "card-friend-tagline": {
+                    el: "Στήριξε ένα δυναμικό δίκτυο πολιτισμού και διεθνούς συνεργασίας",
+                    en: "Support a dynamic network of culture and international collaboration"
+                },
+                "card-friend-f1": {
+                    el: "Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις",
+                    en: "Access to selected events and cultural activities"
+                },
+                "card-friend-f2": {
+                    el: "Ενημερώσεις και αποκλειστικές προσκλήσεις",
+                    en: "Updates and exclusive invitations"
+                },
+                "card-friend-f3": {
+                    el: "Εκπτώσεις σε εκδηλώσεις & δικτύωση",
+                    en: "Discounts on events & networking"
+                },
+                "card-friend-f4": {
+                    el: "Ετήσια Συνδρομή Φίλου: 25€",
+                    en: "Annual Friend Subscription: €25"
+                },
+                "card-friend-btn": {
+                    el: "Εγγραφή ως Φίλος",
+                    en: "Register as a Friend"
+                }
+            };
+
+            var lang = document.documentElement.getAttribute("data-language") || "el";
+
+            Object.keys(friendKeys).forEach(function(key) {
+                langContent[key] = friendKeys[key][lang] || friendKeys[key]["el"];
+                var els = document.querySelectorAll("[data-lang-key='" + key + "']");
+                els.forEach(function(el) {
+                    el.textContent = langContent[key];
+                });
+            });
+        }
+    });
+    </script>
 
 </body>
 
