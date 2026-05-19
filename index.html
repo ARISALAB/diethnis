@@ -1981,54 +1981,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
     <script src="lang.js" defer></script>
 
-    <script>
-    // Patch: Add friend card translation keys after lang.js loads
-    document.addEventListener("DOMContentLoaded", function() {
-        if (typeof langContent !== "undefined") {
-            var friendKeys = {
-                "card-friend-title": {
-                    el: "Γίνε Φίλος",
-                    en: "Become a Friend"
-                },
-                "card-friend-tagline": {
-                    el: "Στήριξε ένα δυναμικό δίκτυο πολιτισμού και διεθνούς συνεργασίας",
-                    en: "Support a dynamic network of culture and international collaboration"
-                },
-                "card-friend-f1": {
-                    el: "Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις",
-                    en: "Access to selected events and cultural activities"
-                },
-                "card-friend-f2": {
-                    el: "Ενημερώσεις και αποκλειστικές προσκλήσεις",
-                    en: "Updates and exclusive invitations"
-                },
-                "card-friend-f3": {
-                    el: "Εκπτώσεις σε εκδηλώσεις & δικτύωση",
-                    en: "Discounts on events & networking"
-                },
-                "card-friend-f4": {
-                    el: "Ετήσια Συνδρομή Φίλου: 25€",
-                    en: "Annual Friend Subscription: €25"
-                },
-                "card-friend-btn": {
-                    el: "Εγγραφή ως Φίλος",
-                    en: "Register as a Friend"
-                }
-            };
-
-            var lang = document.documentElement.getAttribute("data-language") || "el";
-
-            Object.keys(friendKeys).forEach(function(key) {
-                langContent[key] = friendKeys[key][lang] || friendKeys[key]["el"];
-                var els = document.querySelectorAll("[data-lang-key='" + key + "']");
-                els.forEach(function(el) {
-                    el.textContent = langContent[key];
-                });
-            });
-        }
-    });
-    </script>
-
 </body>
 
 </html>
