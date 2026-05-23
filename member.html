@@ -5,27 +5,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Γίνε Μέλος - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
-      <link rel="icon" type="image/jpeg" href="big.jpg">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4MD8EGJ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <link rel="icon" type="image/jpeg" href="big.jpg">
 
-  gtag('config', 'G-7T4MD8EGJ8');
-</script>
-<script>
-  const savedLang = localStorage.getItem("language") || "el";
-  document.documentElement.lang = savedLang;
-  document.documentElement.setAttribute("data-language", savedLang);
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4MD8EGJ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7T4MD8EGJ8');
+    </script>
+
+    <script>
+      const savedLang = localStorage.getItem("language") || "el";
+      document.documentElement.lang = savedLang;
+      document.documentElement.setAttribute("data-language", savedLang);
+    </script>
 
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="lang.css">
     <script src="lang.js" defer></script>
+
     <style>
         .join-button {
             background: #F4D35E;
@@ -39,24 +40,19 @@
             transition: background 0.3s ease;
             display: inline-block;
             margin-top: 20px;
+            text-decoration: none;
         }
-
-        .join-button:hover {
-            background: #e9c846;
-        }
+        .join-button:hover { background: #e9c846; }
 
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
             overflow: auto;
             background-color: rgba(44, 62, 80, 0.8);
         }
-
         .modal-content {
             background-color: #ffffff;
             margin: 8% auto;
@@ -66,26 +62,17 @@
             max-width: 600px;
             position: relative;
         }
-
         .close {
             position: absolute;
-            right: 20px;
-            top: 15px;
+            right: 20px; top: 15px;
             font-size: 28px;
             font-weight: bold;
             color: #2C3E50;
             cursor: pointer;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        form input,
-        form select,
-        form textarea {
+        form { display: flex; flex-direction: column; gap: 15px; }
+        form input, form select, form textarea {
             padding: 12px;
             border-radius: 6px;
             border: 1px solid #ccc;
@@ -94,7 +81,6 @@
             background: #f9f9f9;
             color: #2C3E50;
         }
-
         form button {
             background: #F4D35E;
             color: #2C3E50;
@@ -106,22 +92,7 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
-        form button:hover {
-            background: #e9c846;
-        }
-
-        ul {
-            padding-left: 0;
-            margin-left: 0;
-            list-style-position: inside;
-        }
-
-        .aos-text ul {
-            padding-left: 0;
-            margin-left: 0;
-            list-style-position: inside;
-        }
+        form button:hover { background: #e9c846; }
 
         .content-section {
             max-width: 1000px;
@@ -131,39 +102,53 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
         .content-section h3 {
             font-size: 1.8rem;
             color: #003366;
             margin-bottom: 20px;
             text-align: center;
         }
-
-        .content-section p,
-        .content-section ul {
+        .content-section p, .content-section ul {
             font-size: 1.05rem;
             margin-bottom: 20px;
+        }
+
+        .member-fee-badge {
+            display: inline-block;
+            background: #F4D35E;
+            color: #2C3E50;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 8px;
+            margin: 0 auto 30px;
+        }
+        .fee-wrapper { text-align: center; }
+
+        .benefits-title {
+            font-size: 1.4rem;
+            color: #003366;
+            font-weight: 700;
+            margin: 30px 0 16px;
+            text-align: center;
         }
 
         .left-align {
             text-align: left;
             max-width: 800px;
             margin: 0 auto;
-            padding-left: 0;
         }
-
         .content-section ul {
             padding-left: 0;
             margin-left: 0;
             list-style: none;
         }
-
         .content-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 22px;
+            line-height: 1.6;
         }
-
         .content-section ul li::before {
             content: "➤";
             position: absolute;
@@ -172,17 +157,54 @@
             font-size: 0.9rem;
         }
 
-        .center {
-            text-align: center;
+        .btn-row { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: #F4D35E;
+            background: #2C3E50;
+            padding: 10px 15px;
+            cursor: pointer;
+            position: absolute;
+            top: 15px; right: 15px;
+            z-index: 1001;
+            border-radius: 5px;
+        }
+
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        @media (max-width: 768px) {
+            nav#main-nav {
+                display: none;
+                flex-direction: column;
+                background-color: #2C3E50;
+                position: absolute;
+                top: 60px; right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+            nav#main-nav ul { flex-direction: column; padding: 0; }
+            nav#main-nav li { padding: 10px; }
+            .hamburger { display: block; }
+            .content-section { margin: 20px 10px; padding: 24px 16px; }
+            .btn-row { flex-direction: column; }
         }
     </style>
 </head>
 
 <body>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-    <!-- Hamburger menu -->
-   <div class="hamburger" onclick="toggleMenu()">☰</div>
- 
     <header>
         <div class="header-container">
             <a href="index.html">
@@ -196,189 +218,164 @@
                 </h1>
                 <p data-lang-key="slogan">Σύγχρονη Πολιτιστική Παρουσία με Παγκόσμια Προοπτική</p>
             </div>
- 
+
             <nav id="main-nav">
                 <ul>
-                    <li><a href="index.html" data-lang-key="nav-home"></a></li>
-                    <li><a href="about.html" data-lang-key="nav-about"></a></li>
+                    <li><a href="index.html" data-lang-key="nav-home">ΑΡΧΙΚΗ</a></li>
+                    <li><a href="about.html" data-lang-key="nav-about">ΣΧΕΤΙΚΑ</a></li>
                     <li class="dropdown">
                         <a href="projects.html" class="dropdown-toggle">
-                            <span data-lang-key="actions"></span>
+                            <span data-lang-key="actions">ΔΡΑΣΕΙΣ</span>
                             <span class="arrow">▼</span>
                         </a>
                         <div class="dropdown-content">
-                            <a href="culture_page.html" data-lang-key="nav-culture"></a>
-                            <a href="tourism_page.html" data-lang-key="nav-tourism"></a>
-                            <a href="environment_page.html" data-lang-key="nav-environment"></a>
-                            <a href="education_page.html" data-lang-key="nav-education"></a>
-                            <a href="technology_page.html" data-lang-key="nav-technology"></a>
+                            <a href="culture_page.html" data-lang-key="nav-culture">Πολιτισμός</a>
+                            <a href="tourism_page.html" data-lang-key="nav-tourism">Τουρισμός</a>
+                            <a href="environment_page.html" data-lang-key="nav-environment">Περιβάλλον</a>
+                            <a href="education_page.html" data-lang-key="nav-education">Εκπαίδευση</a>
+                            <a href="technology_page.html" data-lang-key="nav-technology">Τεχνολογία</a>
                         </div>
                     </li>
                     <li class="dropdown">
                         <a href="connect.html" class="dropdown-toggle">
-                            <span data-lang-key="participation"></span>
+                            <span data-lang-key="participation">ΣΥΜΜΕΤΟΧΗ</span>
                             <span class="arrow">▼</span>
                         </a>
                         <div class="dropdown-content">
-                            <a href="friend.html" data-lang-key="nav-friend"></a>
-                            <a href="member.html" data-lang-key="nav-member"></a>
-                            <a href="sponsor.html" data-lang-key="nav-sponsor"></a>
+                            <a href="friend.html" data-lang-key="nav-friend">Γίνε Φίλος</a>
+                            <a href="member.html" data-lang-key="nav-member">Γίνε Μέλος</a>
+                            <a href="sponsor.html" data-lang-key="nav-sponsor">Γίνε Χορηγός</a>
                         </div>
                     </li>
-                    <li><a href="contact.html" data-lang-key="nav-contact"></a></li>
+                    <li><a href="contact.html" data-lang-key="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
                 </ul>
                 <div class="language-switcher">
                     <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
                     <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
                 </div>
             </nav>
-    
-
-      
+        </div>
     </header>
+
     <section class="content-section">
-        <h3 data-aos="fade-right" data-lang-key="member-title">Γίνε Μέλος</h3>
-        <p data-aos="fade-right" data-lang-key="member-description">
-          Όταν γίνεσαι μέλος της κοινότητας μας, αποκτάς πρόσβαση σε δράσεις, εκδηλώσεις και ευκαιρίες για να αναπτύξεις τις ικανότητές σου και να συνεισφέρεις στην κοινωνία μας.
-        </p>
-        <p data-aos="fade-right" data-lang-key="member-description1">Ετήσια Συνδρομή Εγγραφής 100 ευρώ.</p>
+        <div class="content-wrapper">
+            <h3 data-aos="fade-up" data-lang-key="member-page-title">Γίνε Μέλος</h3>
 
-        <div class="left-align" data-aos="fade-right">
-          <h4 data-lang-key="member-benefits-title">Πλεονεκτήματα του να Είσαι Μέλος</h4>
-          <ul>
-            <li data-aos="fade-right" data-aos-delay="50" data-lang-key="benefit-1"><Πρόσβαση σε Αποκλειστικές Δράσεις και Εκδηλώσεις – Από εκπαιδευτικά σεμινάρια και πολιτιστικά φεστιβάλ έως διεθνή συνέδρια, η συμμετοχή σου συμβάλλει στην προσωπική σου εξέλιξη.</li>
-            <li data-aos="fade-right" data-aos-delay="100" data-lang-key="benefit-2"><Ειδικές Τιμές και Εκπτώσεις στα εισητήρια και πρόσβαση για όλες τις εκδηλώσεις και δρώμενα του Φεστιβάλ εντός και εκτός Ελλάδας   </li>
-            <li data-aos="fade-right" data-aos-delay="150" data-lang-key="benefit-3"><strong>Ειδικές Τιμές στους προορισμούς του φεστιβάλ σε ξενοδοχεία, εστιατόρια, μετακίνηση.</li>
+            <div class="left-align">
+                <p data-aos="fade-up" data-lang-key="member-page-description">
+                    Όταν γίνεσαι μέλος της Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION, αποκτάς πρόσβαση σε δράσεις, εκδηλώσεις και ευκαιρίες για να αναπτύξεις τις ικανότητές σου και να συνεισφέρεις στην κοινωνία μας.
+                </p>
 
-            <li data-aos="fade-right" data-aos-delay="200" data-lang-key="benefit-4"><Δικτύωση με Κορυφαίους Επαγγελματίες και Δημιουργικούς Ανθρώπους</strong> – Δημιουργία ισχυρών συνεργασιών και ανταλλαγή ιδεών με άτομα που μοιράζονται τις ίδιες αξίες και στόχους.</li>
-            <li data-aos="fade-right" data-aos-delay="250" data-lang-key="benefit-5"><strong>Πρόσβαση σε Μοναδικά Εκπαιδευτικά Προγράμματα</strong> – Εξειδικευμένα προγράμματα για την ανάπτυξη ηγετικών ικανοτήτων και την εκμάθηση νέων τεχνολογιών.</li>
-            <li data-aos="fade-right" data-aos-delay="300" data-lang-key="benefit-6"><strong>Ευκαιρίες Εθελοντισμού και Κοινωνικής Προσφοράς</strong> – Συμμετοχή σε δράσεις που ενισχύουν την κοινωνική πρόοδο και αλληλεγγύη.</li>
-            <li data-aos="fade-right" data-aos-delay="350" data-lang-key="benefit-7"><strong>Συμμετοχή σε Διεθνή Δίκτυα</strong> – Συνδεσιμότητα με οργανισμούς και άτομα σε όλο τον κόσμο, για ανταλλαγή και συνεργασία σε παγκόσμιο επίπεδο.</li>
-            <li data-aos="fade-right" data-aos-delay="400" data-lang-key="benefit-8"><strong>Αίσθηση Συνοχής και Ανήκειν</strong> – Γίνε μέρος μιας κοινότητας που στηρίζει την κοινωνική αλλαγή και τη συνεχιζόμενη εξέλιξη των μελών της.</li>
-          </ul>
-          <button class="join-button" id="openModalBtn" data-lang-key="btn-fill-form">Συμπλήρωσε τη φόρμα συμμετοχής</button>
-          <a href="connect.html" class="join-button" data-lang-key="btn-go-back">Γύρισε πίσω</a>
-        </div>
-      </section>
-      
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
-        <form class="member-form"> <input type="text" name="fullName" placeholder="" data-lang-key="form-fullName" required>
-            <input type="email" name="email" placeholder="" data-lang-key="form-email" required>
-            <input type="tel" name="phone" placeholder="" data-lang-key="form-phone" required>
-            <input type="text" name="addressCity" placeholder="" data-lang-key="form-city" required>
-            <input type="text" name="addressLine" placeholder="" data-lang-key="form-address" required>
-            <textarea name="message" placeholder="" data-lang-key="form-message" required></textarea>
-            <input type="hidden" name="language" id="form-language">
+                <div class="fee-wrapper" data-aos="zoom-in">
+                    <span class="member-fee-badge" data-lang-key="member-page-fee">Ετήσια Συνδρομή Μέλους: 100€</span>
+                </div>
 
-            <div class="terms-checkbox-container" style="margin: 10px 0; display: flex; align-items: center; width: 100%;">
-                <input type="checkbox" id="accept-terms-member" name="acceptTerms" required style="width: auto; margin-right: 10px;" />
-                <label for="accept-terms-member" data-lang-key="accept-terms-text">
-                  Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
-                </label>
+                <p class="benefits-title" data-aos="fade-up" data-lang-key="member-page-benefits-title">Πλεονεκτήματα του να Είσαι Μέλος</p>
+
+                <ul>
+                    <li data-aos="fade-left" data-aos-delay="50"  data-lang-key="member-benefit-1">Πρόσβαση σε Αποκλειστικές Δράσεις και Εκδηλώσεις – Από εκπαιδευτικά σεμινάρια και πολιτιστικά φεστιβάλ έως διεθνή συνέδρια, η συμμετοχή σου συμβάλλει στην προσωπική σου εξέλιξη</li>
+                    <li data-aos="fade-left" data-aos-delay="100" data-lang-key="member-benefit-2">Ειδικές Τιμές και Εκπτώσεις στα εισιτήρια και πρόσβαση για όλες τις εκδηλώσεις του Φεστιβάλ εντός και εκτός Ελλάδας</li>
+                    <li data-aos="fade-left" data-aos-delay="150" data-lang-key="member-benefit-3">Ειδικές Τιμές στους προορισμούς του φεστιβάλ σε ξενοδοχεία, εστιατόρια, μετακίνηση</li>
+                    <li data-aos="fade-left" data-aos-delay="200" data-lang-key="member-benefit-4">Δικτύωση με Κορυφαίους Επαγγελματίες και Δημιουργικούς Ανθρώπους – Δημιουργία ισχυρών συνεργασιών και ανταλλαγή ιδεών</li>
+                    <li data-aos="fade-left" data-aos-delay="250" data-lang-key="member-benefit-5">Πρόσβαση σε Μοναδικά Εκπαιδευτικά Προγράμματα – Εξειδικευμένα προγράμματα για την ανάπτυξη ηγετικών ικανοτήτων και νέων τεχνολογιών</li>
+                    <li data-aos="fade-left" data-aos-delay="300" data-lang-key="member-benefit-6">Ευκαιρίες Εθελοντισμού και Κοινωνικής Προσφοράς – Συμμετοχή σε δράσεις που ενισχύουν την κοινωνική πρόοδο</li>
+                    <li data-aos="fade-left" data-aos-delay="350" data-lang-key="member-benefit-7">Συμμετοχή σε Διεθνή Δίκτυα – Συνδεσιμότητα με οργανισμούς και άτομα σε όλο τον κόσμο</li>
+                    <li data-aos="fade-left" data-aos-delay="400" data-lang-key="member-benefit-8">Αίσθηση Συνοχής και Ανήκειν – Γίνε μέρος μιας κοινότητας που στηρίζει την κοινωνική αλλαγή</li>
+                </ul>
+
+                <div class="btn-row">
+                    <button class="join-button" id="openModalBtn" data-lang-key="member-btn-form">Συμπλήρωσε τη φόρμα εγγραφής</button>
+                    <a href="connect.html" class="join-button" data-lang-key="friend-btn-back">Γύρισε πίσω</a>
+                </div>
             </div>
-            <button type="submit" data-lang-key="form-submit">Υποβολή</button>
-          </form>
         </div>
-      </div>
-      
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 data-lang-key="modal-title">Φόρμα Εγγραφής</h3>
+            <form class="member-form">
+                <input type="text"  name="fullName"    placeholder="Ονοματεπώνυμο"             data-lang-key="form-fullName" required>
+                <input type="email" name="email"       placeholder="Email"                      data-lang-key="form-email"    required>
+                <input type="tel"   name="phone"       placeholder="Τηλέφωνο"                   data-lang-key="form-phone"    required>
+                <input type="text"  name="addressCity" placeholder="Τόπος Κατοικίας"            data-lang-key="form-city"     required>
+                <input type="text"  name="addressLine" placeholder="Διεύθυνση"                  data-lang-key="form-address"  required>
+                <textarea           name="message"     placeholder="Γράψε το μήνυμά σου εδώ..." data-lang-key="form-message"></textarea>
+                <input type="hidden" name="language" id="form-language">
+
+                <div style="margin: 10px 0; display: flex; align-items: flex-start; gap: 10px;">
+                    <input type="checkbox" id="accept-terms-member" name="acceptTerms" required style="width: auto; margin-top: 3px; flex-shrink: 0;" />
+                    <label for="accept-terms-member" data-lang-key="accept-terms-text">
+                        Διαβάστε και αποδεχτείτε τους <a href="el2.pdf" target="_blank">Όρους Χρήσης</a> και την <a href="el3.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+                    </label>
+                </div>
+
+                <button type="submit" data-lang-key="form-submit">Υποβολή</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <p data-lang-key="footer-text">&copy; Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ - INTERACTION | All rights reserved</p>
-      </footer>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
+
     <script>
-        // Modal functions (από τον αρχικό κώδικα)
-        const openModalBtn = document.getElementById('openModalBtn');
-        const modal = document.getElementById('modal');
-
-        openModalBtn.addEventListener('click', () => {
-            modal.style.display = 'block';
+        document.getElementById('openModalBtn').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'block';
         });
-
         function closeModal() {
-            modal.style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
         }
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
+        window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) closeModal();
         });
-
-        // Toggle menu function (από τον αρχικό κώδικα)
         function toggleMenu() {
             const nav = document.getElementById("main-nav");
             nav.style.display = nav.style.display === "flex" ? "none" : "flex";
         }
     </script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 3000,
-            easing: 'ease-in-out',
-            offset: 100,
-            once: true,
+        AOS.init({ duration: 1000, easing: 'ease-in-out', offset: 100, once: true });
+    </script>
+
+    <script>
+        const memberForm = document.querySelector(".member-form");
+        memberForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            if (!document.getElementById("accept-terms-member").checked) {
+                alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
+                return;
+            }
+            const formData = new FormData(memberForm);
+            const data = {};
+            for (let [key, value] of formData.entries()) { data[key] = value; }
+            data.language = document.documentElement.lang;
+            data.formType = "Μέλος";
+            try {
+                const response = await fetch('/.netlify/functions/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                if (response.ok) {
+                    alert("Η αίτησή σας υποβλήθηκε επιτυχώς!");
+                    memberForm.reset();
+                    closeModal();
+                } else {
+                    const err = await response.json();
+                    alert("Σφάλμα: " + (err.message || "Άγνωστο σφάλμα"));
+                }
+            } catch (error) {
+                alert("Σφάλμα σύνδεσης. Παρακαλώ δοκιμάστε αργότερα.");
+            }
         });
     </script>
 
-   <script>
-    const memberForm = document.querySelector(".member-form");
-
-    memberForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        // Έλεγχος checkbox αποδοχής όρων
-        const acceptTermsCheckbox = document.getElementById("accept-terms-member");
-        if (!acceptTermsCheckbox.checked) {
-            alert("Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Απορρήτου.");
-            return;
-        }
-
-        // Συλλογή δεδομένων φόρμας
-        const formData = new FormData(memberForm);
-        const data = {};
-        for (let [key, value] of formData.entries()) {
-            data[key] = value;
-        }
-
-        // --- ΝΕΑ ΠΡΟΣΘΗΚΗ ΓΙΑ ΤΗ ΓΛΩΣΣΑ ---
-        // Βρίσκει την τρέχουσα γλώσσα από το html tag (που ρυθμίζεται από το lang.js)
-        const currentLang = document.documentElement.lang;
-        // Προσθέτει την πληροφορία της γλώσσας στα δεδομένα που στέλνονται
-        data.language = currentLang;
-        // --- ΤΕΛΟΣ ΝΕΩΝ ΠΡΟΣΘΗΚΩΝ ---
-
-        // Προσθήκη ενός πεδίου που να προσδιορίζει από ποια φόρμα έρχεται το email
-        data.formType = "Μέλος"; // Αυτό είναι σωστό για τη φόρμα μέλους
-
-        try {
-            // Στέλνουμε τα δεδομένα στη Netlify Function
-            const response = await fetch('/.netlify/functions/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                alert("Η αίτηση μέλους σας υποβλήθηκε επιτυχώς!");
-                memberForm.reset(); // Καθαρίζουμε τη φόρμα
-                closeModal(); // Κλείνει το modal μετά την επιτυχή υποβολή
-            } else {
-                const errorData = await response.json();
-                alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης: " + (errorData.message || "Άγνωστο σφάλμα"));
-            }
-        } catch (error) {
-            console.error('Error during form submission:', error);
-            alert("Παρουσιάστηκε σφάλμα κατά την υποβολή της αίτησης. Παρακαλώ δοκιμάστε ξανά αργότερα.");
-        }
-    });
-</script>
 </body>
-
 </html>
