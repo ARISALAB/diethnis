@@ -208,9 +208,12 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
     <script>
         AOS.init({ duration: 3000, easing: 'ease-in-out', offset: 100, once: true });
+        function toggleMenu() {
+            const nav = document.getElementById("main-nav");
+            nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        }
     </script>
 </body>
 
