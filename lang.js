@@ -618,4 +618,41 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.setAttribute("data-language", savedLang);
     setLanguage(savedLang); // Καλεί την setLanguage για να αρχικοποιήσει και το banner των cookies
     document.documentElement.classList.remove("lang-loading");
+
+    // ── Dropdown: single click = open/close, double click = navigate ──
+    document.querySelectorAll(".dropdown > a.dropdown-toggle").forEach(function(toggle) {
+        var dropdown = toggle.closest(".dropdown");
+        var content  = dropdown.querySelector(".dropdown-content");
+
+        // Single click: toggle dropdown open/close (prevent navigation)
+        toggle.addEventListener("click", function(e) {
+            e.preventDefault();
+            var isOpen = content.style.display === "block" || content.style.display === "flex";
+            // Close all other dropdowns first
+            document.querySelectorAll(".dropdown-content").forEach(function(d) {
+                d.style.display = "none";
+            });
+            if (!isOpen) {
+                // Keep flex if it was flex (mega-dropdown), else block
+                var wasFlexBased = dropdown.classList.contains("mega-dropdown");
+                content.style.display = wasFlexBased ? "flex" : "block";
+            }
+        });
+
+        // Double click: navigate to the href
+        toggle.addEventListener("dblclick", function(e) {
+            e.preventDefault();
+            var href = toggle.getAttribute("href");
+            if (href) window.location.href = href;
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function(e) {
+        if (!e.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown-content").forEach(function(d) {
+                d.style.display = "none";
+            });
+        }
+    });
 });
