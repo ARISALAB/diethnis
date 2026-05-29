@@ -174,6 +174,129 @@
             display: block;
         }
 
+        /* Mega dropdown για ΣΥΜΜΕΤΟΧΗ */
+        .dropdown.mega-dropdown .dropdown-content {
+            min-width: 680px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a1f3c;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+            padding: 24px 20px;
+            display: none;
+            flex-direction: row;
+            gap: 16px;
+        }
+
+        .dropdown.mega-dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .mega-card {
+            flex: 1;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mega-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .mega-card-top {
+            background: linear-gradient(160deg, #0a1f3c 0%, #003366 100%);
+            padding: 18px 14px 14px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .mega-card.featured .mega-card-top {
+            background: linear-gradient(160deg, #003366 0%, #0055aa 100%);
+        }
+
+        .mega-card-price {
+            font-size: 1.9em;
+            font-weight: 800;
+            color: #F4D35E;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .mega-card-price-small {
+            font-size: 0.62em;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .mega-card-title {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mega-card-body {
+            padding: 12px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mega-card-feature {
+            font-size: 0.72em;
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.4;
+        }
+
+        .mega-card-feature::before {
+            content: '✓';
+            color: #F4D35E;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .mega-card-btn {
+            margin: 8px 14px 14px;
+            background: #F4D35E;
+            color: #2C3E50;
+            text-align: center;
+            padding: 7px 10px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+            transition: background 0.2s;
+        }
+
+        .mega-card-btn:hover {
+            background: #e9c846;
+            color: #2C3E50;
+        }
+
+        @media (max-width: 900px) {
+            .dropdown.mega-dropdown .dropdown-content {
+                min-width: 320px;
+                flex-direction: column;
+                left: auto;
+                transform: none;
+                right: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             /* ... (υπάρχοντες κανόνες για μικρές οθόνες) ... */
 
@@ -657,15 +780,61 @@
                             <a href="technology_page.html" data-lang-key="nav-technology"></a>
                         </div>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown mega-dropdown">
                         <a href="connect.html" class="dropdown-toggle">
                             <span data-lang-key="participation"></span>
                             <span class="arrow">▼</span>
                         </a>
                         <div class="dropdown-content">
-                            <a href="friend.html" data-lang-key="nav-friend"></a>
-                            <a href="member.html" data-lang-key="nav-member"></a>
-                            <a href="sponsor.html" data-lang-key="nav-sponsor"></a>
+
+                            <!-- Φίλος -->
+                            <a href="friend.html" class="mega-card">
+                                <div class="mega-card-top">
+                                    <div class="mega-card-price">25€</div>
+                                    <span class="mega-card-price-small" data-lang-key="card-friend-fee-label">ετήσια συνδρομή</span>
+                                    <div class="mega-card-title" data-lang-key="nav-friend">Γίνε Φίλος</div>
+                                </div>
+                                <div class="mega-card-body">
+                                    <div class="mega-card-feature" data-lang-key="card-friend-f1">Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις</div>
+                                    <div class="mega-card-feature" data-lang-key="card-friend-f2">Ενημερώσεις και αποκλειστικές προσκλήσεις</div>
+                                    <div class="mega-card-feature" data-lang-key="card-friend-f3">Ετήσια Συνδρομή Φίλου: 25€</div>
+                                    <div class="mega-card-feature" data-lang-key="card-friend-f4">Έκπτωση 10% σε εκδηλώσεις & Δικτύωση</div>
+                                </div>
+                                <span class="mega-card-btn" data-lang-key="card-friend-btn">Εγγραφή ως Φίλος</span>
+                            </a>
+
+                            <!-- Μέλος -->
+                            <a href="member.html" class="mega-card featured">
+                                <div class="mega-card-top">
+                                    <div class="mega-card-price">100€</div>
+                                    <span class="mega-card-price-small" data-lang-key="card-member-fee-label">ετήσια συνδρομή</span>
+                                    <div class="mega-card-title" data-lang-key="nav-member">Γίνε Μέλος</div>
+                                </div>
+                                <div class="mega-card-body">
+                                    <div class="mega-card-feature" data-lang-key="card-member-f1">Ενεργή συμμετοχή στις δράσεις της ΑΜΚΕ</div>
+                                    <div class="mega-card-feature" data-lang-key="card-member-f2">Πρόσβαση σε αποκλειστικές εκδηλώσεις</div>
+                                    <div class="mega-card-feature" data-lang-key="card-member-f3">Δικαίωμα ψήφου στις γενικές συνελεύσεις</div>
+                                    <div class="mega-card-feature" data-lang-key="card-member-f4">Έκπτωση 20% σε εκδηλώσεις & Δικτύωση</div>
+                                </div>
+                                <span class="mega-card-btn" data-lang-key="card-member-btn">Εγγραφή ως Μέλος</span>
+                            </a>
+
+                            <!-- Χορηγός -->
+                            <a href="sponsor.html" class="mega-card">
+                                <div class="mega-card-top">
+                                    <div class="mega-card-price" style="font-size:1.1em; line-height:1.3;" data-lang-key="card-sponsor-contact">Επικοινωνήστε μαζί μας</div>
+                                    <span class="mega-card-price-small" data-lang-key="card-sponsor-fee-label">για προσαρμοσμένη συνεργασία</span>
+                                    <div class="mega-card-title" data-lang-key="nav-sponsor">Γίνε Χορηγός</div>
+                                </div>
+                                <div class="mega-card-body">
+                                    <div class="mega-card-feature" data-lang-key="card-sponsor-f1">Προβολή brand σε εκδηλώσεις & ΜΜΕ</div>
+                                    <div class="mega-card-feature" data-lang-key="card-sponsor-f2">Συμμετοχή σε projects υψηλής απήχησης</div>
+                                    <div class="mega-card-feature" data-lang-key="card-sponsor-f3">Εταιρική κοινωνική ευθύνη σε δράση</div>
+                                    <div class="mega-card-feature" data-lang-key="card-sponsor-f4">Αποκλειστικές συνεργασίες & co-branding</div>
+                                </div>
+                                <span class="mega-card-btn" data-lang-key="card-sponsor-btn">Γίνε Χορηγός</span>
+                            </a>
+
                         </div>
                     </li>
                     <li><a href="contact.html" data-lang-key="nav-contact"></a></li>
