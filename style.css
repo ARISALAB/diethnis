@@ -305,22 +305,14 @@ footer {
     display: block;
 }
 
-/* Προαιρετικό: Απόκρυψη του dropdown-content από προεπιλογή και εμφάνιση μόνο με hover σε desktop */
-@media (min-width: 768px) { /* Ορίστε ένα breakpoint για desktop */
-    .dropdown-content {
-         display: none;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-     .dropdown-content.show { /* Βεβαιωθείτε ότι η κλάση show λειτουργεί και σε desktop αν την χρειάζεστε για άλλους λόγους */
-        display: block;
-    }
+/* Dropdown hidden by default, opened only by click (via JS) */
+.dropdown-content {
+    display: none;
 }
 
-@media (max-width: 767px) { /* Styles για mobile */
+@media (max-width: 767px) {
      .dropdown-content {
-         display: none; /* Απόκρυψη από προεπιλογή σε mobile */
+         display: none;
      }
 }
  /* CSS για το dropdown */
@@ -347,10 +339,6 @@ footer {
 
         .dropdown-content a:hover {
             background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
        
 
