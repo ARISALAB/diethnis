@@ -301,46 +301,6 @@ footer {
   display: inline-block;
   padding-bottom: 5px;
 }
-.dropdown-content.show {
-    display: block;
-}
-
-/* Dropdown hidden by default, opened only by click (via JS) */
-.dropdown-content {
-    display: none;
-}
-
-@media (max-width: 767px) {
-     .dropdown-content {
-         display: none;
-     }
-}
- /* CSS για το dropdown */
- .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-       
 
 
         /* Προβολή hamburger μόνο σε κινητά */
