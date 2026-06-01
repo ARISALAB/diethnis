@@ -104,6 +104,80 @@
         }
 
         .center { text-align: center; }
+
+        /* === Κάρτες Συμμετοχής === */
+        .join-us-subtitle {
+            color: #666;
+            font-size: 0.95em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 400;
+            text-align: center;
+        }
+        .participation-cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            max-width: 1160px;
+            margin: 0 auto 50px auto;
+            align-items: stretch;
+        }
+        .p-card {
+            background: #ffffff;
+            border-radius: 4px;
+            width: 300px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .p-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+        .p-card.featured { border-top: 3px solid #F4D35E; }
+        .p-card-top {
+            padding: 32px 32px 28px;
+            position: relative;
+            height: 260px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .p-card-top::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, #0a1f3c 0%, #003366 100%);
+        }
+        .p-card.featured .p-card-top::before { background: linear-gradient(160deg, #003366 0%, #0055aa 100%); }
+        .p-card-top * { position: relative; z-index: 1; }
+        .p-card-price { font-size: 3.2em; font-weight: 800; color: #F4D35E; line-height: 1; margin-bottom: 10px; letter-spacing: -1px; }
+        .p-card-price-label { font-size: 0.78em; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 14px; }
+        .p-card-icon-wrap { width: 48px; height: 48px; margin-bottom: 18px; opacity: 0.9; }
+        .p-card-icon-wrap svg { width: 100%; height: 100%; stroke: #F4D35E; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .p-card-title { color: #ffffff; font-size: 1.45em; font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+        .p-card-tagline { color: rgba(255,255,255,0.62); font-size: 0.85em; line-height: 1.55; font-weight: 300; }
+        .p-card-body { padding: 30px 28px 28px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; background: #ffffff; }
+        .p-card-features { list-style: none; padding: 0; margin: 0 0 28px 0; text-align: left; }
+        .p-card-features li { color: #3a4a5c; font-size: 0.9em; padding: 10px 0; border-bottom: 1px solid rgba(44,62,80,0.08); display: flex; align-items: center; gap: 12px; line-height: 1.45; }
+        .p-card-features li:last-child { border-bottom: none; }
+        .p-card-check { flex-shrink: 0; width: 16px; height: 16px; }
+        .p-card-check svg { width: 16px; height: 16px; stroke: #2C3E50; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .p-card.featured .p-card-check svg { stroke: #c4a520; }
+        .p-card-btn { display: block; width: 100%; padding: 14px 0; background: #2C3E50; color: white; border: none; border-radius: 3px; font-size: 0.88em; font-weight: 600; cursor: pointer; text-decoration: none; text-align: center; transition: background 0.25s ease; letter-spacing: 0.08em; text-transform: uppercase; }
+        .p-card-btn:hover { background: #1a2634; }
+        .p-card.featured .p-card-btn { background: #F4D35E; color: #1a2634; }
+        .p-card.featured .p-card-btn:hover { background: #e9c846; }
+        .p-card-badge { position: absolute; top: 20px; right: 20px; background: #F4D35E; color: #1a2634; font-size: 0.68em; font-weight: 700; padding: 5px 13px; border-radius: 2px; letter-spacing: 0.1em; z-index: 2; text-transform: uppercase; }
+        @media (max-width: 768px) {
+            .participation-cards { flex-direction: column; align-items: center; gap: 20px; }
+            .p-card { width: 100%; max-width: 420px; }
+        }
     </style>
 </head>
 
@@ -142,41 +216,99 @@
 
     <section class="content-section">
         <div class="content-wrapper">
-            <h3 data-lang-key="join-section-title">Δήλωσε Συμμετοχή</h3>
-            <div class="left-align">
+            <h3 data-lang-key="join-us-title">Δήλωσε Συμμετοχή</h3>
+            <p class="join-us-subtitle" data-lang-key="join-us-subtitle">ΕΠΙΛΕΞΕ ΤΟΝ ΤΡΟΠΟ ΣΥΜΜΕΤΟΧΗΣ ΣΟΥ ΣΤΗΝ ΑΠΟΣΤΟΛΗ ΜΑΣ</p>
+
+            <div class="participation-cards" data-aos="fade-up">
+
+                <!-- Κάρτα Φίλου -->
+                <div class="p-card">
+                    <div class="p-card-top">
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <div class="p-card-price">25€</div>
+                        <div class="p-card-price-label" data-lang-key="card-friend-fee-label">ετήσια συνδρομή</div>
+                        <div class="p-card-title" data-lang-key="card-friend-title">Γίνε Φίλος</div>
+                        <p class="p-card-tagline" data-lang-key="card-friend-tagline">Στήριξε ένα δυναμικό δίκτυο πολιτισμού και διεθνούς συνεργασίας</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f1">Πρόσβαση σε επιλεγμένες δράσεις και εκδηλώσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f2">Ενημερώσεις και αποκλειστικές προσκλήσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f3">Ετήσια Συνδρομή Φίλου: 25€</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-friend-f4">Έκπτωση 10% σε εκδηλώσεις & Δικτύωση</span></li>
+                        </ul>
+                        <a href="friend.html" class="p-card-btn" data-lang-key="card-friend-btn">Εγγραφή ως Φίλος</a>
+                    </div>
+                </div>
+
+                <!-- Κάρτα Μέλους (featured) -->
+                <div class="p-card featured">
+                    <div class="p-card-top">
+                        <span class="p-card-badge" data-lang-key="card-badge-popular">Δημοφιλές</span>
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="p-card-price">100€</div>
+                        <div class="p-card-price-label" data-lang-key="card-member-fee-label">ετήσια συνδρομή</div>
+                        <div class="p-card-title" data-lang-key="card-member-title">Γίνε Μέλος</div>
+                        <p class="p-card-tagline" data-lang-key="card-member-tagline">Για φυσικά πρόσωπα που θέλουν ενεργή συμμετοχή</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-member-f1">Ενεργή συμμετοχή στις δράσεις της ΑΜΚΕ</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-member-f2">Πρόσβαση σε αποκλειστικές εκδηλώσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-member-f3">Δικαίωμα ψήφου στις γενικές συνελεύσεις</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-member-f4">Έκπτωση 20% σε εκδηλώσεις & Δικτύωση</span></li>
+                        </ul>
+                        <a href="member.html" class="p-card-btn" data-lang-key="card-member-btn">Εγγραφή ως Μέλος</a>
+                    </div>
+                </div>
+
+                <!-- Κάρτα Χορηγού -->
+                <div class="p-card">
+                    <div class="p-card-top">
+                        <div class="p-card-icon-wrap">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <div class="p-card-price" style="font-size:1.15em; letter-spacing:0; line-height:1.4;" data-lang-key="card-sponsor-contact">Επικοινωνήστε<br>μαζί μας</div>
+                        <div class="p-card-price-label" data-lang-key="card-sponsor-fee-label">για προσαρμοσμένη συνεργασία</div>
+                        <div class="p-card-title" data-lang-key="card-sponsor-title">Γίνε Χορηγός</div>
+                        <p class="p-card-tagline" data-lang-key="card-sponsor-tagline">Για εταιρείες και οργανισμούς κάθε μεγέθους</p>
+                    </div>
+                    <div class="p-card-body">
+                        <ul class="p-card-features">
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-sponsor-f1">Προβολή brand σε εκδηλώσεις & ΜΜΕ</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-sponsor-f2">Συμμετοχή σε projects υψηλής απήχησης</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-sponsor-f3">Εταιρική κοινωνική ευθύνη σε δράση</span></li>
+                            <li><span class="p-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-lang-key="card-sponsor-f4">Αποκλειστικές συνεργασίες & co-branding</span></li>
+                        </ul>
+                        <a href="sponsor.html" class="p-card-btn" data-lang-key="card-sponsor-btn">Γίνε Χορηγός</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Κείμενο από κάτω -->
+            <div class="left-align" style="margin-top: 40px;">
                 <ul>
-                    <!-- Φίλος (αντί Εθελοντής) -->
                     <li data-aos="fade-up" data-aos-delay="50">
                         <strong data-lang-key="join-volunteer-label">Γίνε Φίλος:</strong>
-                        <span data-lang-key="join-volunteer-text">
-                            Όταν γίνεσαι Φίλος της Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION, στηρίζεις ενεργά ένα δυναμικό δίκτυο πολιτισμού, εκπαίδευσης και διεθνούς συνεργασίας, συμβάλλοντας στην προβολή της σύγχρονης ελληνικής δημιουργίας σε όλο τον κόσμο. Ετήσια Συνδρομή Φίλου: 25€
-                        </span>
+                        <span data-lang-key="join-volunteer-text">Όταν γίνεσαι Φίλος της Α.Μ.Κ.Ε. ΔΙΕΘΝΗΣ ΔΡΑΣΗ – INTERACTION, στηρίζεις ενεργά ένα δυναμικό δίκτυο πολιτισμού, εκπαίδευσης και διεθνούς συνεργασίας. Ετήσια Συνδρομή Φίλου: 25€</span>
                     </li>
-                    <!-- Μέλος -->
                     <li data-aos="fade-up" data-aos-delay="100">
                         <strong data-lang-key="join-member-label">Γίνε μέλος:</strong>
-                        <span data-lang-key="join-member-text">
-                            Η συμμετοχή σου ως μέλος της ομάδας μας δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ως μέλος, έχεις τη δυνατότητα να συμμετέχεις ενεργά στις δράσεις μας και να γίνεις μέρος μιας κοινότητας με κοινές αξίες. <strong>Ετήσια Συνδρομή Μέλους: 100€</strong>
-                        </span>
+                        <span data-lang-key="join-member-text">Η συμμετοχή σου ως μέλος δεν είναι απλώς μια εγγραφή — είναι μια πράξη δέσμευσης προς έναν καλύτερο κόσμο. Ετήσια Συνδρομή Μέλους: 100€</span>
                     </li>
-                    <!-- Χορηγός -->
                     <li data-aos="fade-up" data-aos-delay="200">
                         <strong data-lang-key="join-sponsor-label">Γίνε Χορηγός:</strong>
-                        <span data-lang-key="join-sponsor-text">
-                            Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας. Η προσφορά σου, είτε οικονομική είτε σε είδος, μας επιτρέπει να μετατρέψουμε το όραμά μας σε πραγματικότητα και να φέρουμε εις πέρας projects με σημαντικό αντίκτυπο.
-                        </span>
+                        <span data-lang-key="join-sponsor-text">Η υποστήριξή σου ως χορηγός είναι ζωτικής σημασίας για την υλοποίηση των δράσεών μας.</span>
                     </li>
                 </ul>
-
                 <p data-lang-key="join-conclusion" data-aos="fade-up" data-aos-delay="300">
-                    Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό, για έναν καλύτερο κόσμο για όλους!
+                    Με την ενεργή συμμετοχή σου, δεν προσφέρεις μόνο στους άλλους, αλλά αναπτύσσεσαι και εσύ προσωπικά. Γίνε κομμάτι μιας ομάδας που λειτουργεί με όραμα και σκοπό!
                 </p>
-
-                <div class="button-container">
-                    <a href="friend.html"  class="join-button" data-lang-key="btn-volunteer" data-aos="zoom-in" data-aos-delay="300">Γίνε Φίλος</a>
-                    <a href="member.html"  class="join-button" data-lang-key="btn-member"    data-aos="zoom-in" data-aos-delay="400">Γίνε Μέλος</a>
-                    <a href="sponsor.html" class="join-button" data-lang-key="btn-sponsor"   data-aos="zoom-in" data-aos-delay="500">Γίνε Χορηγός</a>
-                </div>
             </div>
         </div>
     </section>
