@@ -69,7 +69,34 @@ exports.handler = async (event) => {
         const currentAutoReplyText = autoReplyTexts[userLanguage] || autoReplyTexts['el']; // Fallback στα Ελληνικά
 
         // --- Διαμόρφωση Email προς την ΑΜΚΕ και τον Χρήστη, ανάλογα με τον τύπο της φόρμας ---
-        if (formType === "Εθελοντισμός") {
+        if (formType === "Φίλος") {
+            subjectToAMKE = `Νέα Αίτηση Φίλου από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
+            emailBodyToAMKE = `
+                <h2>Νέα Αίτηση Φίλου</h2>
+                <p><strong>Όνομα:</strong> ${data.fullName || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Email:</strong> ${data.email || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Τηλέφωνο:</strong> ${data.phone || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Πόλη:</strong> ${data.addressCity || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Διεύθυνση:</strong> ${data.addressLine || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Μήνυμα/Σχόλια:</strong><br>${data.message || 'Δεν παρασχέθηκε'}</p>
+                <p><strong>Αποδοχή Όρων:</strong> Ναι</p>
+            `;
+            subjectToUser = currentAutoReplyText.subject;
+            emailBodyToUser = `
+                ${currentAutoReplyText.logoHtml}
+                <h2>${currentAutoReplyText.heading}</h2>
+                <p>${currentAutoReplyText.body}</p>
+                <hr>
+                <p><strong>${currentAutoReplyText.formDetails.fullName}:</strong> ${data.fullName || 'N/A'}</p>
+                <p><strong>${currentAutoReplyText.formDetails.email}:</strong> ${data.email || 'N/A'}</p>
+                <p><strong>${currentAutoReplyText.formDetails.phone}:</strong> ${data.phone || 'N/A'}</p>
+                <p><strong>${currentAutoReplyText.formDetails.addressCity}:</strong> ${data.addressCity || 'N/A'}</p>
+                <p><strong>${currentAutoReplyText.formDetails.addressLine}:</strong> ${data.addressLine || 'N/A'}</p>
+                <p><strong>${currentAutoReplyText.formDetails.message}:</strong><br>${data.message || 'N/A'}</p>
+                <hr>
+                <p>${currentAutoReplyText.closing}</p>
+            `;
+        } else if (formType === "Εθελοντισμός") {
             subjectToAMKE = `Νέα Αίτηση Εθελοντισμού από ${data.fullName || 'Άγνωστο Όνομα'} - ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ`;
             emailBodyToAMKE = `
                 <h2>Νέα Αίτηση Εθελοντισμού</h2>
