@@ -242,6 +242,48 @@
             }
         }
 
+
+        /* === Τραπεζικά Στοιχεία === */
+        .bank-info {
+            background: #f8f9fa;
+            border: 1px solid #e0e6ed;
+            border-left: 4px solid #003366;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .bank-info h4 {
+            color: #003366;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .bank-table { display: flex; flex-direction: column; gap: 10px; }
+        .bank-row {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e8ecf0;
+        }
+        .bank-row:last-child { border-bottom: none; }
+        .bank-label {
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+        .bank-value { font-size: 0.95em; color: #2C3E50; font-weight: 500; }
+        .bank-iban { font-family: monospace; font-size: 1em; color: #003366; font-weight: 700; letter-spacing: 0.05em; }
+        .bank-note { margin: 14px 0 0 0; font-size: 0.85em; color: #666; font-style: italic; }
     </style>
 </head>
 
@@ -301,6 +343,31 @@
                     <li data-aos="fade-left" data-aos-delay="250" data-lang-key="friend-benefit-5">Συμμετοχή σε Διεθνή Δίκτυα – Διασύνδεση με οργανισμούς και πρωτοβουλίες παγκόσμιας εμβέλειας</li>
                     <li data-aos="fade-left" data-aos-delay="300" data-lang-key="friend-benefit-6">Ευκαιρίες Εθελοντισμού – Συμβολή σε δράσεις κοινωνικής προσφοράς και πολιτιστικής ανάπτυξης</li>
                 </ul>
+
+
+                <!-- Τραπεζικά Στοιχεία -->
+                <div class="bank-info" data-aos="fade-up" data-aos-delay="350">
+                    <h4 data-lang-key="bank-title">Στοιχεία Τραπεζικού Λογαριασμού</h4>
+                    <div class="bank-table">
+                        <div class="bank-row">
+                            <span class="bank-label">ΤΡΑΠΕΖΑ</span>
+                            <span class="bank-value">ΤΡΑΠΕΖΑ ΠΕΙΡΑΙΩΣ / PIRAEUS BANK</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">NAME</span>
+                            <span class="bank-value">ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ / AMKE DIETHNIS DRASI</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">IBAN</span>
+                            <span class="bank-value bank-iban">GR19 0172 0370 0050 3711 6028 254</span>
+                        </div>
+                        <div class="bank-row">
+                            <span class="bank-label">BIC</span>
+                            <span class="bank-value">PIRBGRAA</span>
+                        </div>
+                    </div>
+                    <p class="bank-note" data-lang-key="bank-note">Παρακαλούμε αναφέρετε το ονοματεπώνυμό σας στην αιτιολογία της κατάθεσης.</p>
+                </div>
 
                 <div class="btn-row">
                     <button class="join-button" id="openModalBtn" data-lang-key="friend-btn-form">Συμπλήρωσε τη φόρμα εγγραφής</button>
