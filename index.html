@@ -996,33 +996,45 @@
 </style>
 
 <div class="banners-wrapper" data-aos="fade-up">
-    <div class="banners-inner">
-    <a href="https://grisfestival.com/gris-festival-berlin-2025/" target="_blank" class="banner-card">
-        <img src="5000.JPG" alt="Gris Festival Berlin">
-        <div class="banner-card-overlay"></div>
-        <span class="banner-card-label" data-lang-key="banner-label-gris">Συνεργασία</span>
-        <div class="banner-card-info">
-            <div class="banner-card-title" data-lang-key="banner-title-gris">Gris Festival Berlin 2025</div>
-            <div class="banner-card-sub">
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                grisfestival.com
-            </div>
-        </div>
-    </a>
-
-    <a href="https://allofgreeceone.culture.gov.gr/event/i-poiisi-sti-mousiki-krymmeni-poiisi-mystiki-synavlia/" target="_blank" class="banner-card">
-        <img src="greece-banner.jpg" alt="Όλη η Ελλάδα ένας Πολιτισμός">
-        <div class="banner-card-overlay"></div>
-        <span class="banner-card-label" data-lang-key="banner-label-greece">Πολιτισμός</span>
-        <div class="banner-card-info">
-            <div class="banner-card-title" data-lang-key="banner-title-greece">Όλη η Ελλάδα ένας Πολιτισμός</div>
-            <div class="banner-card-sub">
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                culture.gov.gr
-            </div>
-        </div>
-    </a>
+    <div class="promo-grid">
+        <a href="https://allofgreeceone.culture.gov.gr/event/i-poiisi-sti-mousiki-krymmeni-poiisi-mystiki-synavlia/" target="_blank" rel="noopener" class="promo-col">
+            <span class="promo-col-title" data-lang-key="banner-label-greece">Πολιτισμός</span>
+            <span class="promo-col-frame promo-col-frame--logo"><img src="greece-banner.jpg" alt="Όλη η Ελλάδα ένας Πολιτισμός" loading="lazy"></span>
+            <span class="promo-col-btn" data-lang-key="gris-more-info">Περισσότερα</span>
+        </a>
+        <a href="https://grisfestival.com/gris-festival-athens-2026/" target="_blank" rel="noopener" class="promo-col">
+            <span class="promo-col-title" data-lang-key="gris-city-athens">Αθήνα</span>
+            <span class="promo-col-frame"><img src="https://grisfestival.com/wp-content/uploads/2026/08/0.-ATHENS-ALL-724x1024.jpg" alt="GRis Festival Athens 2026" loading="lazy" width="724" height="1024"></span>
+            <span class="promo-col-btn" data-lang-key="gris-more-info">Περισσότερα</span>
+        </a>
+        <a href="https://grisfestival.com/gris-festival-london-2026/" target="_blank" rel="noopener" class="promo-col">
+            <span class="promo-col-title" data-lang-key="gris-city-london">Λονδίνο</span>
+            <span class="promo-col-frame"><img src="https://grisfestival.com/wp-content/uploads/2026/08/0.-LONDON-ALL-724x1024.jpg" alt="GRis Festival London 2026" loading="lazy" width="724" height="1024"></span>
+            <span class="promo-col-btn" data-lang-key="gris-more-info">Περισσότερα</span>
+        </a>
+        <a href="https://grisfestival.com/gris-festival-berlin-2026/" target="_blank" rel="noopener" class="promo-col">
+            <span class="promo-col-title" data-lang-key="gris-city-berlin">Βερολίνο</span>
+            <span class="promo-col-frame"><img src="https://grisfestival.com/wp-content/uploads/2026/08/0.-BERLIN-ALL-724x1024.jpg" alt="GRis Festival Berlin 2026" loading="lazy" width="724" height="1024"></span>
+            <span class="promo-col-btn" data-lang-key="gris-more-info">Περισσότερα</span>
+        </a>
     </div>
+
+    <style>
+    .promo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; width: 100%; max-width: 1160px; margin: 0 auto; }
+    .promo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; text-decoration: none; }
+    .promo-col-title { color: #F4D35E; font-size: 1.35em; font-weight: 700; text-align: center; }
+    .promo-col-frame { display: block; width: 100%; aspect-ratio: 724 / 1024; overflow: hidden; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.35); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .promo-col-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .promo-col-frame--logo { background: #fdfcfb; }
+    .promo-col-frame--logo img { object-fit: contain; padding: 12%; box-sizing: border-box; }
+    .promo-col:hover .promo-col-frame, .promo-col:focus-visible .promo-col-frame { transform: translateY(-7px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .promo-col-btn { background: #F4D35E; color: #1e2d3d; font-weight: 700; padding: 10px 26px; border-radius: 999px; transition: background 0.3s ease; }
+    .promo-col:hover .promo-col-btn { background: #fff; }
+    .promo-col:focus-visible { outline: 2px solid #F4D35E; outline-offset: 6px; }
+    @media (max-width: 960px) { .promo-grid { grid-template-columns: repeat(2, 1fr); max-width: 620px; gap: 40px 24px; } }
+    @media (max-width: 520px) { .promo-grid { grid-template-columns: 1fr; max-width: 340px; } }
+    @media (prefers-reduced-motion: reduce) { .promo-col-frame { transition: none; } .promo-col:hover .promo-col-frame { transform: none; } }
+    </style>
     <hr class="gold-divider" style="margin: 60px auto 60px;">
 </div>
 
