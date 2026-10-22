@@ -7,13 +7,19 @@
     <link rel="icon" type="image/png" href="opt/favicon.png">
 <!-- Google tag (gtag.js) -->
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4MD8EGJ8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-7T4MD8EGJ8');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-7T4MD8EGJ8';
+      document.head.appendChild(g);
+    }, 2500);
+  });
 </script>
     <script>
         const savedLang = localStorage.getItem("language") || "el";
@@ -22,13 +28,495 @@
     </script>
 
     <title>ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+/* === Γενικές ρυθμίσεις === */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  color: #2C3E50;
+}
+
+/* === Header === */
+header {
+  background: #2C3E50;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 4px solid #F4D35E;
+}
+
+/* === Navigation === */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  color: #F4D35E;
+}
+
+/* === Hero Section === */
+.hero {
+  background: url('https://images.unsplash.com/photo-1581090700227-1e8f2d0a8261') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  background: rgba(44, 62, 80, 0.6);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* === Περιεχόμενο === */
+.content-section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.content-section h3 {
+  color: #2C3E50;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #F4D35E;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* === Φόρμα Επικοινωνίας === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+input, textarea {
+  width: 110%;
+  max-width: 1000px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95em;
+  background: #f9f9f9;
+  color: #2C3E50;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 180px;
+}
+
+input:focus, textarea:focus {
+  border-color: #F4D35E;
+  outline: none;
+}
+
+button {
+  background: #F4D35E;
+  color: #2C3E50;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #e9c846;
+}
+
+/* === Footer === */
+footer {
+  background: #2C3E50;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 0.9em;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.culture-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(52, 61, 70, 0.6);
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  font-weight: 600;
+  z-index: 2;
+  white-space: nowrap; /* Προσθήκη για να αποτραπεί το σπάσιμο σε πολλές γραμμές */
+}
+
+/* === Εικόνες === */
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.culture-img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+
+/* === Container === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === Projects Section === */
+/* === Projects Section === */
+/* === Projects Section === */
+#projects {
+  background-color: #2C3E50;
+    padding: 60px 20px;
+
+  text-align: center;
+}
+
+/* Fixed 3-column layout on large screens */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 στήλες σταθερά */
+  gap: 24px;
+  width: 100%;
+  max-width: 100%; /* απλώνει σε όλη την οθόνη */
+  margin: 30px auto 0;
+  padding: 0 40px; /* λίγο padding αριστερά-δεξιά */
+  box-sizing: border-box;
+}
+
+/* Images */
+.project-gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.project-gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+.content-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 60px 20px;
+
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.contact-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: transform 0.3s ease; /* Προσθήκη transition για ομαλή μετάβαση */
+}
+
+.contact-image:hover {
+  transform: scale(1.05); /* Εφέ μεγέθυνσης κατά 5% */
+}
+
+.content-section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 60px 20px;
+
+  
+}
+.content-section1 h3 {
+  color: #2C3E50;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #F4D35E;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.content-section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #2C3E50;
+  
+}
+.content-section2 h3 {
+  color: #ffffff;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #F4D35E;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+
+        /* Προβολή hamburger μόνο σε κινητά */
+        .hamburger {
+          display: none;
+          font-size: 1.5rem; /* Μείωση του μεγέθους γραμματοσειράς */
+          color: #F4D35E;
+          background: #2C3E50;
+          padding: 8px 12px; /* Μείωση του padding */
+          cursor: pointer;
+          position: absolute;
+          top: 20px; /* Μείωση της απόστασης από την κορυφή */
+          right: 10px; /* Μείωση της απόστασης από τα δεξιά */
+          z-index: 1001;
+          border-radius: 4px; /* Μείωση της στρογγυλοποίησης των γωνιών */
+        }
+
+/* Mobile menu responsive */
+@media (max-width: 768px) {
+  nav#main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #2C3E50;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  nav#main-nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  nav#main-nav li {
+    padding: 10px;
+    border-bottom: 1px solid #F4D35E;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+ 
+
+  .content-wrapper {
+    padding: 10px;
+  }
+
+  .overlay-text {
+    font-size: 18px;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+  header p {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 600px) {
+  .dash {
+    display: none;
+  }
+
+  .title-sub {
+    display: block;
+    margin-left: 0;
+  }
+}
+.logo {
+  height: 200px;
+  width: auto;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 900px) {
+  .header-container {
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .logo {
+      position: static;
+      margin-bottom: 10px;
+      height: 100px;
+  }
+}
+@media (max-width: 600px) {
+  .header-container {
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .logo {
+      position: static;
+      margin-bottom: 10px;
+      height: 100px;
+  }
+}
+@media (max-width: 992px) {
+  .title-main,
+  .title-sub,
+  .dash {
+    display: none;
+  }
+
+  .logo {
+    width: 220px;
+    height: 220px;
+    display: block;
+    margin: 0 auto 10px auto; /* προσθέτει μικρό κενό κάτω από το logo */
+  }
+
+  .title-container p {
+    text-align: center;
+    margin-top: -40px; /* μικρό κενό από το logo */
+  }
+}
+
+</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="opt/hero-800.webp" imagesrcset="opt/hero-800.webp 800w, opt/hero-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Whisper&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Whisper&display=swap"></noscript>
     <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
-    <link rel="stylesheet" href="lang.css">
+    <style>
+.language-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .language-switcher .flag {
+    width: 28px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+  }
+  
+  .language-switcher .flag:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Σε μεγάλες οθόνες: πάνω δεξιά */
+  @media (min-width: 769px) {
+    .language-switcher {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+  }
+  
+  /* Σε μικρές οθόνες: μέσα στο dropdown */
+  @media (max-width: 768px) {
+    #main-nav {
+      display: none;
+      flex-direction: column;
+    }
+  
+    #main-nav.open {
+      display: flex;
+    }
+  
+    .language-switcher {
+      position: static;
+      justify-content: center;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+  }
+  
+
+</style>
 
     <style>
         /* Ενημερωμένοι κανόνες για το project-gallery */
@@ -800,12 +1288,12 @@
         </div>
 
         <div class="project-gallery">
-            <img src="opt/g7.webp" width="800" height="533" loading="lazy" decoding="async" alt="Φεστιβάλ Σύγχρονης Τέχνης">
-            <img src="opt/g2.webp" width="800" height="533" loading="lazy" decoding="async" alt="Εργαστήρι Θεατρικής Γραφής">
-            <img src="opt/g3.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ανταλλαγή Αθήνα - Βερολίνο">
-            <img src="opt/g4.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
-            <img src="opt/g5.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
-            <img src="opt/g6.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g7.webp" width="700" height="467" loading="lazy" decoding="async" alt="Φεστιβάλ Σύγχρονης Τέχνης">
+            <img src="opt/g2.webp" width="700" height="467" loading="lazy" decoding="async" alt="Εργαστήρι Θεατρικής Γραφής">
+            <img src="opt/g3.webp" width="700" height="467" loading="lazy" decoding="async" alt="Ανταλλαγή Αθήνα - Βερολίνο">
+            <img src="opt/g4.webp" width="700" height="467" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g5.webp" width="700" height="467" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g6.webp" width="700" height="467" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
         </div>
         <a href="projects.html" class="join-button" data-lang-key="join-us-button" data-aos="zoom-in" data-aos-delay="200">Μάθε περισσότερα</a>
 
@@ -1000,7 +1488,7 @@
 <div class="banners-wrapper" data-aos="fade-up">
     <div class="banners-inner">
     <a href="https://grisfestival.com/" target="_blank" rel="noopener" class="banner-card">
-        <img src="opt/gris.webp" width="1120" height="713" loading="lazy" decoding="async" alt="GRis Festival 2026">
+        <img src="opt/gris.webp" width="700" height="446" loading="lazy" decoding="async" alt="GRis Festival 2026">
         <div class="banner-card-overlay"></div>
         <div class="banner-card-info">
             <div class="banner-card-title" data-lang-key="banner-title-gris">GRis Festival 2026: Λονδίνο, Αθήνα, Βερολίνο</div>
@@ -1717,6 +2205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .contact-image {
             width: 100%;
             max-width: 600px;
+            height: auto;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 12px;
             background-color: #fff;
