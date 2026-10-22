@@ -1027,7 +1027,7 @@
         <div class="eot-banner-label" data-lang-key="eot-banner-label">Με την υποστήριξη του Ελληνικού Οργανισμού Τουρισμού</div>
         <a href="https://www.visitgreece.gr" target="_blank" rel="noopener" aria-label="Visit Greece – Greek National Tourism Organisation">
             <picture>
-                <source media="(max-width: 600px)" srcset="eot-banner-mobile.jpg" width="600" height="300">
+                <source media="(max-width: 768px)" srcset="eot-banner-mobile.jpg" width="600" height="300">
                 <img src="eot-banner-desktop.jpg" width="1200" height="300" alt="Greece. Feel the beat? – Greek National Tourism Organisation – visitgreece.gr" loading="lazy">
             </picture>
         </a>
@@ -1038,7 +1038,11 @@
     .eot-banner a { display: block; line-height: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.35); transition: transform .3s ease; }
     .eot-banner a:hover { transform: translateY(-3px); }
     .eot-banner img { width: 100%; height: auto; display: block; }
-    @media (max-width: 600px) { .eot-banner { max-width: 600px; } }
+    @media (max-width: 768px) {
+        .eot-banner { width: 100%; max-width: 560px; padding: 0; margin-top: 20px; }
+        .eot-banner a { border-radius: 4px; background: #000; box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+        .eot-banner img { height: 220px; object-fit: contain; }
+    }
     </style>
     <hr class="gold-divider" style="margin: 60px auto 60px;">
 </div>
