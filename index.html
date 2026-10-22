@@ -1008,29 +1008,18 @@
             </div>
         </div>
     </a>
-    </div>
 
     <!-- ΕΟΤ – ανταποδοτική παροχή GRis Festival 2026 (Α.Π. 9564/21.10.2026) -->
-    <div class="eot-banner">
-        <div class="eot-banner-label" data-lang-key="eot-banner-label">Με την υποστήριξη του Ελληνικού Οργανισμού Τουρισμού</div>
-        <a href="https://www.visitgreece.gr" target="_blank" rel="noopener" aria-label="Visit Greece – Greek National Tourism Organisation">
-            <picture>
-                <source media="(max-width: 768px)" srcset="eot-banner-mobile.jpg" width="600" height="300">
-                <img src="eot-banner-desktop.jpg" width="1200" height="300" alt="Greece. Feel the beat? – Greek National Tourism Organisation – visitgreece.gr" loading="lazy">
-            </picture>
-        </a>
+    <a href="https://www.visitgreece.gr" target="_blank" rel="noopener" class="banner-card eot-card" aria-label="Visit Greece – Greek National Tourism Organisation">
+        <img src="eot-banner-mobile.jpg" width="600" height="300" alt="Greece. Feel the beat? – Greek National Tourism Organisation – visitgreece.gr" loading="lazy">
+    </a>
     </div>
+    <div class="eot-banner-label" data-lang-key="eot-banner-label">Με την υποστήριξη του Ελληνικού Οργανισμού Τουρισμού</div>
     <style>
-    .eot-banner { max-width: 1200px; margin: 50px auto 0; padding: 0 16px; text-align: center; }
-    .eot-banner-label { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: #F4D35E; opacity: .85; margin-bottom: 12px; }
-    .eot-banner a { display: block; line-height: 0; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.35); transition: transform .3s ease; }
-    .eot-banner a:hover { transform: translateY(-3px); }
-    .eot-banner img { width: 100%; height: auto; display: block; }
-    @media (max-width: 768px) {
-        .eot-banner { width: 100%; max-width: 560px; padding: 0; margin-top: 20px; }
-        .eot-banner a { border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
-        .banners-inner .banner-card { width: 100%; }
-    }
+    .banners-inner .banner-card { width: 100%; }
+    .banners-inner .banner-card img { height: auto; aspect-ratio: 2 / 1; }
+    .eot-card:hover img { transform: none; }
+    .eot-banner-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #F4D35E; opacity: .8; margin-top: 18px; text-align: center; }
     </style>
     <hr class="gold-divider" style="margin: 60px auto 60px;">
 </div>
