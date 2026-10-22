@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/jpeg" href="big.jpg">
+    <link rel="icon" type="image/png" href="opt/favicon.png">
 <!-- Google tag (gtag.js) -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7T4MD8EGJ8"></script>
@@ -23,8 +23,10 @@
 
     <title>ΑΜΚΕ ΔΙΕΘΝΗΣ ΔΡΑΣΗ</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="opt/hero-800.webp" imagesrcset="opt/hero-800.webp 800w, opt/hero-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Whisper&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="lang.css">
 
@@ -743,7 +745,7 @@
     <header>
         <div class="header-container">
             <a href="index.html">
-                <img src="big.png" alt="Λογότυπο" class="logo">
+                <img src="opt/logo.webp" width="400" height="400" alt="Λογότυπο" class="logo">
             </a>
             <div class="title-container">
                 <h1>
@@ -764,8 +766,8 @@
                     <li><a href="contact.html" data-lang-key="nav-contact"></a></li>
                 </ul>
                 <div class="language-switcher">
-                    <img src="hel.png" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
-                    <img src="en.png" alt="English" onclick="setLanguage('en')" class="flag" />
+                    <img src="opt/el.webp" width="80" height="53" alt="Ελληνικά" onclick="setLanguage('el')" class="flag" />
+                    <img src="opt/en.webp" width="80" height="54" alt="English" onclick="setLanguage('en')" class="flag" />
                 </div>
 
             </nav>
@@ -774,7 +776,7 @@
     </header>
 
     <div class="image-container">
-        <img class="culture-img" src="1.JPG" alt="Πολιτιστική εικόνα">
+        <img class="culture-img" src="opt/hero-1600.webp" srcset="opt/hero-800.webp 800w, opt/hero-1600.webp 1600w" sizes="100vw" width="1600" height="1032" fetchpriority="high" decoding="async" alt="Πολιτιστική εικόνα">
         <div class="overlay-text" id="typing-text" data-lang-key="typing-text"></div>
     </div>
 
@@ -798,12 +800,12 @@
         </div>
 
         <div class="project-gallery">
-            <img src="7.jpg" alt="Φεστιβάλ Σύγχρονης Τέχνης">
-            <img src="2.jpg" alt="Εργαστήρι Θεατρικής Γραφής">
-            <img src="3.jpg" alt="Ανταλλαγή Αθήνα - Βερολίνο">
-            <img src="4.jpg" alt="Ψηφιακή Έκθεση">
-            <img src="5.jpg" alt="Ψηφιακή Έκθεση">
-            <img src="6.jpg" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g7.webp" width="800" height="533" loading="lazy" decoding="async" alt="Φεστιβάλ Σύγχρονης Τέχνης">
+            <img src="opt/g2.webp" width="800" height="533" loading="lazy" decoding="async" alt="Εργαστήρι Θεατρικής Γραφής">
+            <img src="opt/g3.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ανταλλαγή Αθήνα - Βερολίνο">
+            <img src="opt/g4.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g5.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
+            <img src="opt/g6.webp" width="800" height="533" loading="lazy" decoding="async" alt="Ψηφιακή Έκθεση">
         </div>
         <a href="projects.html" class="join-button" data-lang-key="join-us-button" data-aos="zoom-in" data-aos-delay="200">Μάθε περισσότερα</a>
 
@@ -998,7 +1000,7 @@
 <div class="banners-wrapper" data-aos="fade-up">
     <div class="banners-inner">
     <a href="https://grisfestival.com/" target="_blank" rel="noopener" class="banner-card">
-        <img src="5000.jpg" alt="GRis Festival 2026">
+        <img src="opt/gris.webp" width="1120" height="713" loading="lazy" decoding="async" alt="GRis Festival 2026">
         <div class="banner-card-overlay"></div>
         <div class="banner-card-info">
             <div class="banner-card-title" data-lang-key="banner-title-gris">GRis Festival 2026: Λονδίνο, Αθήνα, Βερολίνο</div>
@@ -1013,7 +1015,7 @@
 
     <!-- ΕΟΤ – ανταποδοτική παροχή GRis Festival 2026 (Α.Π. 9564/21.10.2026) -->
     <a href="https://www.visitgreece.gr" target="_blank" rel="noopener" class="banner-card eot-card" aria-label="Visit Greece – Greek National Tourism Organisation">
-        <img src="eot-banner-mobile.jpg" width="600" height="300" alt="Greece. Feel the beat? – Greek National Tourism Organisation – visitgreece.gr" loading="lazy">
+        <img src="opt/eot.webp" width="600" height="300" decoding="async" alt="Greece. Feel the beat? – Greek National Tourism Organisation – visitgreece.gr" loading="lazy">
     </a>
     </div>
     <style>
@@ -1744,7 +1746,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="content-wrapper">
             <h3 data-lang-key="contact-title">Επικοινωνήστε μαζί μας</h3>
             <a href="contact.html">
-                <img src="200.png" alt="Εικόνα Επικοινωνίας" class="contact-image">
+                <img src="opt/contact.webp" width="1000" height="351" loading="lazy" decoding="async" alt="Εικόνα Επικοινωνίας" class="contact-image">
             </a>
         </div>
     </section>
