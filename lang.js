@@ -436,7 +436,7 @@ const translations = {
     "card-badge-popular": "Popular",
     "join-us-subtitle": "CHOOSE YOUR WAY TO PARTICIPATE IN OUR MISSION",
     "banner-title-gris": "GRis Festival 2026: London, Athens, Berlin",
-    "eot-banner-label": "Supported by the Greek National Tourism Organisation",
+    "eot-banner-label": "With the support of the Greek National Tourism Organisation",
     "banner-title-greece": "All of Greece One Culture",
     "card-volunteer-f1": "Participation in cultural projects & productions",
     "card-volunteer-f2": "Valuable experiences & volunteer hours",
